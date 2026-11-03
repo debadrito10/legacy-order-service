@@ -1,0 +1,11 @@
+OpenJDK 64-Bit Server VM (25.504-b01) for windows-amd64 JRE (1.8.0_504-b01), built on Aug 19 2026 14:58:10 by "ContainerUser" with unknown MS VC++:1937
+Memory: 4k page, physical 16534840k(2163216k free), swap 33312056k(2048472k free)
+CommandLine flags: -XX:InitialHeapSize=264557440 -XX:MaxHeapSize=268435456 -XX:MaxNewSize=89481216 -XX:MaxTenuringThreshold=6 -XX:OldPLABSize=16 -XX:+PrintGC -XX:+PrintGCDateStamps -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:+UseCompressedClassPointers -XX:+UseCompressedOops -XX:+UseConcMarkSweepGC -XX:-UseLargePagesIndividualAllocation -XX:+UseParNewGC 
+Heap
+ par new generation   total 78016K, used 31970K [0x00000000f0000000, 0x00000000f54a0000, 0x00000000f5550000)
+  eden space 69376K,  46% used [0x00000000f0000000, 0x00000000f1f388d0, 0x00000000f43c0000)
+  from space 8640K,   0% used [0x00000000f43c0000, 0x00000000f43c0000, 0x00000000f4c30000)
+  to   space 8640K,   0% used [0x00000000f4c30000, 0x00000000f4c30000, 0x00000000f54a0000)
+ concurrent mark-sweep generation total 173440K, used 0K [0x00000000f5550000, 0x00000000ffeb0000, 0x0000000100000000)
+ Metaspace       used 11853K, capacity 12290K, committed 12544K, reserved 1060864K
+  class space    used 1452K, capacity 1685K, committed 1792K, reserved 1048576K

@@ -1,0 +1,1 @@
+Searched src\**\*.java for 'loadLibrary|System\.load\(' on 2026-11-03: 0 hits. No native libraries.

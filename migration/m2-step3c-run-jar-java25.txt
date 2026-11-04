@@ -1,0 +1,15 @@
+﻿# Command  : java -jar target\legacy-order-service-1.0.0.jar
+# Folder   : C:\java-practice\legacy-order-service
+# JAVA_HOME: C:\Program Files\Eclipse Adoptium\jdk-25.0.5.8-hotspot
+# Date     : 2026-11-04 21:30:32
+# Exit code: 1
+# ------------------------------------------------------------
+Running on Java 25.0.5
+1. XML export:
+Exception in thread "main" java.lang.NoClassDefFoundError: jakarta/xml/bind/JAXBContext
+	at com.noduco.legacy.OrderXmlExporter.toXml(OrderXmlExporter.java:10)
+	at com.noduco.legacy.App.main(App.java:9)
+Caused by: java.lang.ClassNotFoundException: jakarta.xml.bind.JAXBContext
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:580)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:490)
+	... 2 more

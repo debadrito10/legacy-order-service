@@ -1,0 +1,8 @@
+﻿# Command  : java -jar target\legacy-order-service-1.0.0.jar
+# Folder   : C:\java-practice\legacy-order-service
+# JAVA_HOME: C:\Program Files\Eclipse Adoptium\jdk-21.0.8.9-hotspot
+# Date     : 2026-11-04 21:46:08
+# Exit code: 1
+# ------------------------------------------------------------
+Error: LinkageError occurred while loading main class com.noduco.legacy.App
+	java.lang.UnsupportedClassVersionError: com/noduco/legacy/App has been compiled by a more recent version of the Java Runtime (class file version 69.0), this version of the Java Runtime only recognizes class file versions up to 65.0

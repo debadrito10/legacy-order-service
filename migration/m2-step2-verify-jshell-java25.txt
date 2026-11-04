@@ -1,0 +1,10 @@
+﻿# Command  : jshell --class-path target\classes migration\m2-step2-verify.jsh
+# Folder   : C:\java-practice\legacy-order-service
+# JAVA_HOME: C:\Program Files\Eclipse Adoptium\jdk-25.0.5.8-hotspot
+# Date     : 2026-11-04 19:54:47
+# Exit code: 0
+# ------------------------------------------------------------
+R1 encode: MTAx
+R4 gst: 18.0
+R5 length: 4
+R6 utf8: 4

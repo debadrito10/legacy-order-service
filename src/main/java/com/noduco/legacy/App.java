@@ -10,7 +10,7 @@ public class App {
         System.out.println("2. Encoded id: " + new LegacyIdEncoder().encode(order.getId()));
         System.out.println("3. GST: " + new TaxRules().gst(order.getAmount()));
         System.out.println("4. Fast length of customer: " + TextUtils.fastLength(order.getCustomer()));
-        System.out.println("5. Bytes for Zo\u00eb in default charset: " + TextUtils.defaultCharsetSize("Zo\u00eb"));
+        System.out.println("5. Bytes for Zo\u00eb in UTF-8: " + TextUtils.utf8Size("Zo\u00eb"));
         System.out.println("Done.");
     }
 }

@@ -33,9 +33,9 @@ public class LegacyOrderServiceTest {
     }
 
     @Test
-    public void encodedSizeOfZoeIsPinned() {
-        // Characterization: Java 8 on Windows uses Cp1252, where ë is 1 byte -> 3.
-        // Java 18+ defaults to UTF-8 (JEP 400), where ë is 2 bytes -> 4. See R6.
-        assertEquals(3, TextUtils.defaultCharsetSize("Zoë"));
+    public void utf8SizeOfZoe() {
+        // Intentional change (R6): was 3 with Cp1252 on Java 8. Charset is now explicit,
+        // so the result is 4 on every JDK and every OS.
+        assertEquals(4, TextUtils.utf8Size("Zo\u00eb"));
     }
 }

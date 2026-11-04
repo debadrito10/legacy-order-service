@@ -27,4 +27,15 @@ public class LegacyOrderServiceTest {
     public void gstIsEighteenPercent() throws Exception {
         assertEquals(18.0, new TaxRules().gst(100.0), 0.0001);
     }
+    @Test
+    public void fastLengthReturnsCharacterCount() {
+        assertEquals(4, TextUtils.fastLength("Asha"));
+    }
+
+    @Test
+    public void encodedSizeOfZoeIsPinned() {
+        // Characterization: Java 8 on Windows uses Cp1252, where ë is 1 byte -> 3.
+        // Java 18+ defaults to UTF-8 (JEP 400), where ë is 2 bytes -> 4. See R6.
+        assertEquals(3, TextUtils.defaultCharsetSize("Zoë"));
+    }
 }

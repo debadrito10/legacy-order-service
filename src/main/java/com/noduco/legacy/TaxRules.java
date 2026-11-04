@@ -1,17 +1,11 @@
 package com.noduco.legacy;
 
-import javax.script.ScriptEngine;
-import javax.script.ScriptEngineManager;
-import javax.script.ScriptException;
+public class TaxRules {
+    // the GST rule was JavaScript run by Nashorn (removed in JDK 15; engine became null).
+    // Moved to Java. Decision: non-developers can no longer edit the rule; a rate change needs a release.
+    private static final double GST_RATE = 0.18;
 
-public class  TaxRules {
-    // Business rule kept as JavaScript "so non-developers can edit it"
-    private static final String GST_RULE = "amount * 0.18";
-
-    public double gst(double amount) throws ScriptException {
-        ScriptEngine engine = new ScriptEngineManager().getEngineByName("nashorn");
-        engine.put("amount", amount);
-        Object result = engine.eval(GST_RULE);
-        return ((Number) result).doubleValue();
+    public double gst(double amount) {
+        return amount * GST_RATE;
     }
 }

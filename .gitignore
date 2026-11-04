@@ -1,4 +1,4 @@
 target/
-gc.log
+gc.log*
 .idea/
 *.iml

@@ -16,7 +16,7 @@ M1 found 14 risks (R1-R14). M2 fixes them in a safe order:
 | 1 | Safety net: 2 tests that pin today's behaviour + a smoke test that runs the real app | 8 | 6/6 tests, SMOKE PASS |
 | 2 | 4 code fixes whose replacement already exists in Java 8 (R1, R4, R5, R6) | 8 | 6/6 after each fix; all 4 also proven on JDK 25 with JShell |
 | 3 | Moved the project to JDK 25: build plugins (R10), release 25 (R9), JAXB -> Jakarta (R3), ship libraries with the JAR | 8, then 25 | App runs on JDK 25; output identical to Java 8 except version line and timestamp |
-| 4 | Start-up files: run.cmd (R2), Dockerfile (R7), CI (R8) | 25 | to do |
+| 4 | Start-up files: run.cmd (R2), Dockerfile (R7), CI (R8) | 25 | run.cmd starts the app on JDK 25 (G1 collector, new GC log format); Dockerfile and CI updated |
 
 Two lessons M2 proved with our own evidence:
 - "It compiles" does not mean "it works": with only the Jakarta API, the code compiled but a test failed at runtime.
@@ -62,7 +62,7 @@ Two lessons M2 proved with our own evidence:
 - Result: 6/6, line 3 still 18.0, SMOKE PASS.
 - Evidence: m2-step2-r4-build-java8.txt, m2-step2-r4-app-java8.txt, m2-step2-r4-smoke-java8.txt
 - Decision: non-developers can no longer edit the rule; a rate change now needs a release. Alternatives were GraalJS or a config value. The business owner should confirm.
-- Note: a stray edit removed the "R4:" label from the TaxRules comment; git diff --stat caught it during R5. Label still to restore.
+- Note: a stray edit removed the "R4:" label from the TaxRules comment; git diff --stat caught it during R5. Label restored in the Step 4 commit.
 
 ### R5 - Reflection into String's private field (Step 2, Java 8)
 - Problem: setAccessible(true) on String.value is blocked since JDK 16/17 -> InaccessibleObjectException. Type: behavioral-loud.
@@ -123,21 +123,38 @@ Two lessons M2 proved with our own evidence:
 - Evidence: m2-step3c-run-jar-java25.txt (exit 1), m2-step3d-build-java25.txt, m2-step3d-app-java25.txt, m2-step3d-smoke-java25.txt
 - Note: the "Zo + delta" display problem still shows on 25 because output is piped (Java writes Cp1252, PowerShell reads cp437). The data is correct (4 bytes).
 
+### R2 - run.cmd JVM flags (Step 4, JDK 25)
+- Problem: run.cmd chose the CMS garbage collector (removed in JDK 14) and used old GC logging flags (replaced in JDK 9). On 21/25 the JVM refused to start: "Unrecognized VM option 'UseConcMarkSweepGC'". Type: launch-time.
+- Fix: no collector flag (G1 is the default since JDK 9); GC logging with the unified flag -Xlog:gc*:file=gc.log:time. Kept -Xmx256m.
+- My prediction: not recorded.
+- Result: run.cmd on JDK 25 prints steps 1-5 and "Done."; gc.log starts with "Using G1" and "Version: 25.0.5+8-LTS".
+- Evidence: m2-step4-run-cmd-java25.txt, gc-java25.log (compare with M1: e2-run-cmd-java25.txt, gc-java8.log)
+- Note: this is a behaviour change, not only a flag change: CMS and G1 pause differently. Latency is compared in M4.
+
+### R7 - Dockerfile (Step 4, edited only)
+- Problem: FROM openjdk:8-jre (deprecated image, Java 8) and the same CMS flag in ENTRYPOINT. On a JDK 25 image the container would exit at once and restart in a loop. Type: launch-time.
+- Fix: FROM eclipse-temurin:25-jre; ENTRYPOINT without CMS; also COPY target/dependency/ dependency/, because the JAR now needs its libraries next to it (same lesson as Step 3c).
+- Result: not run yet; Docker is installed and the image built in M11.
+- Evidence: the Dockerfile itself (git diff in the Step 4 commit).
+
+### R8 - CI only on Java 8 (Step 4, edited only)
+- Problem: .github/workflows/build.yml built with java-version '8', so CI tested something different from what we ship.
+- Fix: Java 25 via a matrix (java: ['25']); runs on push and pull_request; Maven cache on.
+- Decision: 25 only, because release-25 bytecode cannot run on 21 (see R9).
+- Result: not run yet; the repository has no GitHub remote. First run in M5.
+- Evidence: build.yml itself (git diff in the Step 4 commit).
+
 ---
 
 ## 4. Still open
 
 | Risk | What | When |
 |---|---|---|
-| R2 | run.cmd uses the CMS collector and old GC logging flags; the JVM will not start on 25 | M2 Step 4 |
-| R7 | Dockerfile uses openjdk:8-jre and the CMS flag | M2 Step 4 (image is built in M11) |
-| R8 | CI builds only on Java 8 | M2 Step 4 |
+| R7 (check) | Build and run the Docker image to prove the Dockerfile | M11 |
+| R8 (check) | First real CI run on GitHub | M5 |
 | R11 | Jackson 2.9 has known vulnerabilities (report: 2.9.10.8 -> 2.22.4); works on 25 | M5 (security upgrades) |
 | R12 | JUnit 4.12 is old (report: -> 4.13.2); works on 25 | M5 |
 | R14 | Maven 3.9.11 prints sun.misc.Unsafe warnings on JDK 24+ (seen on every JDK 25 build); harmless | M5 (track; upgrade Maven later) |
-| - | Restore the "R4:" label in the TaxRules comment | next commit |
 
 M5 = Milestone 5, the last milestone of Week 1: pull request, CI, security updates, rollback plan.
 Library upgrades wait until then so that the JDK switch and library changes are never mixed.
-
----

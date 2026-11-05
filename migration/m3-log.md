@@ -3,15 +3,47 @@
 Branch: dev. Starting point: the P0 commit (M2 complete, 6/6 tests on JDK 25).
 Evidence files live in migration\ (m3-p<N>-*.txt), raw output from Save-Evidence, never edited.
 Mode: built first in execution mode (2026-11-05); study and exit check follow after P10.
+Commit rule: one commit per finished step; the Jackson upgrade (P2b) is kept separate so it can be reverted alone.
 
 | Step | Feature (JDK) | What changed | Tests after | Commit |
 |---|---|---|---|---|
-| P0 | - | Baseline evidence on JDK 25; M2 log committed | 6 | (this commit) |
+| P0 | - | Baseline evidence on JDK 25; M2 log committed | 6 | e712eb2 |
+| P1 | equals/hashCode, collection factories (9, 16) | JShell only | 6 | e712eb2 |
+| P2 | text block (15), Jackson BOM | Pinned JSON test; Jackson 2.9.10.8 -> 2.22.4 | 7 | 5923393, b3ea0fc |
+| P3 | record (16), compact constructor, Instant + JavaTimeModule | OrderDto, OrderDtoJsonExporter, OrderDtoTest; jsr310 in pom | 10 | (this commit) |
 
 ### P0 - Baseline
 - Goal: a known-good starting point to compare every M3 change against.
 - Change: no code. M2 log committed (Expected lines; R5 stray-edit note corrected).
 - Expected: 6/6 tests, BUILD SUCCESS, app prints 1-5 and Done., SMOKE PASS.
-- Result: (fill in from the evidence files)
+- Result: 6/6, BUILD SUCCESS, app reached Done., SMOKE PASS; exit code 0 in all three evidence files.
 - Evidence: m3-p0-build-java25.txt, m3-p0-app-java25.txt, m3-p0-smoke-java25.txt
+- Note: P0 and P1 share one commit (e712eb2). The first P0 commit had the log named m3_log.md; it was undone with git reset --soft and recommitted with the hyphen name.
 - Why (for study): without a baseline you cannot tell whether a later difference came from your change or was already there.
+
+### P1 - equals/hashCode and collections (JShell)
+- Goal: see why equals and hashCode must agree, and which lists cannot be changed.
+- Change: none in the project.
+- Expected: equals only -> size 2; with hashCode -> second add false, size 1; record -> true, true, P[x=1, y=2]; Arrays.asList add throws; List.of set/null throw; Set.of duplicate throws.
+- Result: all as expected. JShell also disabled the old `set` after Point was redefined (new class, same name).
+- Evidence: m3-p1-jshell.txt
+- Why (for study): a HashSet picks the bucket by hashCode before calling equals, so equal objects with different hash codes are stored twice.
+
+### P2 - Pin the JSON, then upgrade Jackson
+- Goal: upgrade Jackson (needed for records in P3) and prove the JSON output did not change.
+- Change: Order gets a package-private constructor with a fixed date; test jsonIsPinned (text block); pom.xml imports jackson-bom 2.22.4, databind has no version.
+- Expected: 7/7 on Jackson 2.9; 7/7 again on 2.22.4; databind/core 2.22.4, annotations 2.22.
+- Result: 7/7 on both, exact JSON {"id":"101","customer":"Asha","amount":100.0,"createdAt":0}; SMOKE PASS.
+- Evidence: m3-p2-pin-jackson29-java25.txt, m3-p2-deps-after.txt, m3-p2-build-jackson2x-java25.txt, m3-p2-smoke-java25.txt
+- Decision: R11 pulled forward from M5; stayed on Jackson 2.x (3.x renames packages); upgrade committed alone (b3ea0fc) so it can be reverted alone.
+- Why (for study): a test that pins the whole output turns "I think the upgrade changed nothing" into proof.
+
+### P3 - OrderDto record (and why Order stays a class)
+- Goal: an immutable data object for JSON output, with validation built in.
+- Change: pom.xml adds jackson-datatype-jsr310 (version from the BOM); new OrderDto (record, compact constructor, from(Order)), OrderDtoJsonExporter (JavaTimeModule, ISO dates), OrderDtoTest (3 tests).
+- Expected: 10/10, SMOKE PASS; DTO JSON {"id":"101","customer":"Asha","amount":100.0,"createdAt":"1970-01-01T00:00:00Z"}; JAXB refuses a record.
+- Result: 10/10, BUILD SUCCESS, SMOKE PASS. Experiment: IllegalAnnotationsException "OrderRecord does not have a no-arg default constructor", thrown in JAXBContext.newInstance (Errors: 1, exit code 1).
+- Evidence: m3-p3-build-java25.txt, m3-p3-smoke-java25.txt, m3-p3-order-as-record-fail.txt
+- Decision: Order stays a class (JAXB needs a no-arg constructor and settable fields); OrderDto is a separate record. The new DTO writes dates as ISO text; the old Order JSON keeps its number format, so existing consumers are not affected.
+- Note: first build failed because OrderDtoTest was created in src/main/java; JUnit has test scope, so main code cannot see it. Moved to src/test/java. IntelliJ showed red until "Reload All Maven Projects" after the pom edits. The experiment used a stand-in record (OrderRecord, nested in a temporary test) instead of changing Order, so the result could only have one cause.
+- Why (for study): a feature can be valid Java and still be the wrong change, because the frameworks around the code have rules of their own.

@@ -1,12 +1,21 @@
 package com.noduco.legacy;
 
 import org.junit.Test;
+import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class LegacyOrderServiceTest {
     private final Order order = new Order("101", "Asha", 100.0);
+
+    @Test
+    public void jsonIsPinned() throws Exception {
+        Order fixed = new Order("101", "Asha", 100.0, new Date(0L));
+        String expected = """
+                {"id":"101","customer":"Asha","amount":100.0,"createdAt":0}""";
+        assertEquals(expected, new OrderJsonExporter().toJson(fixed));
+    }
 
     @Test
     public void xmlContainsId() throws Exception {

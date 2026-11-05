@@ -16,10 +16,15 @@ public class Order {
     public Order() { }   // JAXB and Jackson need a no-argument constructor
 
     public Order(String id, String customer, double amount) {
+        this(id, customer, amount, new Date());
+    }
+
+    // Package-private: tests use it to fix the timestamp so the output is predictable
+    Order(String id, String customer, double amount, Date createdAt) {
         this.id = id;
         this.customer = customer;
         this.amount = amount;
-        this.createdAt = new Date();
+        this.createdAt = createdAt;
     }
 
     public String getId() { return id; }
@@ -27,5 +32,3 @@ public class Order {
     public double getAmount() { return amount; }
     public Date getCreatedAt() { return createdAt; }
 }
-
-

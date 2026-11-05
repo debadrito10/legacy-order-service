@@ -10,7 +10,7 @@ Commit rule: one commit per finished step; the Jackson upgrade (P2b) is kept sep
 | P0 | - | Baseline evidence on JDK 25; M2 log committed | 6 | e712eb2 |
 | P1 | equals/hashCode, collection factories (9, 16) | JShell only | 6 | e712eb2 |
 | P2 | text block (15), Jackson BOM | Pinned JSON test; Jackson 2.9.10.8 -> 2.22.4 | 7 | 5923393, b3ea0fc |
-| P3 | record (16), compact constructor, Instant + JavaTimeModule | OrderDto, OrderDtoJsonExporter, OrderDtoTest; jsr310 in pom | 10 | (this commit) |
+| P3 | record (16), compact constructor, Instant + JavaTimeModule | OrderDto, OrderDtoJsonExporter, OrderDtoTest; jsr310 in pom | 10 | (683c195) |
 
 ### P0 - Baseline
 - Goal: a known-good starting point to compare every M3 change against.
@@ -47,3 +47,14 @@ Commit rule: one commit per finished step; the Jackson upgrade (P2b) is kept sep
 - Decision: Order stays a class (JAXB needs a no-arg constructor and settable fields); OrderDto is a separate record. The new DTO writes dates as ISO text; the old Order JSON keeps its number format, so existing consumers are not affected.
 - Note: first build failed because OrderDtoTest was created in src/main/java; JUnit has test scope, so main code cannot see it. Moved to src/test/java. IntelliJ showed red until "Reload All Maven Projects" after the pom edits. The experiment used a stand-in record (OrderRecord, nested in a temporary test) instead of changing Order, so the result could only have one cause.
 - Why (for study): a feature can be valid Java and still be the wrong change, because the frameworks around the code have rules of their own.
+
+| P4 | switch expression (14), enum exhaustiveness | OrderStatus, OrderAction, OrderStateMachine, OrderStateMachineTest | 15 | (this commit) |
+### P4 - Order state with a switch expression
+- Goal: write the order-state rules so the compiler catches a missing case (states are sandbox inventions, not Noduco rules).
+- Change: new enums OrderStatus (NEW, PAID, SHIPPED, CANCELLED) and OrderAction (PAY, SHIP, CANCEL); OrderStateMachine.next() as nested switch expressions with no default; OrderStateMachineTest (3 allowed moves, 2 forbidden moves).
+- Expected: 15/15, SMOKE PASS; removing CANCELLED from the outer switch -> compile error "the switch expression does not cover all possible input values".
+- Result: 15/15, BUILD SUCCESS, SMOKE PASS. Experiment: (fill in from m3-p4-missing-case.txt).
+- Evidence: m3-p4-build-java25.txt, m3-p4-smoke-java25.txt, m3-p4-missing-case.txt
+- Note: files created with PowerShell here-strings (Set-Content -Encoding Ascii), so nothing could land in the wrong source folder.
+- Why (for study): in the Java 8 style, a default branch silently swallows a forgotten state and the bug appears at run time; with a switch expression over an enum and no default, the build fails at the exact line.
+- - Result: 15/15, BUILD SUCCESS, SMOKE PASS. Experiment: without CANCELLED, javac failed at OrderStateMachine.java:[8,16] "the switch expression does not cover all possible input values" (exit code 1); restored and back to 15/15.

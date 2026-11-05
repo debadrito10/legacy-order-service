@@ -71,6 +71,7 @@ Two lessons M2 proved with our own evidence:
 - Result: 6/6, line 4 still 4, SMOKE PASS.
 - Evidence: m2-step2-r5-build-java8.txt, m2-step2-r5-app-java8.txt, m2-step2-r5-smoke-java8.txt
 - Note: --add-opens would not have saved it: since JDK 9 the field is byte[], so the cast to char[] fails anyway.
+- - Note: a stray edit removed the "R4:" label from the TaxRules comment; git diff --stat caught it during R5. Comment only; left as is (decision).
 
 ### R6 - Default charset (Step 2, Java 8)
 - Problem: getBytes() uses the platform default: Cp1252 on Java 8/Windows (Zoe = 3 bytes), UTF-8 from JDK 18 (4 bytes). Type: behavioral-silent.

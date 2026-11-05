@@ -1,0 +1,84 @@
+|  Welcome to JShell -- Version 25.0.5
+|  For an introduction type: /help intro
+
+jshell> class Point { int x, y; Point(int x, int y) { this.x = x; this.y = y;} @Override public boolean equals(Object o) { if (!(o instanceof Point)) return false; Point p = (Point) o; return x == p.x && y == p.y;}}
+|  created class Point
+
+jshell> var set = new java.util.HashSet<Point>();
+set ==> []
+
+jshell> set.add(new Point(1, 2));
+$3 ==> true
+
+jshell> set.add(new Point(1, 2));
+$4 ==> true
+
+jshell> set.size()
+$5 ==> 2
+
+jshell> class Point { int x, y; Point(int x, int y) { this.x = x; this.y = y;} @Override public boolean equals(Object o) { if (!(o instanceof Point)) return false; Point p = (Point) o; return x == p.x && y == p.y;} @Override public int hashCode() { return java.util.Objects.hash(x, y);}}
+|  replaced class Point
+|    update replaced variable set which cannot be referenced until this error is corrected:
+|      incompatible types: java.util.HashSet<Point> cannot be converted to java.util.HashSet<Point>
+|      var set = new java.util.HashSet<Point>();
+|                ^----------------------------^
+
+jshell> var set2 = new java.util.HashSet<Point>();
+set2 ==> []
+
+jshell> set2.add(new Point(1, 2));
+$8 ==> true
+
+jshell> set2.add(new Point(1, 2));
+$9 ==> false
+
+jshell> set2.size()
+$10 ==> 1
+
+jshell> record P(int x, int y) {}
+|  created record P
+
+jshell> new P(1, 2).equals(new P(1, 2))
+$12 ==> true
+
+jshell> new P(1, 2).hashCode() == new P(1, 2).hashCode()
+$13 ==> true
+
+jshell> new P(1, 2)
+$14 ==> P[x=1, y=2]
+
+jshell> var a = java.util.Arrays.asList("x", "y");
+a ==> [x, y]
+
+jshell> a.set(0, "z")
+$16 ==> "x"
+
+jshell> a.add("w")
+|  Exception java.lang.UnsupportedOperationException
+|        at AbstractList.add (AbstractList.java:155)
+|        at AbstractList.add (AbstractList.java:113)
+|        at (#17:1)
+
+jshell> var b = List.of("x", "y");
+b ==> [x, y]
+
+jshell> b.set(0, "z")
+|  Exception java.lang.UnsupportedOperationException
+|        at ImmutableCollections.uoe (ImmutableCollections.java:159)
+|        at ImmutableCollections$AbstractImmutableList.set (ImmutableCollections.java:281)
+|        at (#19:1)
+
+jshell> List.of("x", null)
+|  Exception java.lang.NullPointerException
+|        at Objects.requireNonNull (Objects.java:220)
+|        at ImmutableCollections$List12.<init> (ImmutableCollections.java:591)
+|        at List.of (List.java:952)
+|        at (#20:1)
+
+jshell> Set.of("a", "a")
+|  Exception java.lang.IllegalArgumentException: duplicate element: a
+|        at ImmutableCollections$Set12.<init> (ImmutableCollections.java:1017)
+|        at Set.of (Set.java:487)
+|        at (#21:1)
+jshell> /exit
+|  Goodbye

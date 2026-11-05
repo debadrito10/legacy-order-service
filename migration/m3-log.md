@@ -58,3 +58,15 @@ Commit rule: one commit per finished step; the Jackson upgrade (P2b) is kept sep
 - Note: files created with PowerShell here-strings (Set-Content -Encoding Ascii), so nothing could land in the wrong source folder.
 - Why (for study): in the Java 8 style, a default branch silently swallows a forgotten state and the bug appears at run time; with a switch expression over an enum and no default, the build fails at the exact line.
 - - Result: 15/15, BUILD SUCCESS, SMOKE PASS. Experiment: without CANCELLED, javac failed at OrderStateMachine.java:[8,16] "the switch expression does not cover all possible input values" (exit code 1); restored and back to 15/15.
+
+| P5 | sealed interface (17), record patterns in switch (21), instanceof pattern (16) | ExportResult, OrderExportService, OrderExportServiceTest; App line 6 | 17 | (this commit) |
+
+### P5 - Sealed result hierarchy + pattern matching
+- Goal: return every export outcome as a value (Exported or Rejected), so callers cannot forget a case.
+- Change: new sealed interface ExportResult (records Exported, Rejected); OrderExportService.export() returns Rejected for amount <= 0 or a JAXBException, Exported otherwise; App prints line 6 using a switch with record patterns and no default; OrderExportServiceTest (2 tests).
+- Expected: 17/17, app line "6. Export result: exported order 101", SMOKE PASS; adding a third subtype (Skipped) -> compile error in App.
+- Result: 17/17, BUILD SUCCESS, line 6 as expected, SMOKE PASS. Experiment: (fill in: file, line, message, exit code). Restored; 17/17 again.
+- Evidence: m3-p5-build-java25.txt, m3-p5-app-java25.txt, m3-p5-smoke-java25.txt, m3-p5-new-subtype.txt
+- Note: the new output line 6 is an intended change; smoke checks only exit code and Done., so it still passes.
+- Why (for study): with a sealed type the compiler knows every possible outcome, so a new outcome breaks the build at each caller that does not handle it, instead of falling silently into an else branch at run time.
+- 

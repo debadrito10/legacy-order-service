@@ -4,13 +4,18 @@ Branch: dev. Starting point: the P0 commit (M2 complete, 6/6 tests on JDK 25).
 Evidence files live in migration\ (m3-p<N>-*.txt), raw output from Save-Evidence, never edited.
 Mode: built first in execution mode (2026-11-05); study and exit check follow after P10.
 Commit rule: one commit per finished step; the Jackson upgrade (P2b) is kept separate so it can be reverted alone.
+Note: log rewritten cleanly on 2026-11-08 (rows P4-P7 had been pasted below the entries; now all rows are in the table).
 
 | Step | Feature (JDK) | What changed | Tests after | Commit |
 |---|---|---|---|---|
 | P0 | - | Baseline evidence on JDK 25; M2 log committed | 6 | e712eb2 |
 | P1 | equals/hashCode, collection factories (9, 16) | JShell only | 6 | e712eb2 |
 | P2 | text block (15), Jackson BOM | Pinned JSON test; Jackson 2.9.10.8 -> 2.22.4 | 7 | 5923393, b3ea0fc |
-| P3 | record (16), compact constructor, Instant + JavaTimeModule | OrderDto, OrderDtoJsonExporter, OrderDtoTest; jsr310 in pom | 10 | (683c195) |
+| P3 | record (16), compact constructor, Instant + JavaTimeModule | OrderDto, OrderDtoJsonExporter, OrderDtoTest; jsr310 in pom | 10 | 683c195 |
+| P4 | switch expression (14), enum exhaustiveness | OrderStatus, OrderAction, OrderStateMachine, OrderStateMachineTest | 15 | 92dcde9 |
+| P5 | sealed interface (17), record patterns in switch (21), instanceof pattern (16) | ExportResult, OrderExportService, OrderExportServiceTest; App line 6 | 17 | 671bca8 |
+| P6 | streams, Optional (8, 9-11), List.copyOf (10), Stream.toList (16) | InMemoryOrderRepository, InMemoryOrderRepositoryTest | 21 | d42eea7 |
+| P7 | checked vs unchecked, UncheckedIOException, helpful NPE (14) | none (JShell + decisions) | 21 | (this commit) |
 
 ### P0 - Baseline
 - Goal: a known-good starting point to compare every M3 change against.
@@ -25,7 +30,7 @@ Commit rule: one commit per finished step; the Jackson upgrade (P2b) is kept sep
 - Goal: see why equals and hashCode must agree, and which lists cannot be changed.
 - Change: none in the project.
 - Expected: equals only -> size 2; with hashCode -> second add false, size 1; record -> true, true, P[x=1, y=2]; Arrays.asList add throws; List.of set/null throw; Set.of duplicate throws.
-- Result: all as expected. JShell also disabled the old `set` after Point was redefined (new class, same name).
+- Result: all as expected. JShell also disabled the old set after Point was redefined (new class, same name).
 - Evidence: m3-p1-jshell.txt
 - Why (for study): a HashSet picks the bucket by hashCode before calling equals, so equal objects with different hash codes are stored twice.
 
@@ -48,7 +53,6 @@ Commit rule: one commit per finished step; the Jackson upgrade (P2b) is kept sep
 - Note: first build failed because OrderDtoTest was created in src/main/java; JUnit has test scope, so main code cannot see it. Moved to src/test/java. IntelliJ showed red until "Reload All Maven Projects" after the pom edits. The experiment used a stand-in record (OrderRecord, nested in a temporary test) instead of changing Order, so the result could only have one cause.
 - Why (for study): a feature can be valid Java and still be the wrong change, because the frameworks around the code have rules of their own.
 
-| P4 | switch expression (14), enum exhaustiveness | OrderStatus, OrderAction, OrderStateMachine, OrderStateMachineTest | 15 | (this commit) |
 ### P4 - Order state with a switch expression
 - Goal: write the order-state rules so the compiler catches a missing case (states are sandbox inventions, not Noduco rules).
 - Change: new enums OrderStatus (NEW, PAID, SHIPPED, CANCELLED) and OrderAction (PAY, SHIP, CANCEL); OrderStateMachine.next() as nested switch expressions with no default; OrderStateMachineTest (3 allowed moves, 2 forbidden moves).
@@ -57,9 +61,6 @@ Commit rule: one commit per finished step; the Jackson upgrade (P2b) is kept sep
 - Evidence: m3-p4-build-java25.txt, m3-p4-smoke-java25.txt, m3-p4-missing-case.txt
 - Note: files created with PowerShell here-strings (Set-Content -Encoding Ascii), so nothing could land in the wrong source folder.
 - Why (for study): in the Java 8 style, a default branch silently swallows a forgotten state and the bug appears at run time; with a switch expression over an enum and no default, the build fails at the exact line.
-- - Result: 15/15, BUILD SUCCESS, SMOKE PASS. Experiment: without CANCELLED, javac failed at OrderStateMachine.java:[8,16] "the switch expression does not cover all possible input values" (exit code 1); restored and back to 15/15.
-
-| P5 | sealed interface (17), record patterns in switch (21), instanceof pattern (16) | ExportResult, OrderExportService, OrderExportServiceTest; App line 6 | 17 | (this commit) |
 
 ### P5 - Sealed result hierarchy + pattern matching
 - Goal: return every export outcome as a value (Exported or Rejected), so callers cannot forget a case.
@@ -70,12 +71,19 @@ Commit rule: one commit per finished step; the Jackson upgrade (P2b) is kept sep
 - Note: the new output line 6 is an intended change; smoke checks only exit code and Done., so it still passes.
 - Why (for study): with a sealed type the compiler knows every possible outcome, so a new outcome breaks the build at each caller that does not handle it, instead of falling silently into an else branch at run time.
 
-| P6 | streams, Optional (8, 9-11), List.copyOf (10), Stream.toList (16) | InMemoryOrderRepository, InMemoryOrderRepositoryTest | 21 | (this commit) |
-
 ### P6 - Streams and Optional on an in-memory repository
 - Goal: find and total orders without loops, and make "not found" impossible to ignore.
 - Change: new InMemoryOrderRepository (List.copyOf, findById -> Optional via filter/findFirst, findByCustomer via toList, totalAmount via mapToDouble/sum); InMemoryOrderRepositoryTest (4 tests).
 - Expected: 21/21, SMOKE PASS; JShell: lambda cannot change a local variable, filter alone prints nothing, second count() throws, orElse runs its argument but orElseGet does not.
-- Result: 21/21, BUILD SUCCESS, SMOKE PASS. JShell: all four as expected. Surprise: at the JShell prompt `count++` inside a lambda worked (count ==> 2), because JShell top-level variables are fields; inside a method (demo) the compile error appeared.
+- Result: 21/21, BUILD SUCCESS, SMOKE PASS. JShell: all four as expected. Surprise: at the JShell prompt count++ inside a lambda worked (count ==> 2), because JShell top-level variables are fields; inside a method (demo) the compile error appeared.
 - Evidence: m3-p6-build-java25.txt, m3-p6-smoke-java25.txt, m3-p6-jshell.txt
 - Why (for study): Optional puts "maybe empty" into the method's type, so the caller must decide what "not found" means; a null return compiles everywhere and fails later at the caller.
+
+### P7 - Exceptions at the boundary
+- Goal: one clear rule for where exceptions belong, before writing network code (P8).
+- Change: no project code. JShell evidence and three decisions.
+- Expected: checked IOException inside a map lambda -> compile error; wrapping in UncheckedIOException (inline or helper method) compiles; helpful NPE names the null expression.
+- Result: all as expected. Compile error pointed at Files.readAllLines(p) inside the lambda. Prediction error: .toList().size() gave 1, not the line count, because map turns each Path into one List<String> (1 path -> 1 list); flatMap would count the lines. NPE: "Cannot invoke String.length() because the return value of ...Customer.name() is null".
+- Evidence: m3-p7-jshell.txt
+- Decisions: (1) OrderExportService returns Rejected instead of throwing: a bad order is an expected outcome. (2) OrderDto and OrderStateMachine throw unchecked exceptions: invalid input is a caller bug. (3) GstRateClient (P8) returns RateResult.Unavailable for network failures and restores the interrupt flag on InterruptedException.
+- Why (for study): Function.apply declares no checked exceptions, so a lambda must handle them itself; wrap at the boundary and keep the original as the cause, never swallow it.

@@ -1,0 +1,34 @@
+jshell
+|  Welcome to JShell -- Version 25.0.5
+|  For an introduction type: /help intro
+
+jshell> List<Path> paths = List.of(Path.of("pom.xml"));
+paths ==> [pom.xml]
+
+jshell> paths.stream().map(p -> Files.readAllLines(p)).toList()
+|  Error:
+|  unreported exception java.io.IOException; must be caught or declared to be thrown
+|  paths.stream().map(p -> Files.readAllLines(p)).toList()
+|                          ^-------------------^
+
+jshell> paths.stream().map(p -> { try { return Files.readAllLines(p);} catch (IOException e) { throw new UncheckedIOException(e);}}).toList().size()
+$2 ==> 1
+
+jshell> List<String> readOrFail(Path p) { try { return Files.readAllLines(p);} catch (IOException e) { throw new UncheckedIOException(e);}}
+|  created method readOrFail(Path)
+
+jshell> paths.stream().map(p -> readOrFail(p)).toList().size()
+$4 ==> 1
+
+jshell> record Customer(String name) {}
+|  created record Customer
+
+jshell> Customer c = new Customer(null);
+c ==> Customer[name=null]
+
+jshell> c.name().length()
+|  Exception java.lang.NullPointerException: Cannot invoke "String.length()" because the return value of "REPL.$JShell$7$Customer.name()" is null
+|        at (#7:1)
+
+jshell> /exit
+|  Goodbye

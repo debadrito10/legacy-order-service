@@ -15,7 +15,8 @@ Note: log rewritten cleanly on 2026-11-08 (rows P4-P7 had been pasted below the 
 | P4 | switch expression (14), enum exhaustiveness | OrderStatus, OrderAction, OrderStateMachine, OrderStateMachineTest | 15 | 92dcde9 |
 | P5 | sealed interface (17), record patterns in switch (21), instanceof pattern (16) | ExportResult, OrderExportService, OrderExportServiceTest; App line 6 | 17 | 671bca8 |
 | P6 | streams, Optional (8, 9-11), List.copyOf (10), Stream.toList (16) | InMemoryOrderRepository, InMemoryOrderRepositoryTest | 21 | d42eea7 |
-| P7 | checked vs unchecked, UncheckedIOException, helpful NPE (14) | none (JShell + decisions) | 21 | (this commit) |
+| P7 | checked vs unchecked, UncheckedIOException, helpful NPE (14) | none (JShell + decisions) | 21 | 83bb8d9 |
+| P8 | HttpClient (11), timeouts, sealed RateResult | RateResult, GstRateClient, RateDemo, GstRateClientTest | 25 | (this commit) |
 
 ### P0 - Baseline
 - Goal: a known-good starting point to compare every M3 change against.
@@ -87,3 +88,11 @@ Note: log rewritten cleanly on 2026-11-08 (rows P4-P7 had been pasted below the 
 - Evidence: m3-p7-jshell.txt
 - Decisions: (1) OrderExportService returns Rejected instead of throwing: a bad order is an expected outcome. (2) OrderDto and OrderStateMachine throw unchecked exceptions: invalid input is a caller bug. (3) GstRateClient (P8) returns RateResult.Unavailable for network failures and restores the interrupt flag on InterruptedException.
 - Why (for study): Function.apply declares no checked exceptions, so a lambda must handle them itself; wrap at the boundary and keep the original as the cause, never swallow it.
+
+### P8 - HttpClient for one outbound dependency
+- Goal: call a rate service over HTTP with timeouts, and handle it being slow or down without crashing (the GST-rate service is a sandbox invention).
+- Change: new sealed RateResult (Found, Unavailable); GstRateClient (one shared HttpClient, connect timeout 2 s, request timeout 3 s, Jackson to read "rate", every failure returned as Unavailable, interrupt flag restored); RateDemo (manual check, kept out of App); GstRateClientTest with the JDK HttpServer (success, HTTP 500, slow server, server down). TaxRules unchanged (would reopen R4).
+- Expected: 25/25, SMOKE PASS; jwebserver up -> Found[rate=0.18]; server stopped -> Unavailable, no stack trace.
+- Result: 25/25, BUILD SUCCESS (GstRateClientTest 4.7 s, mostly the 3 s timeout test). Demo up: Found[rate=0.18]. Demo down: Unavailable[reason=I/O error: ConnectException], exit without stack trace. SMOKE PASS.
+- Evidence: m3-p8-build-java25.txt, m3-p8-demo-up.txt, m3-p8-demo-down.txt, m3-p8-smoke-java25.txt
+- Why (for study): network calls fail in normal operation, so they need timeouts (or a hung server blocks the thread) and a result type that forces the caller to handle "unavailable"; catch HttpTimeoutException before IOException because it is a subclass.

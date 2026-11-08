@@ -1,0 +1,7 @@
+﻿# Command  : java -cp target\classes;target\dependency\* com.noduco.legacy.RateDemo http://127.0.0.1:8000/gst-rate.json
+# Folder   : C:\java-practice\legacy-order-service
+# JAVA_HOME: C:\Program Files\Eclipse Adoptium\jdk-25.0.5.8-hotspot
+# Date     : 2026-11-08 22:17:23
+# Exit code: 0
+# ------------------------------------------------------------
+Unavailable[reason=I/O error: ConnectException]

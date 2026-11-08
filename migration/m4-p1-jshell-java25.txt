@@ -1,0 +1,11 @@
+﻿# Command  : jshell -q migration\m4-p1.jsh
+# Folder   : C:\java-practice\legacy-order-service
+# JAVA_HOME: C:\Program Files\Eclipse Adoptium\jdk-25.0.5.8-hotspot
+# Date     : 2026-11-08 23:31:42
+# Exit code: 0
+# ------------------------------------------------------------
+isVirtual=true  VirtualThread[#40]/new
+isVirtual=false  Thread[#41,Thread-0,5,main]
+10000 virtual  x 1 s sleep: 1143 ms
+10000 platform x 1 s sleep: 2098 ms
+100000 virtual x 1 s sleep: 3344 ms

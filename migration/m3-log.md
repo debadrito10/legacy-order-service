@@ -17,7 +17,8 @@ Note: log rewritten cleanly on 2026-11-08 (rows P4-P7 had been pasted below the 
 | P6 | streams, Optional (8, 9-11), List.copyOf (10), Stream.toList (16) | InMemoryOrderRepository, InMemoryOrderRepositoryTest | 21 | d42eea7 |
 | P7 | checked vs unchecked, UncheckedIOException, helpful NPE (14) | none (JShell + decisions) | 21 | 83bb8d9 |
 | P8 | HttpClient (11), timeouts, sealed RateResult | RateResult, GstRateClient, RateDemo, GstRateClientTest | 25 | 238d4a5 |
-| P9 | var (10), sequenced collections (21), preview vs final, compact source files (25) | none (JShell tour) | 25 | (this commit) |
+| P9 | var (10), sequenced collections (21), preview vs final, compact source files (25) | none (JShell tour) | 25 | 3c82594 |
+| P10 | final verification, comparison | m3-comparison.md | 25 | (this commit) |
 
 ### P0 - Baseline
 - Goal: a known-good starting point to compare every M3 change against.
@@ -105,3 +106,12 @@ Note: log rewritten cleanly on 2026-11-08 (rows P4-P7 had been pasted below the 
 - Result: all as expected. oops accepted 42 and "text"; "cannot infer type ... (variable initializer is 'null')"; 1, 3, [3, 2, 1]; "primitive patterns are a preview feature and are disabled by default", then "int 42" with --enable-preview; "Hello from a compact source file on 25.0.5".
 - Evidence: m3-p9-tour.txt
 - Why (for study): only final features belong in company code; preview code needs an explicit opt-in and runs only on that exact JDK version, and var is only safe when the type is obvious from the right side.
+
+### P10 - Final verification and comparison
+- Goal: prove the finished project is healthy as a whole and compare old and new code.
+- Change: migration\m3-comparison.md (Java 8 vs modern, lowest JDK, risk, "in a migration PR?").
+- Expected: 25/25, app lines 1-6 + Done., SMOKE PASS, jdeps --jdk-internals empty, no enable-preview in pom.xml, all work on dev.
+- Result: 25/25, BUILD SUCCESS, app lines 1-6 + Done., SMOKE PASS, jdeps header only (exit code 0), no enable-preview, 17 commits on dev since main (6 M2, 11 M3).
+- Evidence: m3-p10-build-java25.txt, m3-p10-app-java25.txt, m3-p10-smoke-java25.txt, m3-p10-jdeps-internals.txt, m3-comparison.md
+- Status: M3 practice complete. M3 exit check NOT yet taken (owed, together with the M1 and M2 exit checks and the study block).
+- Why (for study): a migration PR should change where code runs, not how it is written; modern features belong in separate PRs, each behind tests.

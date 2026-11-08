@@ -53,7 +53,7 @@ Commit rule: one commit per finished step; the Jackson upgrade (P2b) is kept sep
 - Goal: write the order-state rules so the compiler catches a missing case (states are sandbox inventions, not Noduco rules).
 - Change: new enums OrderStatus (NEW, PAID, SHIPPED, CANCELLED) and OrderAction (PAY, SHIP, CANCEL); OrderStateMachine.next() as nested switch expressions with no default; OrderStateMachineTest (3 allowed moves, 2 forbidden moves).
 - Expected: 15/15, SMOKE PASS; removing CANCELLED from the outer switch -> compile error "the switch expression does not cover all possible input values".
-- Result: 15/15, BUILD SUCCESS, SMOKE PASS. Experiment: (fill in from m3-p4-missing-case.txt).
+- Result: 15/15, BUILD SUCCESS, SMOKE PASS. Experiment: without CANCELLED, javac failed at OrderStateMachine.java:[8,16] "the switch expression does not cover all possible input values" (exit code 1); restored and back to 15/15.
 - Evidence: m3-p4-build-java25.txt, m3-p4-smoke-java25.txt, m3-p4-missing-case.txt
 - Note: files created with PowerShell here-strings (Set-Content -Encoding Ascii), so nothing could land in the wrong source folder.
 - Why (for study): in the Java 8 style, a default branch silently swallows a forgotten state and the bug appears at run time; with a switch expression over an enum and no default, the build fails at the exact line.
@@ -65,8 +65,17 @@ Commit rule: one commit per finished step; the Jackson upgrade (P2b) is kept sep
 - Goal: return every export outcome as a value (Exported or Rejected), so callers cannot forget a case.
 - Change: new sealed interface ExportResult (records Exported, Rejected); OrderExportService.export() returns Rejected for amount <= 0 or a JAXBException, Exported otherwise; App prints line 6 using a switch with record patterns and no default; OrderExportServiceTest (2 tests).
 - Expected: 17/17, app line "6. Export result: exported order 101", SMOKE PASS; adding a third subtype (Skipped) -> compile error in App.
-- Result: 17/17, BUILD SUCCESS, line 6 as expected, SMOKE PASS. Experiment: (fill in: file, line, message, exit code). Restored; 17/17 again.
+- Result: 17/17, BUILD SUCCESS, line 6 as expected, SMOKE PASS. Experiment: with a third subtype (Skipped), javac failed at App.java:[14,32] "the switch expression does not cover all possible input values" (exit code 1) - the error is in the caller, not in ExportResult. Restored; 17/17 again.
 - Evidence: m3-p5-build-java25.txt, m3-p5-app-java25.txt, m3-p5-smoke-java25.txt, m3-p5-new-subtype.txt
 - Note: the new output line 6 is an intended change; smoke checks only exit code and Done., so it still passes.
 - Why (for study): with a sealed type the compiler knows every possible outcome, so a new outcome breaks the build at each caller that does not handle it, instead of falling silently into an else branch at run time.
-- 
+
+| P6 | streams, Optional (8, 9-11), List.copyOf (10), Stream.toList (16) | InMemoryOrderRepository, InMemoryOrderRepositoryTest | 21 | (this commit) |
+
+### P6 - Streams and Optional on an in-memory repository
+- Goal: find and total orders without loops, and make "not found" impossible to ignore.
+- Change: new InMemoryOrderRepository (List.copyOf, findById -> Optional via filter/findFirst, findByCustomer via toList, totalAmount via mapToDouble/sum); InMemoryOrderRepositoryTest (4 tests).
+- Expected: 21/21, SMOKE PASS; JShell: lambda cannot change a local variable, filter alone prints nothing, second count() throws, orElse runs its argument but orElseGet does not.
+- Result: 21/21, BUILD SUCCESS, SMOKE PASS. JShell: all four as expected. Surprise: at the JShell prompt `count++` inside a lambda worked (count ==> 2), because JShell top-level variables are fields; inside a method (demo) the compile error appeared.
+- Evidence: m3-p6-build-java25.txt, m3-p6-smoke-java25.txt, m3-p6-jshell.txt
+- Why (for study): Optional puts "maybe empty" into the method's type, so the caller must decide what "not found" means; a null return compiles everywhere and fails later at the caller.

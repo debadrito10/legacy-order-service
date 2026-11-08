@@ -1,0 +1,57 @@
+jshell> int count = 0;
+count ==> 0
+
+jshell> List.of("a", "b").forEach(s -> count++);
+
+jshell>
+
+jshell>
+
+jshell> int count = 0;
+count ==> 0
+
+jshell> List.of("a", "b").forEach(s -> count++);
+
+jshell> count
+count ==> 2
+
+jshell> void demo() { int local = 0; List.of("a", "b").forEach(s -> local++);}
+|  Error:
+|  local variables referenced from a lambda expression must be final or effectively final
+|  void demo() { int local = 0; List.of("a", "b").forEach(s -> local++);}
+|                                                              ^---^
+
+jshell> Stream.of("a", "b", "c").filter(s -> { System.out.println("checking " + s); return true;});
+$6 ==> java.util.stream.ReferencePipeline$2@377dca04
+
+jshell> Stream.of("a", "b", "c").filter(s -> { System.out.println("checking " + s); return true;}).toList()
+checking a
+checking b
+checking c
+$7 ==> [a, b, c]
+
+jshell> var s = List.of(1, 2, 3).stream();
+s ==> java.util.stream.ReferencePipeline$Head@6267c3bb
+
+jshell> s.count()
+$9 ==> 3
+
+jshell> s.count()
+|  Exception java.lang.IllegalStateException: stream has already been operated upon or closed
+|        at AbstractPipeline.evaluate (AbstractPipeline.java:260)
+|        at ReferencePipeline.count (ReferencePipeline.java:750)
+|        at (#10:1)
+
+jshell> String fallback() { System.out.println("fallback ran"); return "none";}
+|  created method fallback()
+
+jshell> Optional.of("Asha").orElse(fallback())
+fallback ran
+$12 ==> "Asha"
+
+jshell> Optional.of("Asha").orElseGet(() -> fallback())
+$13 ==> "Asha"
+
+jshell> /exit
+|  Goodbye
+PS C:\java-practice\legacy-order-service>

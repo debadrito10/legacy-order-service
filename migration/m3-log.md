@@ -16,7 +16,8 @@ Note: log rewritten cleanly on 2026-11-08 (rows P4-P7 had been pasted below the 
 | P5 | sealed interface (17), record patterns in switch (21), instanceof pattern (16) | ExportResult, OrderExportService, OrderExportServiceTest; App line 6 | 17 | 671bca8 |
 | P6 | streams, Optional (8, 9-11), List.copyOf (10), Stream.toList (16) | InMemoryOrderRepository, InMemoryOrderRepositoryTest | 21 | d42eea7 |
 | P7 | checked vs unchecked, UncheckedIOException, helpful NPE (14) | none (JShell + decisions) | 21 | 83bb8d9 |
-| P8 | HttpClient (11), timeouts, sealed RateResult | RateResult, GstRateClient, RateDemo, GstRateClientTest | 25 | (this commit) |
+| P8 | HttpClient (11), timeouts, sealed RateResult | RateResult, GstRateClient, RateDemo, GstRateClientTest | 25 | 238d4a5 |
+| P9 | var (10), sequenced collections (21), preview vs final, compact source files (25) | none (JShell tour) | 25 | (this commit) |
 
 ### P0 - Baseline
 - Goal: a known-good starting point to compare every M3 change against.
@@ -96,3 +97,11 @@ Note: log rewritten cleanly on 2026-11-08 (rows P4-P7 had been pasted below the 
 - Result: 25/25, BUILD SUCCESS (GstRateClientTest 4.7 s, mostly the 3 s timeout test). Demo up: Found[rate=0.18]. Demo down: Unavailable[reason=I/O error: ConnectException], exit without stack trace. SMOKE PASS.
 - Evidence: m3-p8-build-java25.txt, m3-p8-demo-up.txt, m3-p8-demo-down.txt, m3-p8-smoke-java25.txt
 - Why (for study): network calls fail in normal operation, so they need timeouts (or a hung server blocks the thread) and a result type that forces the caller to handle "unavailable"; catch HttpTimeoutException before IOException because it is a subclass.
+
+### P9 - Awareness tour: var, newer additions, preview features
+- Goal: recognise newer features and learn which are safe to ship (final) and which are not (preview).
+- Change: none in the project; JShell plus a scratch Hello.java outside the project (C:\java-practice\m3-scratch).
+- Expected: var with empty <> infers ArrayList<Object>; var x = null fails; getFirst/getLast/reversed work; primitive pattern fails without --enable-preview and works with it; compact source file runs with java Hello.java.
+- Result: all as expected. oops accepted 42 and "text"; "cannot infer type ... (variable initializer is 'null')"; 1, 3, [3, 2, 1]; "primitive patterns are a preview feature and are disabled by default", then "int 42" with --enable-preview; "Hello from a compact source file on 25.0.5".
+- Evidence: m3-p9-tour.txt
+- Why (for study): only final features belong in company code; preview code needs an explicit opt-in and runs only on that exact JDK version, and var is only safe when the type is obvious from the right side.

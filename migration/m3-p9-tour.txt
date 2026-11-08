@@ -1,0 +1,43 @@
+=== Block 1: var (Java 10) ===
+jshell> var names = new ArrayList<String>();
+names ==> []
+jshell> var oops = new ArrayList<>();
+oops ==> []
+jshell> oops.add(42); oops.add("text");
+$3 ==> true
+$4 ==> true
+jshell> oops
+oops ==> [42, text]
+jshell> var nothing = null;
+|  Error:
+|  cannot infer type for local variable nothing
+|    (variable initializer is 'null')
+
+=== Block 2: sequenced collections (Java 21) ===
+jshell> var list = new ArrayList<>(List.of(1, 2, 3));
+list ==> [1, 2, 3]
+jshell> list.getFirst()
+$7 ==> 1
+jshell> list.getLast()
+$8 ==> 3
+jshell> list.reversed()
+$9 ==> [3, 2, 1]
+
+=== Block 3a: preview feature without opt-in ===
+jshell> Object o = 42;
+o ==> 42
+jshell> if (o instanceof int i) System.out.println("int " + i);
+|  Error:
+|  primitive patterns are a preview feature and are disabled by default.
+|    (use --enable-preview to enable primitive patterns)
+
+=== Block 3b: jshell --enable-preview ===
+jshell> Object o = 42;
+o ==> 42
+jshell> if (o instanceof int i) System.out.println("int " + i);
+int 42
+
+=== Block 4: compact source file (Java 25) ===
+Hello.java: void main() { IO.println("Hello from a compact source file on " + System.getProperty("java.version")); }
+> java C:\java-practice\m3-scratch\Hello.java
+Hello from a compact source file on 25.0.5

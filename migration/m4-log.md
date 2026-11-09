@@ -16,3 +16,12 @@ JDK: 25.0.5 (Temurin). Lab code: com.noduco.legacy.perf (sandbox, not Noduco des
   Platform thread = a real Windows OS thread with its own reserved stack (~110 us each, ~8x more).
   100k virtual took 3.3 s because main alone creates and joins them one by one; 16 cores cannot speed up that sequential loop.
 
+## P2 Lab server
+- Predictions (before running): pom needs new dependency = YES; test count = 26; /stats threads in virtual mode with 200 requests = about 200+
+- Corrected: pom unchanged (jdk.httpserver is a JDK module); tests stay 25 (no new @Test); getThreadCount counts platform threads only
+- Build: 19 source files (was 18), 25/25 tests, BUILD SUCCESS (m4-p2-build-java25.txt)
+- Port: 8080 held by TNSLSNR (Oracle DB listener service); found with netstat -ano + Get-Process. Lab uses 18080.
+- Smoke test on 18080: io ok, db ok, cpu primes=6057, platformThreadsNow=12, requestsInFlightPeak=1, dbPoolFree=10/10
+- Why 12: JVM housekeeping + HTTP server threads; virtual-thread carriers start only when needed (max 16 = cores)
+- Note: platformThreadsNow prediction asked 4 times, not given before running
+

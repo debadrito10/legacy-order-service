@@ -1,0 +1,9 @@
+﻿# Command  : java -cp target\classes com.noduco.legacy.perf.LoadTest http://127.0.0.1:18080/db 1000 200 db-virtual migration\m4-results.csv
+# Folder   : C:\java-practice\legacy-order-service
+# JAVA_HOME: C:\Program Files\Eclipse Adoptium\jdk-25.0.5.8-hotspot
+# Date     : 2026-11-09 16:56:48
+# Exit code: 0
+# ------------------------------------------------------------
+label=db-virtual requests=1000 concurrency=200 time=5.11s
+throughput=196 req/s  p50=1018.5 ms  p95=1024.0 ms  p99=1025.0 ms  max=1031.1 ms  errors=0
+CSV db-virtual,1000,200,196,1018.5,1024.0,1025.0,1031.1,0

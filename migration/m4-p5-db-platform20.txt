@@ -1,0 +1,9 @@
+﻿# Command  : java -cp target\classes com.noduco.legacy.perf.LoadTest http://127.0.0.1:18080/db 1000 200 db-platform20 migration\m4-results.csv
+# Folder   : C:\java-practice\legacy-order-service
+# JAVA_HOME: C:\Program Files\Eclipse Adoptium\jdk-25.0.5.8-hotspot
+# Date     : 2026-11-09 16:55:51
+# Exit code: 0
+# ------------------------------------------------------------
+label=db-platform20 requests=1000 concurrency=200 time=5.08s
+throughput=197 req/s  p50=1014.0 ms  p95=1016.7 ms  p99=1017.7 ms  max=1022.7 ms  errors=0
+CSV db-platform20,1000,200,197,1014.0,1016.7,1017.7,1022.7,0

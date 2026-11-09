@@ -43,3 +43,14 @@ JDK: 25.0.5 (Temurin). Lab code: com.noduco.legacy.perf (sandbox, not Noduco des
 - getThreadCount does not count virtual threads (27 with 200 running) -> answers the P2 question with evidence
 - Lesson: first platform200 run had errors=2000 (server not started) and showed a fake 4708 req/s. Always check errors first. Row removed from CSV; rerun is valid.
 
+## P5 Connection-pool bottleneck (/db: 10-slot pool, 50 ms each, 1000 requests, port 18080)
+- Prediction: deferred, owed before exit rehearsal
+- db-platform20 (200 in flight): 197 req/s, p50 1014 ms, inFlightPeak 20
+- db-virtual    (200 in flight): 196 req/s, p50 1019 ms, inFlightPeak 200
+- Saturation (virtual): 10 -> 190 req/s p50 53 ms; 50 -> 196 req/s p50 255 ms; 200 -> 196 req/s p50 1019 ms
+- Why: pool ceiling 10 / 0.05 s = 200 req/s for ANY thread model. Virtual lets all 200 start, but 190 wait in DB_POOL.acquire(). Queue moved, not removed.
+- Fingerprint: past pool size, throughput flat and latency rises with load (Little's law W = L / 200).
+- Production signs: flat throughput, rising latency, low CPU, pool active = max, thread dump full of acquire/getConnection.
+- Safe mitigations: check DB capacity before a bigger pool; pool wait timeout + 503/429 (M15); bulkhead per dependency; shorter work via index/cache (M9/M10).
+- Lessons: 4 runs had errors=1000 (server not started) and 1 had errors=450 (server stopped mid-run, fake 307 req/s above the 200 ceiling). All removed and rerun. Rule now: server check before every run, Ctrl+C only after the CSV line.
+

@@ -1,0 +1,12 @@
+﻿# Command  : jshell -q migration\m4-p8.jsh
+# Folder   : C:\java-practice\legacy-order-service
+# JAVA_HOME: C:\Program Files\Eclipse Adoptium\jdk-25.0.5.8-hotspot
+# Date     : 2026-11-09 17:38:24
+# Exit code: 0
+# ------------------------------------------------------------
+1 sequential: price-ok stock-ok in 602 ms
+2 parallel  : price-ok stock-ok in 316 ms
+2 parallel  : price-ok stock-ok in 301 ms
+3 join threw: CompletionException cause=java.lang.IllegalArgumentException: stock service down
+4 fallback  : stock-unknown
+5 timeout   : cause=TimeoutException

@@ -75,3 +75,13 @@ JDK: 25.0.5 (Temurin). Lab code: com.noduco.legacy.perf (sandbox, not Noduco des
   Pinning still exists for native code; JFR jdk.VirtualThreadPinned is the detector. -Djdk.tracePinnedThreads was removed in 24.
 - Evidence for M5 (21 vs 25): a service on virtual threads with synchronized around I/O is safer on 25.
 
+## P8 CompletableFuture (JShell, JDK 25)
+- Prediction: deferred, owed before exit rehearsal
+- 1 sequential 602 ms; 2 parallel 316 ms then 301 ms (JIT warm-up)
+- 3 join() threw CompletionException, cause IllegalArgumentException; 4 exceptionally -> stock-unknown; 5 orTimeout(500 ms) -> TimeoutException
+- Why: sequential adds the waits, parallel overlaps them; join wraps failures in unchecked CompletionException (get() would use checked ExecutionException);
+  orTimeout protects the caller but does not stop the slow task.
+- Lambdas: Supplier () -> slowCall(...), BiFunction (p, s) -> ...; Supplier cannot throw checked exceptions, so InterruptedException is wrapped.
+- Always pass an executor for blocking work (default commonPool has ~cores threads).
+- Structured concurrency on JDK 25: "preview API and is disabled by default" -> not mature, not for migrated code (m4-p8-structured-java25.txt).
+

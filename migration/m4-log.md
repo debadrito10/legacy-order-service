@@ -97,3 +97,11 @@ JDK: 25.0.5 (Temurin). Lab code: com.noduco.legacy.perf (sandbox, not Noduco des
 - GC log (256 MB): Using G1, 18 young pauses, 0 full GC; JFR gc-pauses: total 68.2 ms, median 3.26 ms, max 8.24 ms -> healthy.
 - Lessons: $serverPid lives only in the window where it was set; dumponexit leaves a 0-byte file until exit -> JFR.dump writes on demand; 60000 requests at 3900 req/s last only ~15 s, so automate dump timing with Start-Process.
 
+## P10 Heap sizing (/io 20000 x 400, virtual, port 18080)
+- Prediction: deferred, owed before exit rehearsal
+- 32 MB : 3732 req/s, p50 101.9, p95 127.9, p99 163.7 ms; GC 40 pauses, 1 full, 160 ms total, max 26.8 ms
+- 512 MB: 3839 req/s, p50 101.9, p95 111.0, p99 137.0 ms; GC 2 pauses, 0 full, 20 ms total, max 14.9 ms
+- Why: small heap -> 20x more pauses + a full GC; waiting workload, so the cost shows in p95/p99, not throughput or p50.
+- Lesson: first 512 MB run had errors=14977 (server stopped mid-run); row and partial GC log removed, rerun valid.
+- Hypotheses written: m4-hypothesis.md (H1 heap, H2 carriers/lock under CPU load).
+

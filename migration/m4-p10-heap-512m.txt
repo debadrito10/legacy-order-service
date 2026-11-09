@@ -1,0 +1,9 @@
+﻿# Command  : java -cp target\classes com.noduco.legacy.perf.LoadTest http://127.0.0.1:18080/io 20000 400 heap-512m migration\m4-results.csv
+# Folder   : C:\java-practice\legacy-order-service
+# JAVA_HOME: C:\Program Files\Eclipse Adoptium\jdk-25.0.5.8-hotspot
+# Date     : 2026-11-09 18:16:50
+# Exit code: 0
+# ------------------------------------------------------------
+label=heap-512m requests=20000 concurrency=400 time=5.21s
+throughput=3839 req/s  p50=101.9 ms  p95=111.0 ms  p99=137.0 ms  max=160.3 ms  errors=0
+CSV heap-512m,20000,400,3839,101.9,111.0,137.0,160.3,0

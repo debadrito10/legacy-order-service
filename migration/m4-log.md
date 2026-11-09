@@ -54,3 +54,14 @@ JDK: 25.0.5 (Temurin). Lab code: com.noduco.legacy.perf (sandbox, not Noduco des
 - Safe mitigations: check DB capacity before a bigger pool; pool wait timeout + 503/429 (M15); bulkhead per dependency; shorter work via index/cache (M9/M10).
 - Lessons: 4 runs had errors=1000 (server not started) and 1 had errors=450 (server stopped mid-run, fake 307 req/s above the 200 ceiling). All removed and rerun. Rule now: server check before every run, Ctrl+C only after the CSV line.
 
+## P6 CPU-bound (/cpu countPrimes(60000), 4000 requests, 50 in flight, port 18080)
+- Prediction: deferred, owed before exit rehearsal
+- Changed from guide: 4000 requests instead of 400 (400 finishes in ~0.1 s on 16 cores, too short)
+- cpu-platform20: 1821 req/s, p50 23.0 ms, p99 88.7 ms, inFlightPeak 20, platformThreadsPeak 29
+- cpu-virtual   : 1625 req/s, p50 26.2 ms, p99 93.6 ms, inFlightPeak 50, platformThreadsPeak 26
+- Why: ceiling = cores / CPU time per request; same 16 cores in both modes (shared with the load tester). Virtual ~11% slower = no gain.
+- Surprise: virtual inFlightPeak 50, not <= 16 as the guide predicted. W = 50 / 1625 = 31 ms in handler vs ~10 ms CPU per request -> requests also waited inside the handler.
+  Hypothesis: waiting while writing the response; on JDK 25 a blocked virtual thread unmounts, so another starts. Check in P9 with a JSON thread dump under /cpu load.
+- Lesson: for CPU-bound work, judge by throughput, not in-flight count. Keep heavy CPU work on a bounded platform pool.
+- Lesson: first cpu-platform20 run hit a virtual server (inFlightPeak 51 > pool 20 = impossible for platform). Row removed, rerun valid. Check the mode with jcmd -l before each run.
+

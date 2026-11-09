@@ -1,0 +1,9 @@
+﻿# Command  : java -cp target\classes com.noduco.legacy.perf.LoadTest http://127.0.0.1:18080/cpu 4000 50 cpu-platform20 migration\m4-results.csv
+# Folder   : C:\java-practice\legacy-order-service
+# JAVA_HOME: C:\Program Files\Eclipse Adoptium\jdk-25.0.5.8-hotspot
+# Date     : 2026-11-09 17:21:43
+# Exit code: 0
+# ------------------------------------------------------------
+label=cpu-platform20 requests=4000 concurrency=50 time=2.20s
+throughput=1821 req/s  p50=23.0 ms  p95=58.7 ms  p99=88.7 ms  max=184.6 ms  errors=0
+CSV cpu-platform20,4000,50,1821,23.0,58.7,88.7,184.6,0

@@ -1,0 +1,6 @@
+﻿# Command  : jdeps --jdk-internals target\classes
+# Folder   : C:\java-practice\legacy-order-service
+# JAVA_HOME: C:\Program Files\Eclipse Adoptium\jdk-25.0.5.8-hotspot
+# Date     : 2026-11-09 18:21:28
+# Exit code: 0
+# ------------------------------------------------------------

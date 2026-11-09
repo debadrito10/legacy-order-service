@@ -105,3 +105,16 @@ JDK: 25.0.5 (Temurin). Lab code: com.noduco.legacy.perf (sandbox, not Noduco des
 - Lesson: first 512 MB run had errors=14977 (server stopped mid-run); row and partial GC log removed, rerun valid.
 - Hypotheses written: m4-hypothesis.md (H1 heap, H2 carriers/lock under CPU load).
 
+## P11 Close-out
+- Build 25/25 BUILD SUCCESS (m4-p11-build-java25.txt); jdeps --jdk-internals empty (m4-p11-jdeps-internals.txt); SMOKE PASS (m4-p11-smoke-java25.txt)
+- 12 benchmark runs in m4-results.csv, all errors = 0 (invalid runs were removed and rerun, see P4/P5/P6/P10 lessons)
+
+## Summary
+1. Virtual threads helped for waiting work: /io at 200 in flight, 197 -> 1749 req/s, p50 1011 -> 110 ms (P4).
+   A 200-thread platform pool did the same (1860 req/s) but needed 209 OS threads vs 27.
+2. They did not help when something else was the limit: a 10-connection pool capped /db at ~196 req/s in both modes (P5);
+   CPU work was capped by 16 cores, virtual even 11% slower (P6), likely because CPU-bound carriers delayed lock holders and the HTTP dispatcher (P9 JFR, H2).
+3. JDK 21 vs 25: synchronized + sleep pinned on 21 (442 ms, 50 pinned events), not on 25 (111 ms, 0 events) - JEP 491 (P7).
+4. Heap: 32 MB vs 512 MB gave 40 vs 2 GC pauses and p99 163.7 vs 137.0 ms with the same throughput (P10, H1).
+- Predictions: deferred for P2-P10 and not made before running; exit rehearsal is the check of understanding.
+

@@ -1,0 +1,59 @@
+﻿# Command  : jfr view gc-pauses migration\m4-virtual.jfr && jfr view hot-methods migration\m4-virtual.jfr
+# Folder   : C:\java-practice\legacy-order-service
+# JAVA_HOME: C:\Program Files\Eclipse Adoptium\jdk-25.0.5.8-hotspot
+# Date     : 2026-11-09 18:09:55
+# Exit code: 0
+# ------------------------------------------------------------
+
+GC Pauses
+---------
+
+Total Pause Time: 68.2 ms
+
+Number of Pauses: 18
+
+Minimum Pause Time: 1.66 ms
+
+Median Pause Time: 3.26 ms
+
+Average Pause Time: 3.79 ms
+
+P90 Pause Time: 8.11 ms
+
+P95 Pause Time: 8.24 ms
+
+P99 Pause Time: 8.24 ms
+
+P99.9% Pause Time: 8.24 ms
+
+Maximum Pause Time: 8.24 ms
+
+                                           Java Methods that Execute the Most
+
+Method                                                                                                  Samples Percent
+------------------------------------------------------------------------------------------------------- ------- -------
+com.noduco.legacy.perf.OrderLookupServer.countPrimes(int)                                                 3,294  90.74%
+java.util.concurrent.DelayScheduler.loop(ForkJoinPool)                                                       22   0.61%
+java.util.concurrent.DelayScheduler.replace(DelayScheduler$ScheduledForkJoinTask[], int, int)                21   0.58%
+java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool$WorkQueue)                                          16   0.44%
+com.sun.net.httpserver.Headers.add(String, String)                                                           11   0.30%
+com.noduco.legacy.perf.OrderLookupServer.handle(HttpExchange, Callable)                                      10   0.28%
+java.util.concurrent.ConcurrentHashMap.get(Object)                                                            9   0.25%
+sun.net.httpserver.ServerImpl$Dispatcher.run()                                                                9   0.25%
+sun.net.httpserver.ExchangeImpl.bytes(String, boolean, int)                                                   8   0.22%
+java.nio.channels.spi.AbstractInterruptibleChannel.begin()                                                    7   0.19%
+java.util.HashMap.getNode(Object)                                                                             7   0.19%
+sun.net.httpserver.ExchangeImpl.sendResponseHeaders(int, long)                                                6   0.17%
+java.util.HashMap.put(Object, Object)                                                                         6   0.17%
+java.nio.channels.spi.AbstractSelectableChannel.haveValidKeys()                                               6   0.17%
+java.io.ByteArrayOutputStream.ensureCapacity(int)                                                             6   0.17%
+java.util.concurrent.ForkJoinPool.awaitWork(ForkJoinPool$WorkQueue, int)                                      5   0.14%
+sun.net.httpserver.ServerImpl$Exchange.run()                                                                  5   0.14%
+java.util.concurrent.ForkJoinPool.deactivate(ForkJoinPool$WorkQueue, int)                                     5   0.14%
+java.util.Collections$UnmodifiableCollection$1.hasNext()                                                      4   0.11%
+java.util.HashMap.removeNode(int, Object, Object, boolean, boolean)                                           4   0.11%
+jdk.jfr.internal.event.EventWriter.putUncheckedLong(long)                                                     4   0.11%
+sun.net.httpserver.Request.readLine()                                                                         4   0.11%
+java.util.HashMap$HashIterator.nextNode()                                                                     3   0.08%
+java.net.URI.match(char, long, long)                                                                          3   0.08%
+java.util.HashMap.putVal(int, Object, Object, boolean, boolean)                                               3   0.08%

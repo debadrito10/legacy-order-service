@@ -85,3 +85,15 @@ JDK: 25.0.5 (Temurin). Lab code: com.noduco.legacy.perf (sandbox, not Noduco des
 - Always pass an executor for blocking work (default commonPool has ~cores threads).
 - Structured concurrency on JDK 25: "preview API and is disabled by default" -> not mature, not for migrated code (m4-p8-structured-java25.txt).
 
+## P9 Live JVM inspection (server: virtual, -Xms256m -Xmx256m, GC log + JFR, port 18080, pid 48396)
+- jcmd VM.flags: MaxHeapSize=268435456, +UseG1GC (chosen by JVM), CICompilerCount=12, G1HeapRegionSize=1 MB
+- /io load 60000 x 400: 3895 req/s, p50 101.9 ms, errors 0 (Little: 400 / 0.102 s = 3920)
+- Thread.print during load: 48 platform threads. JSON dump: ThreadPerTaskExecutor 484 virtual threads, all in Thread.sleep; ForkJoinPool-1 17 carriers.
+  -> Thread.print cannot see virtual threads; use Thread.dump_to_file -format=json.
+  -> 484 > 400: the JSON dump is not an instant snapshot; at ~3900 req/s new threads start while it is written. Counts are approximate.
+- /cpu load 20000 x 50 (2113 req/s): JSON dump showed 0 virtual threads and no countPrimes frames; mounted (running) virtual threads did not appear.
+- JFR hot methods: countPrimes 90.7% of samples -> the /cpu virtual threads were computing on carriers. Dumps show waiting, JFR shows CPU.
+- P6 hypothesis (waiting while writing the response): still open; CPU samples cannot show waiting.
+- GC log (256 MB): Using G1, 18 young pauses, 0 full GC; JFR gc-pauses: total 68.2 ms, median 3.26 ms, max 8.24 ms -> healthy.
+- Lessons: $serverPid lives only in the window where it was set; dumponexit leaves a 0-byte file until exit -> JFR.dump writes on demand; 60000 requests at 3900 req/s last only ~15 s, so automate dump timing with Start-Process.
+

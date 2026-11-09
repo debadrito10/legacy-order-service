@@ -1,0 +1,3004 @@
+﻿# Command  : jfr print --events jdk.JavaMonitorEnter --stack-depth 6 migration\m4-virtual.jfr
+# Folder   : C:\java-practice\legacy-order-service
+# JAVA_HOME: C:\Program Files\Eclipse Adoptium\jdk-25.0.5.8-hotspot
+# Date     : 2026-11-09 18:11:38
+# Exit code: 0
+# ------------------------------------------------------------
+jdk.JavaMonitorEnter {
+  startTime = 17:57:50.997 (2026-11-09)
+  duration = 35.5 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 61, virtual)
+  address = 0x26F40F0BBE0
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 501
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 17:59:52.503 (2026-11-09)
+  duration = 19.7 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 78288, virtual)
+  address = 0x26F3B836D30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:01:16.487 (2026-11-09)
+  duration = 31.5 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 201507, virtual)
+  address = 0x26F40B29C10
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:03:56.967 (2026-11-09)
+  duration = 25.5 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 216790, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:03:57.025 (2026-11-09)
+  duration = 50.7 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 216794, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:03:57.244 (2026-11-09)
+  duration = 14.2 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 217066, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:03:57.281 (2026-11-09)
+  duration = 21.2 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 217126, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:03:57.321 (2026-11-09)
+  duration = 26.3 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 217181, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:03:57.436 (2026-11-09)
+  duration = 16.9 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 217352, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:03:57.482 (2026-11-09)
+  duration = 21.6 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 217412, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:03:57.531 (2026-11-09)
+  duration = 18.5 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 217512, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:03:57.579 (2026-11-09)
+  duration = 20.3 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 217603, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:03:57.628 (2026-11-09)
+  duration = 19.8 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 217673, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:03:57.653 (2026-11-09)
+  duration = 18.6 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 217714, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:03:57.742 (2026-11-09)
+  duration = 20.6 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 217864, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:03:57.769 (2026-11-09)
+  duration = 19.0 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 217902, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:03:57.797 (2026-11-09)
+  duration = 18.9 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 217932, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:03:57.846 (2026-11-09)
+  duration = 21.7 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 218037, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:03:57.894 (2026-11-09)
+  duration = 14.3 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 218125, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:03:57.954 (2026-11-09)
+  duration = 14.7 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 218250, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:03:58.007 (2026-11-09)
+  duration = 13.3 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 218344, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:03:58.026 (2026-11-09)
+  duration = 15.1 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 218401, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:03:58.046 (2026-11-09)
+  duration = 16.7 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 218439, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:03:58.094 (2026-11-09)
+  duration = 24.1 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 218530, virtual)
+  address = 0x26F40EB7250
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.nio.ch.WEPollSelectorImpl.clearInterrupt() line: 246
+    sun.nio.ch.WEPollSelectorImpl.processEvents(int, Consumer) line: 186
+    sun.nio.ch.WEPollSelectorImpl.doSelect(Consumer, long) line: 116
+    sun.nio.ch.SelectorImpl.lockAndDoSelect(Consumer, long) line: 130
+    sun.nio.ch.SelectorImpl.select(long) line: 142
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 518
+    ...
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:03:58.159 (2026-11-09)
+  duration = 15.0 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 218637, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:03:58.188 (2026-11-09)
+  duration = 11.7 ms
+  monitorClass = java.util.Collections$SynchronizedSet (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 218709, virtual)
+  address = 0x26F40D33950
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    java.util.Collections$SynchronizedCollection.add(Object) line: 2332
+    sun.net.httpserver.ServerImpl.requestStarted(HttpConnection) line: 1049
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 575
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:03:58.203 (2026-11-09)
+  duration = 11.0 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 218730, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:03:58.260 (2026-11-09)
+  duration = 16.2 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 218794, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:03:58.302 (2026-11-09)
+  duration = 27.2 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 218917, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:03:58.359 (2026-11-09)
+  duration = 13.5 ms
+  monitorClass = java.util.Collections$SynchronizedSet (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 219016, virtual)
+  address = 0x26F40D33950
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    java.util.Collections$SynchronizedCollection.add(Object) line: 2332
+    sun.net.httpserver.ServerImpl.requestStarted(HttpConnection) line: 1049
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 575
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:03:58.436 (2026-11-09)
+  duration = 10.4 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 219082, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:03:58.478 (2026-11-09)
+  duration = 14.6 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 219242, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:03:58.516 (2026-11-09)
+  duration = 16.6 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 219278, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:03:58.590 (2026-11-09)
+  duration = 12.6 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 219424, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:03:58.653 (2026-11-09)
+  duration = 19.1 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 219558, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:03:58.687 (2026-11-09)
+  duration = 23.5 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 219609, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:03:58.728 (2026-11-09)
+  duration = 25.7 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 219640, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:03:58.849 (2026-11-09)
+  duration = 22.5 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 219891, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:03:58.937 (2026-11-09)
+  duration = 16.3 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 220031, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:03:58.965 (2026-11-09)
+  duration = 16.9 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 220088, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:03:59.052 (2026-11-09)
+  duration = 16.1 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 220278, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:03:59.078 (2026-11-09)
+  duration = 14.5 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 220331, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:03:59.126 (2026-11-09)
+  duration = 12.2 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 220400, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:03:59.165 (2026-11-09)
+  duration = 13.6 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 220506, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:03:59.323 (2026-11-09)
+  duration = 13.0 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 220838, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:03:59.489 (2026-11-09)
+  duration = 14.1 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 221247, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:03:59.521 (2026-11-09)
+  duration = 14.6 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 221290, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:03:59.561 (2026-11-09)
+  duration = 14.9 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 221376, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:03:59.593 (2026-11-09)
+  duration = 13.8 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 221426, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:03:59.677 (2026-11-09)
+  duration = 14.7 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 221615, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:03:59.707 (2026-11-09)
+  duration = 12.5 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 221681, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:03:59.774 (2026-11-09)
+  duration = 14.4 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 221791, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:00.023 (2026-11-09)
+  duration = 16.0 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 222337, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:00.087 (2026-11-09)
+  duration = 16.9 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 222467, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:00.141 (2026-11-09)
+  duration = 18.4 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 222564, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:00.170 (2026-11-09)
+  duration = 18.2 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 222616, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:00.248 (2026-11-09)
+  duration = 13.3 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 222757, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:00.271 (2026-11-09)
+  duration = 16.2 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 222817, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:00.307 (2026-11-09)
+  duration = 16.2 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 222895, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:00.343 (2026-11-09)
+  duration = 16.0 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 222970, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:00.370 (2026-11-09)
+  duration = 16.8 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 223020, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:00.400 (2026-11-09)
+  duration = 21.4 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 223083, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:00.466 (2026-11-09)
+  duration = 18.3 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 223197, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:00.516 (2026-11-09)
+  duration = 14.0 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 223292, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:00.551 (2026-11-09)
+  duration = 10.5 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 223327, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:00.572 (2026-11-09)
+  duration = 16.5 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 223393, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:00.627 (2026-11-09)
+  duration = 15.1 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 223481, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:00.667 (2026-11-09)
+  duration = 14.8 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 223579, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:00.735 (2026-11-09)
+  duration = 13.6 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 223721, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:00.771 (2026-11-09)
+  duration = 17.0 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 223805, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:00.818 (2026-11-09)
+  duration = 19.1 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 223896, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:00.847 (2026-11-09)
+  duration = 10.1 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 223934, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:00.906 (2026-11-09)
+  duration = 20.4 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 224050, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:01.128 (2026-11-09)
+  duration = 24.5 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 224419, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:01.268 (2026-11-09)
+  duration = 17.3 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 224606, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:01.300 (2026-11-09)
+  duration = 16.7 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 224706, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:01.330 (2026-11-09)
+  duration = 15.1 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 224782, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:01.458 (2026-11-09)
+  duration = 15.0 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 225010, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:01.490 (2026-11-09)
+  duration = 14.5 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 225085, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:01.514 (2026-11-09)
+  duration = 15.1 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 225130, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:01.557 (2026-11-09)
+  duration = 25.2 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 225216, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:01.670 (2026-11-09)
+  duration = 14.6 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 225364, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:01.765 (2026-11-09)
+  duration = 17.0 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 225532, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:01.956 (2026-11-09)
+  duration = 19.8 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 225879, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:02.021 (2026-11-09)
+  duration = 17.2 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 225970, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:02.076 (2026-11-09)
+  duration = 21.7 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 226074, virtual)
+  address = 0x26F40EB7250
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.nio.ch.WEPollSelectorImpl.clearInterrupt() line: 246
+    sun.nio.ch.WEPollSelectorImpl.processEvents(int, Consumer) line: 186
+    sun.nio.ch.WEPollSelectorImpl.doSelect(Consumer, long) line: 116
+    sun.nio.ch.SelectorImpl.lockAndDoSelect(Consumer, long) line: 130
+    sun.nio.ch.SelectorImpl.select(long) line: 142
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 518
+    ...
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:02.272 (2026-11-09)
+  duration = 13.7 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 226415, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:02.296 (2026-11-09)
+  duration = 11.1 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 226457, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:02.331 (2026-11-09)
+  duration = 15.5 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 226526, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:02.351 (2026-11-09)
+  duration = 17.2 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 226577, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:02.369 (2026-11-09)
+  duration = 15.0 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 226614, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:02.431 (2026-11-09)
+  duration = 14.0 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 226747, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:02.482 (2026-11-09)
+  duration = 13.9 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 226875, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:02.535 (2026-11-09)
+  duration = 14.8 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 226971, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:02.572 (2026-11-09)
+  duration = 14.6 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 227067, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:02.647 (2026-11-09)
+  duration = 12.8 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 227232, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:02.679 (2026-11-09)
+  duration = 17.1 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 227302, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:02.723 (2026-11-09)
+  duration = 15.1 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 227395, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:02.767 (2026-11-09)
+  duration = 16.3 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 227499, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:02.819 (2026-11-09)
+  duration = 14.2 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 227609, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:02.853 (2026-11-09)
+  duration = 13.6 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 227691, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:02.885 (2026-11-09)
+  duration = 14.3 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 227741, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:02.951 (2026-11-09)
+  duration = 12.9 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 227922, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:03.006 (2026-11-09)
+  duration = 13.4 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 228036, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:03.082 (2026-11-09)
+  duration = 12.7 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 228199, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:03.165 (2026-11-09)
+  duration = 12.8 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 228388, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:03.219 (2026-11-09)
+  duration = 16.2 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 228496, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:03.243 (2026-11-09)
+  duration = 16.1 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 228559, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:03.288 (2026-11-09)
+  duration = 15.0 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 228646, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:03.305 (2026-11-09)
+  duration = 14.2 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 228704, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:03.377 (2026-11-09)
+  duration = 13.7 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 228860, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:03.495 (2026-11-09)
+  duration = 14.2 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 229115, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:03.532 (2026-11-09)
+  duration = 16.5 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 229177, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:03.628 (2026-11-09)
+  duration = 15.0 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 229391, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:03.675 (2026-11-09)
+  duration = 14.1 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 229486, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:03.766 (2026-11-09)
+  duration = 11.9 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 229702, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:03.808 (2026-11-09)
+  duration = 13.7 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 229805, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:03.825 (2026-11-09)
+  duration = 13.3 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 229844, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:03.859 (2026-11-09)
+  duration = 14.0 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 229928, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:03.888 (2026-11-09)
+  duration = 13.2 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 229984, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:03.951 (2026-11-09)
+  duration = 13.7 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 230144, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:03.978 (2026-11-09)
+  duration = 12.8 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 230189, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:03.997 (2026-11-09)
+  duration = 13.8 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 230248, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:04.040 (2026-11-09)
+  duration = 14.5 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 230349, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:04.069 (2026-11-09)
+  duration = 12.9 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 230421, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:04.102 (2026-11-09)
+  duration = 14.7 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 230479, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:04.134 (2026-11-09)
+  duration = 13.9 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 230557, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:04.171 (2026-11-09)
+  duration = 14.0 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 230638, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:04.193 (2026-11-09)
+  duration = 15.7 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 230697, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:04.228 (2026-11-09)
+  duration = 12.8 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 230776, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:04.259 (2026-11-09)
+  duration = 13.2 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 230837, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:04.275 (2026-11-09)
+  duration = 15.1 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 230889, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:04.346 (2026-11-09)
+  duration = 13.8 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 231039, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:04.410 (2026-11-09)
+  duration = 14.7 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 231186, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:04.517 (2026-11-09)
+  duration = 15.0 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 231410, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:04.538 (2026-11-09)
+  duration = 14.8 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 231464, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:04.593 (2026-11-09)
+  duration = 13.8 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 231568, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:04.611 (2026-11-09)
+  duration = 12.9 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 231634, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:04.631 (2026-11-09)
+  duration = 13.8 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 231681, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:04.653 (2026-11-09)
+  duration = 13.8 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 231720, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:04.693 (2026-11-09)
+  duration = 14.2 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 231811, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:04.735 (2026-11-09)
+  duration = 14.5 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 231915, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:04.779 (2026-11-09)
+  duration = 13.6 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 232003, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:04.817 (2026-11-09)
+  duration = 15.8 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 232062, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:04.859 (2026-11-09)
+  duration = 14.6 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 232189, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:04.889 (2026-11-09)
+  duration = 14.4 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 232251, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:04.911 (2026-11-09)
+  duration = 14.0 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 232297, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:04.956 (2026-11-09)
+  duration = 13.5 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 232403, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:04.980 (2026-11-09)
+  duration = 15.4 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 232456, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:05.011 (2026-11-09)
+  duration = 15.6 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 232518, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:05.038 (2026-11-09)
+  duration = 15.5 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 232563, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:05.063 (2026-11-09)
+  duration = 15.7 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 232603, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:05.086 (2026-11-09)
+  duration = 14.6 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 232670, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:05.111 (2026-11-09)
+  duration = 14.8 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 232728, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:05.174 (2026-11-09)
+  duration = 15.4 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 232866, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:05.203 (2026-11-09)
+  duration = 16.1 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 232930, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:05.231 (2026-11-09)
+  duration = 15.7 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 232987, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:05.266 (2026-11-09)
+  duration = 15.5 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 233043, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:05.314 (2026-11-09)
+  duration = 11.8 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 233171, virtual)
+  address = 0x26F40EB7250
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.nio.ch.WEPollSelectorImpl.clearInterrupt() line: 246
+    sun.nio.ch.WEPollSelectorImpl.processEvents(int, Consumer) line: 186
+    sun.nio.ch.WEPollSelectorImpl.doSelect(Consumer, long) line: 116
+    sun.nio.ch.SelectorImpl.lockAndDoSelect(Consumer, long) line: 130
+    sun.nio.ch.SelectorImpl.select(long) line: 142
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 518
+    ...
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:05.356 (2026-11-09)
+  duration = 11.8 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 233246, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:05.381 (2026-11-09)
+  duration = 14.9 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 233324, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:05.508 (2026-11-09)
+  duration = 16.4 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 233530, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:05.542 (2026-11-09)
+  duration = 13.9 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 233606, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:05.567 (2026-11-09)
+  duration = 13.3 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 233651, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:05.614 (2026-11-09)
+  duration = 13.3 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 233769, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:05.653 (2026-11-09)
+  duration = 13.1 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 233829, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:05.750 (2026-11-09)
+  duration = 13.7 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 234092, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:05.771 (2026-11-09)
+  duration = 13.7 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 234136, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:05.864 (2026-11-09)
+  duration = 13.4 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 234353, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:05.904 (2026-11-09)
+  duration = 15.3 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 234420, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:05.936 (2026-11-09)
+  duration = 15.1 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 234431, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:05.955 (2026-11-09)
+  duration = 14.4 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 234524, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:05.983 (2026-11-09)
+  duration = 14.4 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 234597, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:06.017 (2026-11-09)
+  duration = 13.8 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 234685, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:06.034 (2026-11-09)
+  duration = 10.1 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 234724, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:06.093 (2026-11-09)
+  duration = 15.4 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 234859, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:06.128 (2026-11-09)
+  duration = 14.5 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 234941, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:06.243 (2026-11-09)
+  duration = 15.4 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 235210, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:06.273 (2026-11-09)
+  duration = 14.7 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 235274, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:06.304 (2026-11-09)
+  duration = 13.3 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 235343, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:06.422 (2026-11-09)
+  duration = 13.8 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 235600, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:06.445 (2026-11-09)
+  duration = 13.8 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 235661, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:06.477 (2026-11-09)
+  duration = 13.6 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 235731, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:06.553 (2026-11-09)
+  duration = 13.1 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 235900, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:06.608 (2026-11-09)
+  duration = 14.7 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 236022, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:06.638 (2026-11-09)
+  duration = 12.5 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 236095, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:06.679 (2026-11-09)
+  duration = 11.5 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 236172, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:06.741 (2026-11-09)
+  duration = 14.7 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 236336, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:06.801 (2026-11-09)
+  duration = 13.8 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 236476, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:06.827 (2026-11-09)
+  duration = 14.4 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 236539, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:06.905 (2026-11-09)
+  duration = 15.5 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 236705, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:06.928 (2026-11-09)
+  duration = 14.0 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 236761, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:06.968 (2026-11-09)
+  duration = 15.0 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 236856, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:07.043 (2026-11-09)
+  duration = 14.5 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 237012, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:07.097 (2026-11-09)
+  duration = 14.8 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 237127, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:07.132 (2026-11-09)
+  duration = 17.0 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 237202, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:07.183 (2026-11-09)
+  duration = 14.4 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 237326, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:07.208 (2026-11-09)
+  duration = 12.6 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 237367, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:07.253 (2026-11-09)
+  duration = 15.0 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 237500, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:07.319 (2026-11-09)
+  duration = 15.4 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 237643, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:07.350 (2026-11-09)
+  duration = 16.6 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 237703, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:07.421 (2026-11-09)
+  duration = 14.6 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 237866, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:07.489 (2026-11-09)
+  duration = 15.4 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 238028, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:07.551 (2026-11-09)
+  duration = 10.1 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 238160, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:07.572 (2026-11-09)
+  duration = 16.1 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 238197, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:07.602 (2026-11-09)
+  duration = 13.2 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 238262, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:07.621 (2026-11-09)
+  duration = 15.8 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 238314, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:07.651 (2026-11-09)
+  duration = 14.4 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 238382, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:07.672 (2026-11-09)
+  duration = 15.4 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 238430, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:07.717 (2026-11-09)
+  duration = 15.1 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 238534, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:07.765 (2026-11-09)
+  duration = 14.2 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 238634, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:07.836 (2026-11-09)
+  duration = 14.2 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 238804, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:07.871 (2026-11-09)
+  duration = 12.2 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 238859, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:07.919 (2026-11-09)
+  duration = 18.2 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 238984, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:08.024 (2026-11-09)
+  duration = 15.3 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 239170, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:08.055 (2026-11-09)
+  duration = 13.2 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 239276, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:08.088 (2026-11-09)
+  duration = 13.3 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 239349, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:08.121 (2026-11-09)
+  duration = 14.7 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 239387, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:08.144 (2026-11-09)
+  duration = 16.1 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 239479, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:08.207 (2026-11-09)
+  duration = 17.7 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 239611, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:08.267 (2026-11-09)
+  duration = 14.1 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 239734, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:08.364 (2026-11-09)
+  duration = 15.6 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 239942, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:08.418 (2026-11-09)
+  duration = 14.9 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 240048, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:08.489 (2026-11-09)
+  duration = 14.0 ms
+  monitorClass = sun.net.httpserver.ServerImpl (classLoader = platform)
+  previousOwner = "" (javaThreadId = 240203, virtual)
+  address = 0x26F42C4D0B0
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl.endExchange() line: 1037
+    sun.net.httpserver.ServerImpl$Dispatcher.handleEvent(Event) line: 444
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 509
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:08.521 (2026-11-09)
+  duration = 12.4 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 240280, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:08.549 (2026-11-09)
+  duration = 13.1 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 240342, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:08.584 (2026-11-09)
+  duration = 14.0 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 240435, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:08.624 (2026-11-09)
+  duration = 13.7 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 240519, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+
+jdk.JavaMonitorEnter {
+  startTime = 18:04:08.679 (2026-11-09)
+  duration = 13.8 ms
+  monitorClass = java.lang.Object (classLoader = bootstrap)
+  previousOwner = "" (javaThreadId = 240661, virtual)
+  address = 0x26F40EB6A30
+  eventThread = "HTTP-Dispatcher" (javaThreadId = 40)
+  stackTrace = [
+    sun.net.httpserver.ServerImpl$Dispatcher.run() line: 500
+    java.lang.Thread.run() line: 1474
+  ]
+}
+

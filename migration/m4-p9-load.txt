@@ -1,0 +1,3 @@
+label=io-virtual-diag requests=60000 concurrency=400 time=15.41s
+throughput=3895 req/s  p50=101.9 ms  p95=104.7 ms  p99=119.0 ms  max=162.4 ms  errors=0
+CSV io-virtual-diag,60000,400,3895,101.9,104.7,119.0,162.4,0

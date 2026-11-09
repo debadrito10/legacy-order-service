@@ -1,0 +1,14 @@
+﻿# Command  : jcmd 48396 VM.version && jcmd 48396 VM.flags && jcmd 48396 GC.heap_info
+# Folder   : C:\java-practice\legacy-order-service
+# JAVA_HOME: C:\Program Files\Eclipse Adoptium\jdk-25.0.5.8-hotspot
+# Date     : 2026-11-09 17:56:07
+# Exit code: 0
+# ------------------------------------------------------------
+48396:
+OpenJDK 64-Bit Server VM version 25.0.5+8-LTS
+JDK 25.0.5
+48396:
+-XX:-AOTInvokeDynamicLinking -XX:-AOTRecordTraining -XX:-AOTReplayTraining -XX:CICompilerCount=12 -XX:ConcGCThreads=3 -XX:+FlightRecorder -XX:G1ConcRefinementThreads=13 -XX:G1EagerReclaimRemSetThreshold=10 -XX:G1HeapRegionSize=1048576 -XX:G1RemSetArrayOfCardsEntries=10 -XX:G1RemSetHowlMaxNumBuckets=8 -XX:G1RemSetHowlNumBuckets=4 -XX:InitialHeapSize=268435456 -XX:-IntelJccErratumMitigation -XX:MarkStackSize=4194304 -XX:MarkStackSizeMax=536870912 -XX:MaxHeapSize=268435456 -XX:MaxNewSize=160432128 -XX:MinHeapDeltaBytes=1048576 -XX:MinHeapSize=268435456 -XX:NonNMethodCodeHeapSize=7667712 -XX:NonProfiledCodeHeapSize=122028032 -XX:ProfiledCodeHeapSize=122028032 -XX:ReservedCodeCacheSize=251723776 -XX:+SegmentedCodeCache -XX:SoftMaxHeapSize=268435456 -XX:StartFlightRecording=name=m4,settings=profile,filename=migration\m4-virtual.jfr,dumponexit=true -XX:+UseCompressedOops -XX:+UseFastUnorderedTimeStamps -XX:+UseG1GC -XX:-UseLargePagesIndividualAllocation -XX:X86ICacheSync=3 
+48396:
+garbage-first heap   total reserved 262144K, committed 262144K, used 25234K [0x00000000f0000000, 0x0000000100000000)
+ region size 1024K, 24 young (24576K), 0 survivors (0K)

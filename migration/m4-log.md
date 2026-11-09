@@ -25,3 +25,8 @@ JDK: 25.0.5 (Temurin). Lab code: com.noduco.legacy.perf (sandbox, not Noduco des
 - Why 12: JVM housekeeping + HTTP server threads; virtual-thread carriers start only when needed (max 16 = cores)
 - Note: platformThreadsNow prediction asked 4 times, not given before running
 
+## P3 Load tester
+- Prediction (why virtual threads for the client): deferred, owed before exit rehearsal
+- Dry run on 18080 (/io, 200 requests, 20 in flight): throughput=191 req/s p50=104.4 ms p95=107.9 ms p99=110.6 ms errors=0
+- Why: ceiling 20 / 0.1 s = 200 req/s; ~4 ms HTTP overhead per request; p50 close to p99 = no queueing
+

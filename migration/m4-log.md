@@ -30,3 +30,16 @@ JDK: 25.0.5 (Temurin). Lab code: com.noduco.legacy.perf (sandbox, not Noduco des
 - Dry run on 18080 (/io, 200 requests, 20 in flight): throughput=191 req/s p50=104.4 ms p95=107.9 ms p99=110.6 ms errors=0
 - Why: ceiling 20 / 0.1 s = 200 req/s; ~4 ms HTTP overhead per request; p50 close to p99 = no queueing
 
+## P4 I/O-bound: platform vs virtual (/io 100 ms, 2000 requests, 200 in flight, port 18080)
+- Power plan: Acer (OEM plan; kept unchanged for all runs)
+- Prediction: deferred, owed before exit rehearsal
+- io-platform20 : 197 req/s, p50 1011 ms, p99 1018 ms, inFlightPeak 20, platformThreadsPeak 29
+- io-virtual    : 1749 req/s, p50 110 ms, p99 137 ms, inFlightPeak 200, platformThreadsPeak 27
+- io-platform200: 1860 req/s, p50 103 ms, p99 132 ms, inFlightPeak 200, platformThreadsPeak 209
+- Why platform20 is slow: 20 threads / 0.1 s = 200 req/s ceiling; 180 requests queue ~900 ms each -> p50 ~1 s
+- Why virtual is fast: all 200 run at once and unmount while sleeping; Little's law 200 / 1749 = 114 ms ~ p50 110 ms
+- Control: platform200 = virtual in speed, but 209 OS threads vs 27. At 200 concurrency thread COUNT mattered, not type.
+  Virtual threads win when concurrency is far beyond affordable OS threads, or the right pool size is unknown.
+- getThreadCount does not count virtual threads (27 with 200 running) -> answers the P2 question with evidence
+- Lesson: first platform200 run had errors=2000 (server not started) and showed a fake 4708 req/s. Always check errors first. Row removed from CSV; rerun is valid.
+

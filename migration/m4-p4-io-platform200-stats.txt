@@ -1,0 +1,7 @@
+﻿# Command  : curl.exe -s http://127.0.0.1:18080/stats
+# Folder   : C:\java-practice\legacy-order-service
+# JAVA_HOME: C:\Program Files\Eclipse Adoptium\jdk-25.0.5.8-hotspot
+# Date     : 2026-11-09 16:33:34
+# Exit code: 0
+# ------------------------------------------------------------
+platformThreadsNow=209 platformThreadsPeak=209 requestsInFlightPeak=200 dbPoolFree=10/10

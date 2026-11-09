@@ -1,0 +1,12 @@
+﻿# Command  : java -XX:StartFlightRecording=filename=migration\m4-pin-java21.jfr,settings=profile migration\PinDemo.java
+# Folder   : C:\java-practice\legacy-order-service
+# JAVA_HOME: C:\Program Files\Eclipse Adoptium\jdk-21.0.8.9-hotspot
+# Date     : 2026-11-09 17:35:03
+# Exit code: 0
+# ------------------------------------------------------------
+[0.642s][info][jfr,startup] Started recording 1. No limit specified, using maxsize=250MB as default.
+[0.642s][info][jfr,startup] 
+[0.642s][info][jfr,startup] Use jcmd 46748 JFR.dump name=1 to copy recording data to file.
+java=21.0.8 cores=16
+synchronized + sleep : 442 ms
+ReentrantLock + sleep: 110 ms

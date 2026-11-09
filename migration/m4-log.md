@@ -65,3 +65,13 @@ JDK: 25.0.5 (Temurin). Lab code: com.noduco.legacy.perf (sandbox, not Noduco des
 - Lesson: for CPU-bound work, judge by throughput, not in-flight count. Keep heavy CPU work on a bounded platform pool.
 - Lesson: first cpu-platform20 run hit a virtual server (inFlightPeak 51 > pool 20 = impossible for platform). Row removed, rerun valid. Check the mode with jcmd -l before each run.
 
+## P7 Pinning: same PinDemo.java on JDK 21 vs JDK 25 (50 virtual threads, each sleeps 100 ms holding its own lock)
+- Prediction: deferred, owed before exit rehearsal
+- JDK 21: synchronized 442 ms, ReentrantLock 110 ms, jdk.VirtualThreadPinned = 50
+- JDK 25: synchronized 111 ms, ReentrantLock 103 ms, jdk.VirtualThreadPinned = 0
+- Why 21: sleeping inside synchronized cannot unmount; 50 tasks / 16 carriers = 4 rounds x 100 ms ~ 400 ms. ReentrantLock unmounts -> ~100 ms.
+- Why 25: JEP 491 (JDK 24) lets a virtual thread unmount while holding a monitor. Same file, no code change.
+- Migration meaning: on 21-23, synchronized around blocking I/O can shrink virtual threads to a cores-sized pool; on 24+ not for synchronized.
+  Pinning still exists for native code; JFR jdk.VirtualThreadPinned is the detector. -Djdk.tracePinnedThreads was removed in 24.
+- Evidence for M5 (21 vs 25): a service on virtual threads with synchronized around I/O is safer on 25.
+

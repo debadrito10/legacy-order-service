@@ -22,6 +22,7 @@ Migrates legacy-order-service from Java 8 to JDK 25 (Eclipse Temurin). Runtime J
 | R12 | JUnit 4.12 -> 4.13.2 |
 | R13 | tests: characterization, JSON pin, XML contract vs Java 8 output, CLDR "Sept", explicit time zone, TLS defaults; smoke test |
 | - | Mockito 5.24.0 via `mockito-bom`, loaded with `-javaagent` (JEP 451); argument quoted for paths with spaces |
+| - | version 1.0.0 -> 2.0.0, so the Java 8 and JDK 25 builds can never be confused |
 
 Also in this PR: a package-private `Order(id, customer, amount, createdAt)` constructor so tests can fix the timestamp (production code, test-motivated).
 
@@ -42,4 +43,4 @@ Also in this PR: a package-private `Order(id, customer, amount, createdAt)` cons
 - Mockito still prints a JVM class-data-sharing note ("Sharing is only supported for boot loader classes"); harmless.
 
 ## Rollback
-Until `ROLLBACK.md` lands in this PR: redeploy the previous version from tag `v1.0.0-java8` on a Java 8 runtime.
+See `ROLLBACK.md`: triggers, redeploy-first procedure, one-way doors. Drill 2026-11-15: tag `v1.0.0-java8` built and ran to Done. on Java 8 in 5.8 s.

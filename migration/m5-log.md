@@ -22,7 +22,8 @@ Note: search.maven.org returned stale data (jackson-bom 2.19.0 while the project
 | Step | What | Prediction | Result | Evidence | Commit |
 |---|---|---|---|---|---|
 | P0 | Preflight | none | stray edit in m3-p7-jshell.txt restored; gh 2.104.0 installed; Docker 29.1.3 engine running; IntelliJ SDK was Java 8 (false errors on ProcessHandle and newVirtualThreadPerTaskExecutor), set to 25 (.idea, not in Git) | none | none |
-| P1 | Clean migration branch + R11 | P1.2 commit count: skipped; test count: skipped | 7/7 tests, BUILD SUCCESS, exit 0, SMOKE PASS; Maven Guice sun.misc.Unsafe warning on JDK 25 (R14) | m5-p1-build.txt | (this commit) |
+| P1 | Clean migration branch + R11 | P1.2 commit count: skipped; test count: skipped | 7/7 tests, BUILD SUCCESS, exit 0, SMOKE PASS; Maven Guice sun.misc.Unsafe warning on JDK 25 (R14) | m5-p1-build.txt | e4d79cb |
+| P2 | JDK decision | none | release 25 + runtime 25 (Option A); deciding reason: release 25 makes the JAR refuse untested older JVMs | m5-decision-jdk.md | (this commit) |
 
 ### P1
 Why (for study): a migration PR must contain only the migration. dev holds M3 features and the M4 lab, so the branch starts at the last M2 commit and only the migration-relevant M3 commits (JSON pin, Jackson upgrade) are cherry-picked, test first.

@@ -25,7 +25,8 @@ Expected = what the M5 guide (written 2026-11-13, before these runs) said would 
 | P0 | Preflight | clean tree; gh probably missing; Docker installed or missing; Maven 3.9.11 on JDK 25.0.5 | stray edit in m3-p7-jshell.txt restored; gh 2.104.0 installed; Docker 29.1.3 engine running; IntelliJ SDK was Java 8 (false errors on ProcessHandle and newVirtualThreadPerTaskExecutor), set to 25 (.idea, not in Git) | none | none |
 | P1 | Clean migration branch + R11 | cherry-pick might conflict on m3-log.md (it did not); M2 tests + JSON pin green; SMOKE PASS | 7/7 tests, BUILD SUCCESS, exit 0, SMOKE PASS; Maven Guice sun.misc.Unsafe warning on JDK 25 (R14) | m5-p1-build.txt | e4d79cb |
 | P2 | JDK decision | a decision backed by evidence, not by "newest" | release 25 + runtime 25 (Option A); deciding reason: release 25 makes the JAR refuse untested older JVMs | m5-decision-jdk.md | f60f282 |
-| P3 | Maven Enforcer + class-file proof | without guard: compiler error 'release version 25 not supported'; with guard: RequireJavaVersion fails with the custom message; major version 69 | without guard: compile failed on jakarta.xml.bind-api 4.0.2 'bad class file ... version 55.0, should be 52.0' (misleading, blames a JAR; guide expectation was wrong); with guard: stops in validate after 0.6 s with 'Build with JDK 25 ... Use-Java 25', no compile; RequireMavenVersion passed; major version 69 | m5-p3-java8-no-guard.txt, m5-p3-java8-guard.txt | (this commit) |
+| P3 | Maven Enforcer + class-file proof | without guard: compiler error 'release version 25 not supported'; with guard: RequireJavaVersion fails with the custom message; major version 69 | without guard: compile failed on jakarta.xml.bind-api 4.0.2 'bad class file ... version 55.0, should be 52.0' (misleading, blames a JAR; guide expectation was wrong); with guard: stops in validate after 0.6 s with 'Build with JDK 25 ... Use-Java 25', no compile; RequireMavenVersion passed; major version 69 | m5-p3-java8-no-guard.txt, m5-p3-java8-guard.txt | 6d1605c |
+| P4a | JUnit 4.12 -> 4.13.2 (R12) | green build; junit:junit:jar:4.13.2:test in the tree | 7/7, BUILD SUCCESS; tree shows junit 4.13.2 (hamcrest hidden by the -Dincludes=junit filter, still present); Enforcer rules 0 and 1 passed | m5-p4a-build.txt, m5-p4a-junit-tree.txt | (this commit) |
 
 ### P1
 Why (for study): a migration PR must contain only the migration. dev holds M3 features and the M4 lab, so the branch starts at the last M2 commit and only the migration-relevant M3 commits (JSON pin, Jackson upgrade) are cherry-picked, test first.
@@ -33,3 +34,6 @@ Note for the PR: 0f564f1 adds a package-private Order constructor with createdAt
 
 ### P3
 Why (for study): Maven runs on whatever JDK JAVA_HOME points to. Without a guard, a wrong JDK fails late and the message blames a library (javac 8 cannot read the Java 11 class files in Jakarta JAXB 4). The Enforcer checks the JDK in the validate phase and prints the fix. Class-file version = Java version + 44, so release 25 gives 69.
+
+### P4a
+Why (for study): JUnit 4.12 has CVE-2020-15250 (TemporaryFolder files readable by other local users). Test scope, so not shipped, but scanners flag it. 4.13.2 is a drop-in fix with no test-code change. JUnit 6 needs Java 17+ and a test rewrite, so it is a separate PR.

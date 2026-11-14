@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<order>
+    <id>101</id>
+    <customer>Asha</customer>
+    <amount>100.0</amount>
+    <createdAt>2026-11-03T01:26:31.127+05:30</createdAt>
+</order>

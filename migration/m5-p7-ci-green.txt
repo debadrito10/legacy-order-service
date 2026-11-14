@@ -1,0 +1,16 @@
+
+??? jdk25-migration build ?? 43626076017
+Triggered via push about 2 minutes ago
+
+JOBS
+??? test (ubuntu-24.04, JDK 25) in 26s (ID 132542047985)
+??? early warning (JDK 27, not blocking) in 27s (ID 132542048084)
+??? test (windows-2025, JDK 25) in 43s (ID 132542048088)
+??? container in 31s (ID 132542269842)
+
+ARTIFACTS
+surefire-ubuntu-24.04-jdk25
+surefire-windows-2025-jdk25
+
+For more information about a job, try: gh run view --job=<job-id>
+View this run on GitHub: https://github.com/debadrito10/legacy-order-service/actions/runs/43626076017

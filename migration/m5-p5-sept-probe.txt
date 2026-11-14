@@ -1,0 +1,4 @@
+SeptProbe (C:\java-practice\m5-scratch), compiled once with javac 8, run 2026-11-14
+Java 8:  1.8.0_504 -> 01 Sep 2026
+Java 25: 25.0.5 -> 01 Sept 2026
+Java 25 with -Djava.locale.providers=COMPAT: Nov 14, 2026 11:16:14 PM sun.util.locale.provider.LocaleProviderAdapter <clinit> INFO: Invalid locale provider adapter "COMPAT" ignored. Nov 14, 2026 11:16:14 PM sun.util.locale.provider.LocaleProviderAdapter <clinit> WARNING: COMPAT locale provider has been removed 25.0.5 -> 01 Sept 2026

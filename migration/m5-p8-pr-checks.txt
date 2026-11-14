@@ -1,0 +1,8 @@
+container	pass	36s	https://github.com/debadrito10/legacy-order-service/actions/runs/43626600266/job/132543876698	
+container	pass	34s	https://github.com/debadrito10/legacy-order-service/actions/runs/43627091254/job/132545575436	
+early warning (JDK 27, not blocking)	pass	22s	https://github.com/debadrito10/legacy-order-service/actions/runs/43626600266/job/132543716506	
+early warning (JDK 27, not blocking)	pass	32s	https://github.com/debadrito10/legacy-order-service/actions/runs/43627091254/job/132545329889	
+test (ubuntu-24.04, JDK 25)	pass	31s	https://github.com/debadrito10/legacy-order-service/actions/runs/43626600266/job/132543716716	
+test (ubuntu-24.04, JDK 25)	pass	40s	https://github.com/debadrito10/legacy-order-service/actions/runs/43627091254/job/132545330061	
+test (windows-2025, JDK 25)	pass	30s	https://github.com/debadrito10/legacy-order-service/actions/runs/43626600266/job/132543716825	
+test (windows-2025, JDK 25)	pass	50s	https://github.com/debadrito10/legacy-order-service/actions/runs/43627091254/job/132545330051	

@@ -1,0 +1,21 @@
+﻿# Command  : java -jar target\legacy-order-service-1.0.0.jar
+# Folder   : C:\java-practice\rollback-drill
+# JAVA_HOME: C:\Program Files\Eclipse Adoptium\jdk-8.0.504.1-hotspot
+# Date     : 2026-11-15 00:11:59
+# Exit code: 0
+# ------------------------------------------------------------
+Running on Java 1.8.0_504
+1. XML export:
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<order>
+    <id>101</id>
+    <customer>Asha</customer>
+    <amount>100.0</amount>
+    <createdAt>2026-11-15T00:11:59.401+05:30</createdAt>
+</order>
+
+2. Encoded id: MTAx
+3. GST: 18.0
+4. Fast length of customer: 4
+5. Bytes for Zoδ in default charset: 3
+Done.

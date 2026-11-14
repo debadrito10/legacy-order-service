@@ -1,0 +1,2 @@
+2	Migrate legacy-order-service from Java 8 to JDK 25	jdk25-migration	DRAFT	2026-11-14T18:31:40Z
+1	Bump com.fasterxml.jackson.core:jackson-databind from 2.9.10.8 to 2.18.11	dependabot/maven/com.fasterxml.jackson.core-jackson-databind-2.18.11	OPEN	2026-11-14T18:25:43Z

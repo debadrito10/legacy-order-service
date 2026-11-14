@@ -1,0 +1,21 @@
+﻿# Command  : docker run --rm legacy-order-service:local
+# Folder   : C:\java-practice\legacy-order-service
+# JAVA_HOME: C:\Program Files\Eclipse Adoptium\jdk-25.0.5.8-hotspot
+# Date     : 2026-11-14 23:47:25
+# Exit code: 0
+# ------------------------------------------------------------
+Running on Java 25.0.5
+1. XML export:
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<order>
+    <id>101</id>
+    <customer>Asha</customer>
+    <amount>100.0</amount>
+    <createdAt>2026-11-14T18:17:24.583Z</createdAt>
+</order>
+
+2. Encoded id: MTAx
+3. GST: 18.0
+4. Fast length of customer: 4
+5. Bytes for Zo├½ in UTF-8: 4
+Done.

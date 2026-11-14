@@ -1,0 +1,4 @@
+completed	success	M4 P11: final verification (25/25, jdeps clean, smoke pass) + M4 summary	build	dev	push	43624722359	29s	2026-11-14T18:06:26Z
+completed	success	M5 P5: regression tests (XML contract vs Java 8, CLDR Sept, explicit ???	build	jdk25-migration	push	43624716040	30s	2026-11-14T18:06:22Z
+completed	success	M1 baseline (Java 8) + evidence + evidence index	build	v1.0.0-java8	push	43624654650	28s	2026-11-14T18:05:40Z
+completed	success	M1 baseline (Java 8) + evidence + evidence index	build	main	push	43624654435	30s	2026-11-14T18:05:40Z

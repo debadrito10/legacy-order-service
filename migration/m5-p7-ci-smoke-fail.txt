@@ -1,0 +1,31 @@
+
+X jdk25-migration build ?? 43625770429
+Triggered via push about 5 minutes ago
+
+JOBS
+??? early warning (JDK 27, not blocking) in 27s (ID 132541103815)
+??? test (windows-2025, JDK 25) in 54s (ID 132541104070)
+X test (ubuntu-24.04, JDK 25) in 31s (ID 132541104114)
+  ??? Set up job
+  ??? Run actions/checkout@v6
+  ??? Run actions/setup-java@v5
+  ??? Build and test
+  X Smoke test
+  - Guard - no JDK internal APIs
+  ??? Upload test reports
+  ??? Post Run actions/setup-java@v5
+  ??? Post Run actions/checkout@v6
+  ??? Complete job
+- container in 0s (ID 132541370852)
+
+ANNOTATIONS
+X Process completed with exit code 1.
+test (ubuntu-24.04, JDK 25): .github#16
+
+
+ARTIFACTS
+surefire-windows-2025-jdk25
+surefire-ubuntu-24.04-jdk25
+
+To see what failed, try: gh run view 43625770429 --log-failed
+View this run on GitHub: https://github.com/debadrito10/legacy-order-service/actions/runs/43625770429

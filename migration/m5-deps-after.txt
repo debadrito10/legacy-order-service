@@ -1,0 +1,17 @@
+com.noduco:legacy-order-service:jar:2.0.0
++- jakarta.xml.bind:jakarta.xml.bind-api:jar:4.0.5:compile
+|  \- jakarta.activation:jakarta.activation-api:jar:2.1.4:compile
++- org.glassfish.jaxb:jaxb-runtime:jar:4.0.9:runtime
+|  \- org.glassfish.jaxb:jaxb-core:jar:4.0.9:runtime
+|     +- org.eclipse.angus:angus-activation:jar:2.0.3:runtime
+|     +- org.glassfish.jaxb:txw2:jar:4.0.9:runtime
+|     \- com.sun.istack:istack-commons-runtime:jar:4.1.2:runtime
++- com.fasterxml.jackson.core:jackson-databind:jar:2.22.4:compile
+|  +- com.fasterxml.jackson.core:jackson-annotations:jar:2.22:compile
+|  \- com.fasterxml.jackson.core:jackson-core:jar:2.22.4:compile
++- junit:junit:jar:4.13.2:test
+|  \- org.hamcrest:hamcrest-core:jar:1.3:test
+\- org.mockito:mockito-core:jar:5.24.0:test
+   +- net.bytebuddy:byte-buddy:jar:1.17.7:test
+   +- net.bytebuddy:byte-buddy-agent:jar:1.17.7:test
+   \- org.objenesis:objenesis:jar:3.3:test

@@ -1,6 +1,6 @@
 # Decision: target JDK for legacy-order-service
 
-Status: draft (final in P10). Date: 2026-11-14. Author: Debadrita.
+Status: accepted (P10, 2026-11-15). Date: 2026-11-14. Author: Debadrita.
 
 ## Decision
 Runtime JDK: 25 (Eclipse Temurin). Compile target: maven.compiler.release 25 (Option A).

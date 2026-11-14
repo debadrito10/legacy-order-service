@@ -10,7 +10,7 @@ Decision owner: whoever is on call for the service (in this sandbox: Debadrita).
 The 10-minute and 20% thresholds are a starting proposal; real values come from the team's service-level objectives.
 
 ## How (fastest first)
-1. Redeploy the previous artifact: legacy-order-service 1.0.0 on a Java 8 runtime, built from tag v1.0.0-java8. No code change and no rebuild in a real pipeline (the stored artifact or image is redeployed).
+1. Redeploy the previous artifact: legacy-order-service 1.0.0 on a Java 8 runtime, built from tag v1.0.0-java8. No code change and no rebuild: redeploy the stored image legacy-order-service:1.0.0-rollback (see Rollback image below), pushed to the registry before cutover. Do not rebuild from the tag's own Dockerfile: its base openjdk:8-jre no longer exists (P10).
 2. If the code itself must go back: `git revert -m 1 <merge commit of PR #2>`, then the normal CI and deploy. Works because PR #2 is merged with a merge commit.
 3. Never: patch flags on the JDK 25 runtime in production to "make it work" (for example `--add-opens`) without a ticket and a test.
 
@@ -26,3 +26,26 @@ The 10-minute and 20% thresholds are a starting proposal; real values come from 
 
 ## Drill record
 Drill on 2026-11-15 00:11 IST: `git worktree add ..\rollback-drill v1.0.0-java8`, `Use-Java 8`, `mvn -B -ntp clean package` (4 tests, BUILD SUCCESS, compiler 3.8.1 / surefire 2.22.2), `java -jar target\legacy-order-service-1.0.0.jar` ran to Done. on Java 1.8.0_504. Total 5.8 s from checkout to running (build from source; redeploying a stored artifact is faster). XML output had the same structure as 2.0.0. Evidence: migration/m5-p9-drill-build-java8.txt, migration/m5-p9-drill-run-java8.txt.
+
+## Rollback image (P10)
+
+- Image: `legacy-order-service:1.0.0-rollback`, built 2026-11-15 from tag v1.0.0-java8 (62496c2), JAR unchanged.
+- Base: `eclipse-temurin:8-jre@sha256:d1450af461d0d791f3b405895baf11ad37881a66e9a4dd9bbe2cd10d99278caf` (Java 1.8.0_512). Pin by digest, not tag.
+- JVM flag kept from production: `-XX:+UseConcMarkSweepGC` (valid on 8; never carry it to the JDK 25 image).
+- Verified: ran to Done. (migration/m5-p10-rollback-image.txt).
+- Output reference is the container, not the M1 Windows run: default charset is UTF-8 in the container (line 5 = 4 bytes) and Cp1252 on Windows Java 8 (= 3). JDK 25 is UTF-8 everywhere, so a container rollback does not change byte output.
+- Before cutover: push this image to the production registry and record its digest here.
+
+## Staged rollout (2.0.0)
+
+Gates use the triggers in "When to roll back". A failed gate means rollback, not "wait and see".
+
+| Stage | Share | Minimum time | Gate to widen |
+|---|---|---|---|
+| 0 Staging | 100% of staging | 1 business day | CI green (tests, smoke, container); XML/JSON consumer diff clean; rollback image pulled from the registry |
+| 1 Canary | 5% | 1 hour incl. a traffic peak | Error rate and p99 within trigger limits; no JVM warnings in logs; GC log reviewed |
+| 2 Partial | 25% | 4 hours | Same, plus no consumer complaints |
+| 3 Half | 50% | 1 business day | Same |
+| 4 Full | 100% | - | Keep the 1.0.0 image and its deploy config ready for 7 days |
+
+Batch / run-to-completion use: replace percentages with a shadow run. Run 1.0.0 (rollback image) and 2.0.0 on the same input and diff the outputs before switching.

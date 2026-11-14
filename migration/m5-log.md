@@ -17,6 +17,11 @@ Note: search.maven.org returned stale data (jackson-bom 2.19.0 while the project
 - smoke.ps1 uses cmd /c and a backslash path: expected to FAIL on the ubuntu runner.
 - Dockerfile has WORKDIR /app, so dependency/ lands next to app.jar: container expected to START (tutor's earlier guess of /dependency was wrong).
 - Existing build.yml (ubuntu, JDK 25, no smoke): expected GREEN on first push, with a setup-java v4 deprecation warning.
+Expected for the new P7 workflow (written 2026-11-14 23:46 IST, before the first push of it):
+- test (ubuntu-24.04, JDK 25): FAILS at "Smoke test", because smoke.ps1 runs cmd /c, which does not exist on Linux.
+- test (windows-2025, JDK 25): PASSES, smoke included.
+- container: SKIPPED, because it needs test and one matrix leg failed.
+- next-jdk (JDK 27): runs on its own and PASSES; continue-on-error keeps a failure from turning the run red.
 
 ## Steps
 Expected = what the M5 guide (written 2026-11-13, before these runs) said would happen.
@@ -29,7 +34,7 @@ Expected = what the M5 guide (written 2026-11-13, before these runs) said would 
 | P4a | JUnit 4.12 -> 4.13.2 (R12) | green build; junit:junit:jar:4.13.2:test in the tree | 7/7, BUILD SUCCESS; tree shows junit 4.13.2 (hamcrest hidden by the -Dincludes=junit filter, still present); Enforcer rules 0 and 1 passed | m5-p4a-build.txt, m5-p4a-junit-tree.txt | b7b8a4f |
 | P4b | Mockito 5.24.0 via BOM + javaagent (JEP 451) | test passes with 'Mockito is currently self-attaching' and 'A Java agent has been loaded dynamically'; after -javaagent in Surefire argLine: no warning | before: 1/1 with both warnings (agent = byte-buddy-agent 1.17.7). First fix FAILED: unquoted argLine split at the space in C:\Users\DEBADRITA DE, 'Error opening zip file ... C:\Users\DEBADRITA', test JVM did not start, 0 tests. Quoted argLine: 1/1, no Mockito or agent warning; CDS 'Sharing is only supported' note remains. Full build 8/8, SMOKE PASS | m5-p4-mockito-before.txt, m5-p4-mockito-after.txt, m5-p4-build.txt | 6eac7ef |
 | P5 | Regression tests: XML contract, time zone/locale, TLS | XML golden test passes or reveals a JAXB difference; Java 8 'Sep' vs 25 'Sept'; TLS [TLSv1.3, TLSv1.2]; JShell 01:48 vs 20:18; suite green in UTC | XML identical to the Java 8 output (JDK JAXB -> Jakarta JAXB 4), createdAt instant kept in any zone (not mutation-checked). SeptProbe: 8 'Sep', 25 'Sept'; COMPAT flag ignored ('COMPAT locale provider has been removed'). TLS [TLSv1.3, TLSv1.2]. JShell 01:48 vs 20:18. 15/15 with -Duser.timezone=UTC (Maven timestamp ends in Z), SMOKE PASS | m5-p5-xml.txt, m5-p5-sept-probe.txt, m5-p5-time-tls.txt, m5-p5-utc-build.txt | b763b61 |
-| P6 | Private GitHub repo + first CI runs (R8) | old M2 build.yml green on ubuntu with a setup-java v4 deprecation warning | repo debadrito10/legacy-order-service, PRIVATE. 4 runs, all success: main (Java 8 baseline) 30 s, tag v1.0.0-java8 (duplicate run: on [push] also fires for tags), jdk25-migration 43624716040 30 s, dev 29 s. Annotations: Node.js 20 deprecated (checkout@v4, setup-java@v4); setup-java v4 deprecated; ubuntu-latest moving to Ubuntu 26 (not predicted) | m5-p6-first-ci-runs.txt, m5-p6-first-ci-migration.txt | (this commit) |
+| P6 | Private GitHub repo + first CI runs (R8) | old M2 build.yml green on ubuntu with a setup-java v4 deprecation warning | repo debadrito10/legacy-order-service, PRIVATE. 4 runs, all success: main (Java 8 baseline) 30 s, tag v1.0.0-java8 (duplicate run: on [push] also fires for tags), jdk25-migration 43624716040 30 s, dev 29 s. Annotations: Node.js 20 deprecated (checkout@v4, setup-java@v4); setup-java v4 deprecated; ubuntu-latest moving to Ubuntu 26 (not predicted) | m5-p6-first-ci-runs.txt, m5-p6-first-ci-migration.txt | e97ed39 |
 
 ### P1
 Why (for study): a migration PR must contain only the migration. dev holds M3 features and the M4 lab, so the branch starts at the last M2 commit and only the migration-relevant M3 commits (JSON pin, Jackson upgrade) are cherry-picked, test first.

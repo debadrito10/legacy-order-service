@@ -1,0 +1,2 @@
+IMAGE                        ID             DISK USAGE   CONTENT SIZE   EXTRA
+legacy-order-service:local   b53b62ff370a        482MB          121MB        

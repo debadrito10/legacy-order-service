@@ -1,5 +1,6 @@
 package com.noduco.orders.service;
 
+import com.noduco.orders.config.OrdersProperties;
 import com.noduco.orders.domain.OrderAction;
 import com.noduco.orders.domain.OrderDocument;
 import com.noduco.orders.domain.OrderRepository;
@@ -13,19 +14,20 @@ import org.springframework.stereotype.Service;
 public class OrderService {
 
     private static final Logger log = LoggerFactory.getLogger(OrderService.class);
-    private static final String CURRENCY = "INR";
 
     private final OrderRepository repository;
     private final Clock clock;
+    private final OrdersProperties properties;
 
-    public OrderService(OrderRepository repository, Clock clock) {
+    public OrderService(OrderRepository repository, Clock clock, OrdersProperties properties) {
         this.repository = repository;
         this.clock = clock;
+        this.properties = properties;
     }
 
     public OrderDocument create(String customer, long amountPaise) {
         OrderDocument saved = repository.save(
-                new OrderDocument(customer, amountPaise, CURRENCY, Instant.now(clock)));
+                new OrderDocument(customer, amountPaise, properties.currency(), Instant.now(clock)));
         log.info("Created order {} on {}", saved.getId(), Thread.currentThread());
         return saved;
     }

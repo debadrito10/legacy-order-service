@@ -5,3 +5,11 @@ spring:
     uri: mongodb://127.0.0.1:27018/orders
 server:
   port: 18080
+noduco:
+  orders:
+    currency: INR
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health

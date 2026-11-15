@@ -37,4 +37,5 @@ Spring Boot: 4.1.2 (published 2026-10-22, 24 days old; newest final release; 4.2
 - P3: spring.mongodb.uri in application.yaml -> hosts=[127.0.0.1:27018], connected to the M6 mongod.
 - P3: conditions report: MongoAutoConfiguration + DataMongoAutoConfiguration matched (MongoClient, MongoTemplate made by Boot); 0 repositories; Jackson2 negative (Boot 4 = Jackson 3); DataSourceAutoConfiguration not present (no JDBC module); EnableTransactionManagementConfiguration did NOT match (no TransactionManager bean).
 - P3 lesson: a --arg typed on the same line as the next command became part of the file name (m6-p3-debug.txtClear-Host).
-| 2 | b) starts, health DOWN | RIGHT: app started with nothing on 27019; health took 30.2 s (MongoHealthIndicator 30004 ms = serverSelectionTimeout 30000 ms) then DOWN, HTTP <code> | evidence/m6-p3-debug.txt |
+| 2 | b) starts, health DOWN | PARTLY CONFIRMED: app started with nothing on 27019; health took 30.2 s (MongoHealthIndicator 30004 ms = serverSelectionTimeout 30000 ms) HTTP code not captured (output not pasted); re-check in P6 | console only, not saved |
+- P4: OrderStatus, OrderAction, OrderStateMachine copied from dev (M3) with git show, only the package line changed. OrderDocument (@Document orders, @Id, money as long paise) and OrderRepository (interface only) compile.

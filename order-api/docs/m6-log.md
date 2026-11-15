@@ -21,3 +21,12 @@ Spring Boot: 4.1.2 (published 2026-10-22, 24 days old; newest final release; 4.2
 ## Steps
 | Step | Result | Commit |
 |---|---|---|
+
+## Results
+| # | Prediction | Actual | Evidence |
+|---|---|---|---|
+| 1 | b) fails without DB | WRONG: passes (1 test, BUILD SUCCESS) with nothing on 27019; driver monitor thread logged Connection refused in background, no query was sent | evidence/m6-p1-build-nomongo.txt |
+
+## Notes
+- P1: SPRING_MONGODB_URI env var -> hosts=[127.0.0.1:27019], so Boot 4 reads spring.mongodb.uri (not spring.data.mongodb.uri).
+- P1: Mockito self-attaching warning (same as M5). Deferred to M8.

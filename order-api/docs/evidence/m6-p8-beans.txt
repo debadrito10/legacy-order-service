@@ -1,0 +1,52 @@
+org.springframework.boot.data.mongodb.autoconfigure.MongoDatabaseFactoryConfiguration | org.springframework.boot.data.mongodb.autoconfigure.MongoDatabaseFactoryConfiguration | singleton | 
+mongo.named-queries#0 | org.springframework.data.repository.core.support.PropertiesBasedNamedQueries | singleton | 
+org.springframework.boot.mongodb.autoconfigure.metrics.MongoMetricsAutoConfiguration$MongoConnectionPoolMetricsConfiguration | org.springframework.boot.mongodb.autoconfigure.metrics.MongoMetricsAutoConfiguration$MongoConnectionPoolMetricsConfiguration | singleton | 
+org.springframework.boot.data.mongodb.autoconfigure.DataMongoRepositoriesAutoConfiguration | org.springframework.boot.data.mongodb.autoconfigure.DataMongoRepositoriesAutoConfiguration | singleton | 
+mongoDatabaseFactory | org.springframework.data.mongodb.core.SimpleMongoClientDatabaseFactory | singleton | org.springframework.boot.data.mongodb.autoconfigure.MongoDatabaseFactoryConfiguration, mongo, spring.mongodb-org.springframework.boot.mongodb.autoconfigure.MongoProperties, mongoConnectionDetails
+orderController | com.noduco.orders.web.OrderController | singleton | orderService
+mongoConnectionPoolTagsProvider | io.micrometer.core.instrument.binder.mongodb.DefaultMongoConnectionPoolTagsProvider | singleton | org.springframework.boot.mongodb.autoconfigure.metrics.MongoMetricsAutoConfiguration$MongoConnectionPoolMetricsConfiguration
+org.springframework.boot.mongodb.autoconfigure.MongoAutoConfiguration$MongoClientSettingsConfiguration | org.springframework.boot.mongodb.autoconfigure.MongoAutoConfiguration$MongoClientSettingsConfiguration | singleton | 
+mongoMetricsConnectionPoolListenerClientSettingsBuilderCustomizer | org.springframework.boot.mongodb.autoconfigure.metrics.MongoMetricsAutoConfiguration$MongoConnectionPoolMetricsConfiguration$$Lambda/0x000000003145a3f0 | singleton | org.springframework.boot.mongodb.autoconfigure.metrics.MongoMetricsAutoConfiguration$MongoConnectionPoolMetricsConfiguration, mongoMetricsConnectionPoolListener
+lifecycleProcessor | org.springframework.context.support.DefaultLifecycleProcessor | singleton | org.springframework.boot.autoconfigure.context.LifecycleAutoConfiguration, spring.lifecycle-org.springframework.boot.autoconfigure.context.LifecycleProperties
+mongo | com.mongodb.client.internal.MongoClientImpl | singleton | org.springframework.boot.mongodb.autoconfigure.MongoAutoConfiguration, mongoClientSettings
+orderApiApplication | com.noduco.orders.OrderApiApplication | singleton | 
+org.springframework.boot.autoconfigure.context.LifecycleAutoConfiguration | org.springframework.boot.autoconfigure.context.LifecycleAutoConfiguration | singleton | 
+mongoMetricsCommandListenerClientSettingsBuilderCustomizer | org.springframework.boot.mongodb.autoconfigure.metrics.MongoMetricsAutoConfiguration$MongoCommandMetricsConfiguration$$Lambda/0x000000003145b190 | singleton | org.springframework.boot.mongodb.autoconfigure.metrics.MongoMetricsAutoConfiguration$MongoCommandMetricsConfiguration, mongoMetricsCommandListener
+orderService | com.noduco.orders.service.OrderService | singleton | orderRepository, clock, noduco.orders-com.noduco.orders.config.OrdersProperties
+mongoClientSettings | com.mongodb.MongoClientSettings | singleton | org.springframework.boot.mongodb.autoconfigure.MongoAutoConfiguration$MongoClientSettingsConfiguration
+spring.transaction-org.springframework.boot.transaction.autoconfigure.TransactionProperties | org.springframework.boot.transaction.autoconfigure.TransactionProperties | singleton | 
+mongoMappingContext | org.springframework.data.mongodb.core.mapping.MongoMappingContext | singleton | org.springframework.boot.data.mongodb.autoconfigure.DataMongoConfiguration, mongoCustomConversions, mongoManagedTypes
+org.springframework.boot.mongodb.autoconfigure.metrics.MongoMetricsAutoConfiguration | org.springframework.boot.mongodb.autoconfigure.metrics.MongoMetricsAutoConfiguration | singleton | 
+org.springframework.boot.data.mongodb.autoconfigure.DataMongoAutoConfiguration | org.springframework.boot.data.mongodb.autoconfigure.DataMongoAutoConfiguration | singleton | 
+clockConfig | com.noduco.orders.config.ClockConfig$$SpringCGLIB$$0 | singleton | 
+spring.lifecycle-org.springframework.boot.autoconfigure.context.LifecycleProperties | org.springframework.boot.autoconfigure.context.LifecycleProperties | singleton | 
+org.springframework.boot.mongodb.autoconfigure.metrics.MongoMetricsAutoConfiguration$MongoCommandMetricsConfiguration | org.springframework.boot.mongodb.autoconfigure.metrics.MongoMetricsAutoConfiguration$MongoCommandMetricsConfiguration | singleton | 
+standardMongoSettingsCustomizer | org.springframework.boot.mongodb.autoconfigure.StandardMongoClientSettingsBuilderCustomizer | singleton | org.springframework.boot.mongodb.autoconfigure.MongoAutoConfiguration$MongoClientSettingsConfiguration, spring.mongodb-org.springframework.boot.mongodb.autoconfigure.MongoProperties, mongoConnectionDetails
+orderRepository | com.noduco.orders.domain.OrderRepository | singleton | mongo.named-queries#0, mongodb.OrderRepository.fragments#0, mongoTemplate
+micrometerClock | io.micrometer.core.instrument.Clock$1 | singleton | org.springframework.boot.micrometer.metrics.autoconfigure.MetricsAutoConfiguration
+org.springframework.boot.mongodb.autoconfigure.health.MongoHealthContributorAutoConfiguration | org.springframework.boot.mongodb.autoconfigure.health.MongoHealthContributorAutoConfiguration | singleton | 
+org.springframework.boot.mongodb.autoconfigure.MongoAutoConfiguration | org.springframework.boot.mongodb.autoconfigure.MongoAutoConfiguration | singleton | 
+mongoManagedTypes | org.springframework.data.mongodb.MongoManagedTypes | singleton | org.springframework.boot.web.server.servlet.context.AnnotationConfigServletWebServerApplicationContext@32193bea
+lifecycleProbe | com.noduco.orders.config.LifecycleProbe | singleton | orderRepository, orderService
+mongoCustomConversions | org.springframework.data.mongodb.core.convert.MongoCustomConversions | singleton | org.springframework.boot.data.mongodb.autoconfigure.DataMongoConfiguration
+noduco.orders-com.noduco.orders.config.OrdersProperties | com.noduco.orders.config.OrdersProperties | singleton | org.springframework.boot.context.internalConfigurationPropertiesBinder, org.springframework.boot.context.properties.BoundConfigurationProperties
+mongoMetricsCommandListener | io.micrometer.core.instrument.binder.mongodb.MongoMetricsCommandListener | singleton | org.springframework.boot.mongodb.autoconfigure.metrics.MongoMetricsAutoConfiguration$MongoCommandMetricsConfiguration, simpleMeterRegistry, mongoCommandTagsProvider
+mongoConnectionDetails | org.springframework.boot.mongodb.autoconfigure.PropertiesMongoConnectionDetails | singleton | org.springframework.boot.mongodb.autoconfigure.MongoAutoConfiguration, spring.mongodb-org.springframework.boot.mongodb.autoconfigure.MongoProperties
+org.springframework.boot.transaction.autoconfigure.TransactionAutoConfiguration | org.springframework.boot.transaction.autoconfigure.TransactionAutoConfiguration | singleton | 
+org.springframework.boot.transaction.autoconfigure.TransactionManagerCustomizationAutoConfiguration | org.springframework.boot.transaction.autoconfigure.TransactionManagerCustomizationAutoConfiguration | singleton | 
+org.springframework.boot.data.mongodb.autoconfigure.MongoDatabaseFactoryDependentConfiguration | org.springframework.boot.data.mongodb.autoconfigure.MongoDatabaseFactoryDependentConfiguration | singleton | 
+transactionExecutionListeners | org.springframework.boot.transaction.autoconfigure.ExecutionListenersTransactionManagerCustomizer | singleton | org.springframework.boot.transaction.autoconfigure.TransactionManagerCustomizationAutoConfiguration
+mongoMetricsConnectionPoolListener | io.micrometer.core.instrument.binder.mongodb.MongoMetricsConnectionPoolListener | singleton | org.springframework.boot.mongodb.autoconfigure.metrics.MongoMetricsAutoConfiguration$MongoConnectionPoolMetricsConfiguration, simpleMeterRegistry, mongoConnectionPoolTagsProvider
+org.springframework.boot.data.mongodb.autoconfigure.DataMongoConfiguration | org.springframework.boot.data.mongodb.autoconfigure.DataMongoConfiguration | singleton | spring.data.mongodb-org.springframework.boot.data.mongodb.autoconfigure.DataMongoProperties
+clock | java.time.Clock$SystemClock | singleton | clockConfig
+mappingMongoConverter | org.springframework.data.mongodb.core.convert.MappingMongoConverter | singleton | org.springframework.boot.data.mongodb.autoconfigure.DataMongoConfiguration, mongoMappingContext, mongoCustomConversions
+mongoHealthContributor | org.springframework.boot.mongodb.health.MongoHealthIndicator | singleton | org.springframework.boot.mongodb.autoconfigure.health.MongoHealthContributorAutoConfiguration, org.springframework.beans.factory.support.DefaultListableBeanFactory@4275c20c
+gridFsTemplate | org.springframework.data.mongodb.gridfs.GridFsTemplate | singleton | org.springframework.boot.data.mongodb.autoconfigure.MongoDatabaseFactoryDependentConfiguration, spring.data.mongodb-org.springframework.boot.data.mongodb.autoconfigure.DataMongoProperties, mongoDatabaseFactory, mongoTemplate
+mongoTemplate | org.springframework.data.mongodb.core.MongoTemplate | singleton | org.springframework.boot.data.mongodb.autoconfigure.MongoDatabaseFactoryDependentConfiguration, mongoDatabaseFactory, mappingMongoConverter
+spring.mongodb-org.springframework.boot.mongodb.autoconfigure.MongoProperties | org.springframework.boot.mongodb.autoconfigure.MongoProperties | singleton | 
+mongoCommandTagsProvider | io.micrometer.core.instrument.binder.mongodb.DefaultMongoCommandTagsProvider | singleton | org.springframework.boot.mongodb.autoconfigure.metrics.MongoMetricsAutoConfiguration$MongoCommandMetricsConfiguration
+spring.data.mongodb-org.springframework.boot.data.mongodb.autoconfigure.DataMongoProperties | org.springframework.boot.data.mongodb.autoconfigure.DataMongoProperties | singleton | 
+platformTransactionManagerCustomizers | org.springframework.boot.transaction.autoconfigure.TransactionManagerCustomizers | singleton | org.springframework.boot.transaction.autoconfigure.TransactionManagerCustomizationAutoConfiguration
+HANDLER | com.noduco.orders.web.OrderController#get(String)
+HANDLER | com.noduco.orders.web.OrderController#act(String, OrderAction)
+HANDLER | com.noduco.orders.web.OrderController#create(CreateOrderRequest)

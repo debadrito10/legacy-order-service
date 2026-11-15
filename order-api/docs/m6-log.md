@@ -30,3 +30,6 @@ Spring Boot: 4.1.2 (published 2026-10-22, 24 days old; newest final release; 4.2
 ## Notes
 - P1: SPRING_MONGODB_URI env var -> hosts=[127.0.0.1:27019], so Boot 4 reads spring.mongodb.uri (not spring.data.mongodb.uri).
 - P1: Mockito self-attaching warning (same as M5). Deferred to M8.
+- P2: effective pom: java.version 25 -> maven.compiler.release 25 (property, line 161); compiler plugin 3.15.0 chosen by Boot BOM; parameters=true.
+- P2: tree: autoconfigure 4.1.2, mongodb-driver-sync 5.8.1, spring-tx 7.0.10, jackson-databind 3.1.7 (tools.jackson), tomcat-embed-core 11.0.27 = compile; junit-jupiter-api 6.0.3, mockito-core 5.23.0 = test. No versions in my pom: all from the parent BOM.
+- P2: OWED in my own words: (1) where starter versions come from, (2) why JUnit is test scope, (3) why spring-tx is present.

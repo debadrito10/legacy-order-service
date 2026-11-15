@@ -42,3 +42,5 @@ Spring Boot: 4.1.2 (published 2026-10-22, 24 days old; newest final release; 4.2
 | 3 | c) 204 No Content | WRONG: 201 Created + Location /orders/<ObjectId>; createdAt ISO-8601 Z (Jackson 3); POST 17:40:31.624539100Z vs GET .624Z = Mongo stores milliseconds | evidence/m6-p5-calls.txt |
 - P5: GET 200 NEW, PAY 200 PAID, PAY again 409 (state machine), unknown id 404 (OrderNotFoundException), REFUND 400 (Spring rejected before my code; different error JSON shape -> fix in M7).
 - P5: starting a 2nd copy of the app -> "Port 18080 was already in use", APPLICATION FAILED TO START (fail fast).
+| 4 | not sure | RUN 3 env NODUCO_ORDERS_CURRENCY=USD over yaml INR -> USD. RUN 4 env USD + --noduco.orders.currency=EUR -> {"id":"6afa12f7ef43106c6823e4d1","customer":"Asha","amountPaise":100,"currency":"EUR","status":"NEW","createdAt":"2026-11-15T20:15:51.257303500Z"} | evidence/m6-p6-profiles.txt |
+- P6: no profile: /actuator/beans 404, 1 endpoint exposed. --spring.profiles.active=dev: 200, 5 endpoints. Request thread = http-nio-18080-exec-3 (Tomcat platform thread).

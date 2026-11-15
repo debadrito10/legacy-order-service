@@ -1,0 +1,48 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20261116013338
+Username: DEXTER\DEBADRITA DE
+RunAs User: DEXTER\DEBADRITA DE
+Configuration Name: 
+Machine: DEXTER (Microsoft Windows NT 10.0.26300.0)
+Host Application: powershell.exe -NoExit -ExecutionPolicy Bypass -File C:\Program Files\JetBrains\IntelliJ IDEA 2026.1\plugins\terminal\shell-integrations\powershell\powershell-integration.ps1
+Process ID: 4336
+PSVersion: 5.1.26100.9818
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.9818
+BuildVersion: 10.0.26100.9818
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is order-api\docs\evidence\m6-p6-profiles.txt
+]1341;command_finished;exit_code=0;current_directory=433A5C6A6176612D70726163746963655C6C65676163792D6F726465722D73657276696365]1341;prompt_startedPS C:\java-practice\legacy-order-service> ]1341;prompt_finished
+PS>function New-Order { (Invoke-WebRequest -UseBasicParsing -Method Post -Uri http://localhost:18080/orders -ContentType 'application/json' -Body (@{ customer = 'Asha'; amountPaise = 100 } | ConvertTo-Json)).Content }
+]1341;command_finished;exit_code=0;current_directory=433A5C6A6176612D70726163746963655C6C65676163792D6F726465722D73657276696365]1341;prompt_startedPS C:\java-practice\legacy-order-service> ]1341;prompt_finished
+PS>curl.exe -s -o NUL -w '%{http_code}' http://localhost:18080/actuator/beans
+404
+]1341;command_finished;exit_code=0;current_directory=433A5C6A6176612D70726163746963655C6C65676163792D6F726465722D73657276696365]1341;prompt_startedPS C:\java-practice\legacy-order-service> ]1341;prompt_finished
+PS>curl.exe -s -o NUL -w '%{http_code}' http://localhost:18080/actuator/beans
+000
+]1341;command_finished;exit_code=1;current_directory=433A5C6A6176612D70726163746963655C6C65676163792D6F726465722D73657276696365]1341;prompt_startedPS C:\java-practice\legacy-order-service> ]1341;prompt_finished
+PS>curl.exe -s -o NUL -w '%{http_code}' http://localhost:18080/actuator/beans
+200
+]1341;command_finished;exit_code=0;current_directory=433A5C6A6176612D70726163746963655C6C65676163792D6F726465722D73657276696365]1341;prompt_startedPS C:\java-practice\legacy-order-service> ]1341;prompt_finished
+PS>New-Order
+{"id":"6afa112ee2eab55dcaca2aba","customer":"Asha","amountPaise":100,"currency":"USD","status":"NEW","createdAt":"2026-11-15T20:08:14.698378200Z"}
+]1341;command_finished;exit_code=0;current_directory=433A5C6A6176612D70726163746963655C6C65676163792D6F726465722D73657276696365]1341;prompt_startedPS C:\java-practice\legacy-order-service> ]1341;prompt_finished
+PS>$r4 = New-Order
+]1341;command_finished;exit_code=0;current_directory=433A5C6A6176612D70726163746963655C6C65676163792D6F726465722D73657276696365]1341;prompt_startedPS C:\java-practice\legacy-order-service> ]1341;prompt_finished
+]1341;prompt_startedPS C:\java-practice\legacy-order-service> ]1341;prompt_finished
+PS>java -jar order-api\target\order-api-0.0.1-SNAPSHOT.jar --spring.profiles.active=dev --noduco.orders.currency=EUR
+
+]1341;command_finished;exit_code=1;current_directory=433A5C6A6176612D70726163746963655C6C65676163792D6F726465722D73657276696365]1341;prompt_startedPS C:\java-practice\legacy-order-service> ]1341;prompt_finished
+PS>$r4
+{"id":"6afa12f7ef43106c6823e4d1","customer":"Asha","amountPaise":100,"currency":"EUR","status":"NEW","createdAt":"2026-11-15T20:15:51.257303500Z"}
+]1341;command_finished;exit_code=0;current_directory=433A5C6A6176612D70726163746963655C6C65676163792D6F726465722D73657276696365]1341;prompt_startedPS C:\java-practice\legacy-order-service> ]1341;prompt_finished
+PS>Stop-Transcript
+**********************
+Windows PowerShell transcript end
+End time: 20261116015708
+**********************

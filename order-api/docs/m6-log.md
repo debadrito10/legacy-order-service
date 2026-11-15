@@ -33,3 +33,8 @@ Spring Boot: 4.1.2 (published 2026-10-22, 24 days old; newest final release; 4.2
 - P2: effective pom: java.version 25 -> maven.compiler.release 25 (property, line 161); compiler plugin 3.15.0 chosen by Boot BOM; parameters=true.
 - P2: tree: autoconfigure 4.1.2, mongodb-driver-sync 5.8.1, spring-tx 7.0.10, jackson-databind 3.1.7 (tools.jackson), tomcat-embed-core 11.0.27 = compile; junit-jupiter-api 6.0.3, mockito-core 5.23.0 = test. No versions in my pom: all from the parent BOM.
 - P2: OWED in my own words: (1) where starter versions come from, (2) why JUnit is test scope, (3) why spring-tx is present.
+- P3: no URI configured -> driver default hosts=[localhost:27017] = the MongoDB SERVICE, health UP (200). Silent wrong-database trap: nothing failed.
+- P3: spring.mongodb.uri in application.yaml -> hosts=[127.0.0.1:27018], connected to the M6 mongod.
+- P3: conditions report: MongoAutoConfiguration + DataMongoAutoConfiguration matched (MongoClient, MongoTemplate made by Boot); 0 repositories; Jackson2 negative (Boot 4 = Jackson 3); DataSourceAutoConfiguration not present (no JDBC module); EnableTransactionManagementConfiguration did NOT match (no TransactionManager bean).
+- P3 lesson: a --arg typed on the same line as the next command became part of the file name (m6-p3-debug.txtClear-Host).
+| 2 | b) starts, health DOWN | RIGHT: app started with nothing on 27019; health took 30.2 s (MongoHealthIndicator 30004 ms = serverSelectionTimeout 30000 ms) then DOWN, HTTP <code> | evidence/m6-p3-debug.txt |

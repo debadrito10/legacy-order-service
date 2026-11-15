@@ -10,13 +10,13 @@ Spring Boot: 4.1.2 (published 2026-10-22, 24 days old; newest final release; 4.2
 ## Predictions (written before P1)
 | # | Question | My prediction |
 |---|---|---|
-| 1 | P1: does the generated test pass with MongoDB stopped? | |
-| 2 | P3: does the app start with MongoDB stopped? What does /actuator/health say? | |
-| 3 | P5: status code of POST /orders, and how createdAt looks in the JSON | |
-| 4 | P6: env var NODUCO_ORDERS_CURRENCY=USD and --noduco.orders.currency=EUR both set: which wins? | |
-| 5 | P7: order of constructor, @PostConstruct, ApplicationReadyEvent, @PreDestroy | |
-| 6 | P7: two Clock beans and one constructor asking for Clock: what happens and when? | |
-| 7 | P10: @Transactional on a service method, standalone MongoDB, no transaction manager: what happens? | |
+| 1 | P1: does the generated test pass with MongoDB stopped? | b) fails, the app needs the database to start |
+| 2 | P3: does the app start with MongoDB stopped? What does /actuator/health say? | b) starts, but health says DOWN |
+| 3 | P5: status code of POST /orders, and how createdAt looks in the JSON | c) 204 No Content |
+| 4 | P6: env var NODUCO_ORDERS_CURRENCY=USD and --noduco.orders.currency=EUR both set: which wins? | not sure |
+| 5 | P7: order of constructor, @PostConstruct, ApplicationReadyEvent, @PreDestroy | a) constructor, @PostConstruct, app ready, @PreDestroy |
+| 6 | P7: two Clock beans and one constructor asking for Clock: what happens and when? | b) Spring picks one quietly and the app starts |
+| 7 | P10: @Transactional on a service method, standalone MongoDB, no transaction manager: what happens? | not sure |
 
 ## Steps
 | Step | Result | Commit |

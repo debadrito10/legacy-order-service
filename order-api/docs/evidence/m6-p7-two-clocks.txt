@@ -1,0 +1,38 @@
+2026-11-16T02:59:54.040+05:30  INFO 29384 --- [order-api] [main] com.noduco.orders.OrderApiApplication    : Starting OrderApiApplication v0.0.1-SNAPSHOT using Java 25.0.5 with PID 29384 (C:\java-practice\legacy-order-service\order-api\target\order-api-0.0.1-SNAPSHOT.jar started by DEBADRITA DE in C:\java-practice\legacy-order-service)
+2026-11-16T02:59:54.043+05:30  INFO 29384 --- [order-api] [main] com.noduco.orders.OrderApiApplication    : No active profile set, falling back to 1 default profile: "default"
+2026-11-16T02:59:54.614+05:30  INFO 29384 --- [order-api] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2026-11-16T02:59:54.651+05:30  INFO 29384 --- [order-api] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 28 ms. Found 1 MongoDB repository interface.
+2026-11-16T02:59:55.053+05:30  INFO 29384 --- [order-api] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 18080 (http)
+2026-11-16T02:59:55.064+05:30  INFO 29384 --- [order-api] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-11-16T02:59:55.064+05:30  INFO 29384 --- [order-api] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.27]
+2026-11-16T02:59:55.089+05:30  INFO 29384 --- [order-api] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 996 ms
+2026-11-16T02:59:55.352+05:30  INFO 29384 --- [order-api] [main] org.mongodb.driver.client                : MongoClient with metadata {"driver": {"name": "mongo-java-driver|spring-boot|sync", "version": "5.8.1"}, "os": {"type": "Windows", "name": "Windows 11", "architecture": "amd64", "version": "10.0"}, "platform": "Java/Eclipse Adoptium/25.0.5+8-LTS"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=null, transportSettings=null, commandListeners=[io.micrometer.core.instrument.binder.mongodb.MongoMetricsCommandListener@c412556], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@6f930e0, com.mongodb.Jep395RecordCodecProvider@450f0235, com.mongodb.KotlinCodecProvider@78c262ba, EnumCodecProvider{}]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[127.0.0.1:27018], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[io.micrometer.core.instrument.binder.mongodb.MongoMetricsConnectionPoolListener@7d2c9361], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverMonitoringMode=AUTO, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=UNSPECIFIED, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null, timeoutMS=null}
+2026-11-16T02:59:55.373+05:30  INFO 29384 --- [order-api] [cluster-6afa24531396c804ea078729-127.0.0.1:27018] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27018, type=STANDALONE, cryptd=false, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=28, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=17798300, minRoundTripTimeNanos=0}
+2026-11-16T02:59:55.603+05:30  WARN 29384 --- [order-api] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'lifecycleProbe' defined in URL [jar:nested:/C:/java-practice/legacy-order-service/order-api/target/order-api-0.0.1-SNAPSHOT.jar/!BOOT-INF/classes/!/com/noduco/orders/config/LifecycleProbe.class]: Unsatisfied dependency expressed through constructor parameter 1: Error creating bean with name 'orderService' defined in URL [jar:nested:/C:/java-practice/legacy-order-service/order-api/target/order-api-0.0.1-SNAPSHOT.jar/!BOOT-INF/classes/!/com/noduco/orders/service/OrderService.class]: Unsatisfied dependency expressed through constructor parameter 1: No qualifying bean of type 'java.time.Clock' available: expected single matching bean but found 2: utcClock,indiaClock
+2026-11-16T02:59:55.608+05:30  INFO 29384 --- [order-api] [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2026-11-16T02:59:55.622+05:30  INFO 29384 --- [order-api] [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-11-16T02:59:55.635+05:30 ERROR 29384 --- [order-api] [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 1 of constructor in com.noduco.orders.service.OrderService required a single bean, but 2 were found:
+	- utcClock: defined by method 'utcClock' in class path resource [com/noduco/orders/config/ClockConfig.class]
+	- indiaClock: defined by method 'indiaClock' in class path resource [com/noduco/orders/config/ClockConfig.class]
+
+This may be due to missing parameter name information
+
+Action:
+
+Consider marking one of the beans as @Primary, updating the consumer to accept multiple beans, or using @Qualifier to identify the bean that should be consumed
+
+Ensure that your compiler is configured to use the '-parameters' flag.
+You may need to update both your build tool settings as well as your IDE.
+(See https://github.com/spring-projects/spring-framework/wiki/Spring-Framework-6.1-Release-Notes#parameter-name-retention)
+
+

@@ -1,0 +1,53 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20261115231031
+Username: DEXTER\DEBADRITA DE
+RunAs User: DEXTER\DEBADRITA DE
+Configuration Name: 
+Machine: DEXTER (Microsoft Windows NT 10.0.26300.0)
+Host Application: powershell.exe -NoExit -ExecutionPolicy Bypass -File C:\Program Files\JetBrains\IntelliJ IDEA 2026.1\plugins\terminal\shell-integrations\powershell\powershell-integration.ps1
+Process ID: 4336
+PSVersion: 5.1.26100.9818
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.9818
+BuildVersion: 10.0.26100.9818
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is order-api\docs\evidence\m6-p5-calls.txt
+]1341;command_finished;exit_code=0;current_directory=433A5C6A6176612D70726163746963655C6C65676163792D6F726465722D73657276696365]1341;prompt_startedPS C:\java-practice\legacy-order-service> ]1341;prompt_finished
+PS>$r = Invoke-WebRequest -UseBasicParsing -Method Post -Uri http://localhost:18080/orders -ContentType 'application/json' -Body (@{ customer = 'Asha'; amountPaise = 10000 } | ConvertTo-Json)
+]1341;command_finished;exit_code=0;current_directory=433A5C6A6176612D70726163746963655C6C65676163792D6F726465722D73657276696365]1341;prompt_startedPS C:\java-practice\legacy-order-service> ]1341;prompt_finished
+PS>"STATUS: $($r.StatusCode)"
+STATUS: 201
+]1341;command_finished;exit_code=0;current_directory=433A5C6A6176612D70726163746963655C6C65676163792D6F726465722D73657276696365]1341;prompt_startedPS C:\java-practice\legacy-order-service> ]1341;prompt_finished
+PS>"LOCATION: $($r.Headers.Location)"
+LOCATION: /orders/6af9ee8f8e14a4e1160be9cf
+]1341;command_finished;exit_code=0;current_directory=433A5C6A6176612D70726163746963655C6C65676163792D6F726465722D73657276696365]1341;prompt_startedPS C:\java-practice\legacy-order-service> ]1341;prompt_finished
+PS>"BODY: $($r.Content)"
+BODY: {"id":"6af9ee8f8e14a4e1160be9cf","customer":"Asha","amountPaise":10000,"currency":"INR","status":"NEW","createdAt":"2026-11-15T17:40:31.624539100Z"}
+]1341;command_finished;exit_code=0;current_directory=433A5C6A6176612D70726163746963655C6C65676163792D6F726465722D73657276696365]1341;prompt_startedPS C:\java-practice\legacy-order-service> ]1341;prompt_finished
+PS>$id = ($r.Content | ConvertFrom-Json).id
+]1341;command_finished;exit_code=0;current_directory=433A5C6A6176612D70726163746963655C6C65676163792D6F726465722D73657276696365]1341;prompt_startedPS C:\java-practice\legacy-order-service> ]1341;prompt_finished
+PS>curl.exe -s -i http://localhost:18080/orders/$id
+{"id":"6af9ee8f8e14a4e1160be9cf","customer":"Asha","amountPaise":10000,"currency":"INR","status":"NEW","createdAt":"2026-11-15T17:40:31.624Z"}
+]1341;command_finished;exit_code=0;current_directory=433A5C6A6176612D70726163746963655C6C65676163792D6F726465722D73657276696365]1341;prompt_startedPS C:\java-practice\legacy-order-service> ]1341;prompt_finished
+PS>curl.exe -s -i -X POST http://localhost:18080/orders/$id/actions/PAY
+{"id":"6af9ee8f8e14a4e1160be9cf","customer":"Asha","amountPaise":10000,"currency":"INR","status":"PAID","createdAt":"2026-11-15T17:40:31.624Z"}
+]1341;command_finished;exit_code=0;current_directory=433A5C6A6176612D70726163746963655C6C65676163792D6F726465722D73657276696365]1341;prompt_startedPS C:\java-practice\legacy-order-service> ]1341;prompt_finished
+PS>curl.exe -s -i -X POST http://localhost:18080/orders/$id/actions/PAY
+{"error":"Cannot PAY an order that is PAID"}
+]1341;command_finished;exit_code=0;current_directory=433A5C6A6176612D70726163746963655C6C65676163792D6F726465722D73657276696365]1341;prompt_startedPS C:\java-practice\legacy-order-service> ]1341;prompt_finished
+PS>curl.exe -s -i http://localhost:18080/orders/does-not-exist
+{"error":"Order not found: does-not-exist"}
+]1341;command_finished;exit_code=0;current_directory=433A5C6A6176612D70726163746963655C6C65676163792D6F726465722D73657276696365]1341;prompt_startedPS C:\java-practice\legacy-order-service> ]1341;prompt_finished
+PS>curl.exe -s -i -X POST http://localhost:18080/orders/$id/actions/REFUND
+{"timestamp":"2026-11-15T17:40:32.214Z","status":400,"error":"Bad Request","path":"/orders/6af9ee8f8e14a4e1160be9cf/actions/REFUND"}
+]1341;command_finished;exit_code=0;current_directory=433A5C6A6176612D70726163746963655C6C65676163792D6F726465722D73657276696365]1341;prompt_startedPS C:\java-practice\legacy-order-service> ]1341;prompt_finished
+PS>Stop-Transcript
+**********************
+Windows PowerShell transcript end
+End time: 20261115231034
+**********************

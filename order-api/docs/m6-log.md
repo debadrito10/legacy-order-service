@@ -39,3 +39,6 @@ Spring Boot: 4.1.2 (published 2026-10-22, 24 days old; newest final release; 4.2
 - P3 lesson: a --arg typed on the same line as the next command became part of the file name (m6-p3-debug.txtClear-Host).
 | 2 | b) starts, health DOWN | PARTLY CONFIRMED: app started with nothing on 27019; health took 30.2 s (MongoHealthIndicator 30004 ms = serverSelectionTimeout 30000 ms) HTTP code not captured (output not pasted); re-check in P6 | console only, not saved |
 - P4: OrderStatus, OrderAction, OrderStateMachine copied from dev (M3) with git show, only the package line changed. OrderDocument (@Document orders, @Id, money as long paise) and OrderRepository (interface only) compile.
+| 3 | c) 204 No Content | WRONG: 201 Created + Location /orders/<ObjectId>; createdAt ISO-8601 Z (Jackson 3); POST 17:40:31.624539100Z vs GET .624Z = Mongo stores milliseconds | evidence/m6-p5-calls.txt |
+- P5: GET 200 NEW, PAY 200 PAID, PAY again 409 (state machine), unknown id 404 (OrderNotFoundException), REFUND 400 (Spring rejected before my code; different error JSON shape -> fix in M7).
+- P5: starting a 2nd copy of the app -> "Port 18080 was already in use", APPLICATION FAILED TO START (fail fast).

@@ -2,7 +2,7 @@ spring:
   application:
     name: order-api
   mongodb:
-    uri: mongodb://127.0.0.1:27018/orders
+    uri: mongodb://127.0.0.1:27018/orders-m7
 server:
   port: 18080
 noduco:
@@ -13,3 +13,4 @@ management:
     web:
       exposure:
         include: health
+

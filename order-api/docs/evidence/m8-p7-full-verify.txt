@@ -1,0 +1,28 @@
+
+[INFO] Building order-api 0.0.1-SNAPSHOT
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.288 s -- in 
+com.noduco.orders.domain.OrderStateMachineTests
+Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the 
+JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: 
+https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.812 s -- in 
+com.noduco.orders.it.MongoBehaviourContainerTests
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.594 s -- in 
+com.noduco.orders.OpenApiCompatibilityTests
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.576 s -- in 
+com.noduco.orders.OrderApiApplicationTests
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.306 s -- in 
+com.noduco.orders.OrderConcurrencyTests
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.053 s -- in com.noduco.orders.OrderFlowTests
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.309 s -- in 
+com.noduco.orders.service.OrderServiceTests
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.029 s -- in 
+com.noduco.orders.web.OrderControllerWebTests
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.130 s -- in 
+com.noduco.orders.web.OrderResponseContractTests
+[INFO] Tests run: 36, Failures: 0, Errors: 0, Skipped: 0
+[INFO] Building jar: C:\java-practice\legacy-order-service\order-api\target\order-api-0.0.1-SNAPSHOT.jar
+[INFO] BUILD SUCCESS
+
+
+

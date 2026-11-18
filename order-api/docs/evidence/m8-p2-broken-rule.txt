@@ -1,0 +1,17 @@
+
+[INFO] Building order-api 0.0.1-SNAPSHOT
+[ERROR] Tests run: 13, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.220 s <<< FAILURE! -- in 
+com.noduco.orders.domain.OrderStateMachineTests
+org.opentest4j.AssertionFailedError: expected: <CANCELLED> but was: <PAID>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:158)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:139)
+org.opentest4j.AssertionFailedError: expected: <CANCELLED> but was: <PAID>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:158)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:139)
+[ERROR]   OrderStateMachineTests.allowedTransitions:22 expected: <CANCELLED> but was: <PAID>
+[ERROR]   OrderStateMachineTests.allowedTransitions:22 expected: <CANCELLED> but was: <PAID>
+[ERROR] Tests run: 13, Failures: 2, Errors: 0, Skipped: 0
+[INFO] BUILD FAILURE
+
+
+

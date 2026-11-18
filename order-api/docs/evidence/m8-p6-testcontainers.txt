@@ -1,0 +1,15 @@
+
+[INFO] Building order-api 0.0.1-SNAPSHOT
+23:05:44.903 [main] INFO tc.testcontainers/ryuk:0.14.0 -- Container testcontainers/ryuk:0.14.0 started in PT0.670115S
+23:05:46.020 [main] INFO tc.mirror.gcr.io/library/mongo:8.0 -- Container mirror.gcr.io/library/mongo:8.0 started in 
+PT1.0900643S
+Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the 
+JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: 
+https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.866 s -- in 
+com.noduco.orders.it.MongoBehaviourContainerTests
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
+[INFO] BUILD SUCCESS
+
+
+

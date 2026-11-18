@@ -1,7 +1,9 @@
 package com.noduco.orders;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import com.noduco.orders.domain.IdempotencyRepository;
 import com.noduco.orders.domain.OrderRepository;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -31,11 +33,15 @@ class OrderConcurrencyTests {
     @Autowired
     OrderRepository orders;
 
+    @Autowired
+    IdempotencyRepository idempotency;
+
     private final HttpClient http = HttpClient.newHttpClient();
 
     @BeforeEach
     void cleanTestDatabase() {
         orders.deleteAll();
+        idempotency.deleteAll();
     }
 
     @Test
@@ -47,6 +53,16 @@ class OrderConcurrencyTests {
 
         System.out.println("PAY race status codes: " + codes);
         assertEquals(1L, codes.stream().filter(c -> c == 200).count(), "exactly one PAY may succeed: " + codes);
+    }
+
+    @Test
+    void concurrentDuplicateCreateMakesOneOrder() throws Exception {
+        List<Integer> codes = race(10, () -> send("POST", "/orders", "{\"customer\":\"Retry\",\"amountPaise\":700}",
+                "Idempotency-Key", "retry-1").statusCode());
+
+        System.out.println("Duplicate create status codes: " + codes + ", orders in db: " + orders.count());
+        assertEquals(1L, orders.count(), "one key must create exactly one order: " + codes);
+        assertTrue(codes.stream().allMatch(c -> c == 201 || c == 409), codes.toString());
     }
 
     static <T> List<T> race(int threads, Callable<T> task) throws Exception {
@@ -82,3 +98,4 @@ class OrderConcurrencyTests {
         return http.send(request.build(), HttpResponse.BodyHandlers.ofString());
     }
 }
+

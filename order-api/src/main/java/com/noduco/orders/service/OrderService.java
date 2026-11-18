@@ -8,7 +8,7 @@ import com.noduco.orders.domain.OrderDocument;
 import com.noduco.orders.domain.OrderRepository;
 import java.time.Clock;
 import java.time.Instant;
-import java.util.Optional;
+import org.springframework.dao.DuplicateKeyException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -48,12 +48,13 @@ public class OrderService {
         }
         String fingerprint = customer + "|" + amountPaise;
 
-        // NAIVE CLAIM: look first, then save. Two steps.
-        Optional<IdempotencyRecord> existing = idempotency.findById(key);
-        if (existing.isPresent()) {
-            return replay(existing.get(), fingerprint);
+        // ATOMIC CLAIM: insert fails if the key (_id) already exists. One step, decided by MongoDB.
+        IdempotencyRecord claim;
+        try {
+            claim = idempotency.insert(new IdempotencyRecord(key, fingerprint, null, Instant.now(clock)));
+        } catch (DuplicateKeyException e) {
+            return replay(idempotency.findById(key).orElseThrow(() -> new IdempotencyInProgressException(key)), fingerprint);
         }
-        IdempotencyRecord claim = idempotency.save(new IdempotencyRecord(key, fingerprint, null, Instant.now(clock)));
 
         try {
             OrderDocument order = create(customer, amountPaise);
@@ -94,3 +95,4 @@ public class OrderService {
         return repository.save(order);
     }
 }
+

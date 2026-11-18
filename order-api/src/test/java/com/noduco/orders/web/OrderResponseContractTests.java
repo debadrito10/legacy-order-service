@@ -42,7 +42,7 @@ class OrderResponseContractTests {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.id").value("o1"))
                 .andExpect(jsonPath("$.customer").value("Asha"))
-                .andExpect(jsonPath("$.amountPaise").value(500))
+                .andExpect(jsonPath("$.amount").value(500))
                 .andExpect(jsonPath("$.currency").value("INR"))
                 .andExpect(jsonPath("$.status").value("NEW"))
                 .andExpect(jsonPath("$.createdAt").value("2026-11-18T10:00:00Z"));
@@ -56,3 +56,4 @@ class OrderResponseContractTests {
                 .andExpect(status().isCreated());
     }
 }
+

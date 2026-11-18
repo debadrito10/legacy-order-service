@@ -76,6 +76,17 @@ public class OrderService {
         return new CreateResult(get(record.orderId()), true);
     }
 
+    public OrderDocument addNote(String id, String note) {
+        try {
+            OrderDocument order = get(id);
+            order.setNote(note);
+            log.info("Note added to order {} for customer {}: {}", id, order.getCustomer(), note);
+            return repository.save(order);
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
     public OrderDocument get(String id) {
         return repository.findById(id).orElseThrow(() -> new OrderNotFoundException(id));
     }
@@ -95,4 +106,5 @@ public class OrderService {
         return repository.save(order);
     }
 }
+
 

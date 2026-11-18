@@ -15,6 +15,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -50,6 +51,11 @@ public class OrderController {
         return PageResponse.from(service.list(page, size));
     }
 
+    @PutMapping("/{id}/note")
+    public OrderResponse note(@PathVariable String id, @RequestBody String note) {
+        return OrderResponse.from(service.addNote(id, note));
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<OrderResponse> get(@PathVariable String id) {
         return withVersion(service.get(id));
@@ -68,5 +74,6 @@ public class OrderController {
                 .body(OrderResponse.from(order));
     }
 }
+
 
 

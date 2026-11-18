@@ -16,3 +16,4 @@ Database for M7 manual runs: orders-m7 on 127.0.0.1:27018 (fresh, so every order
 
 ## Steps
 - P0: branch m7-rest-contract from m6-spring-boot; manual runs use db orders-m7 (old-db order -> 404 proves new jar); helper m7-api.ps1 (curl via files); smoke POST 201 + GET 200. Lesson: start Window A only after the build prompt returns (jar locked before port 18080 opens).
+- P1: validation starter + @NotBlank/@Size/@Positive/@Max on CreateOrderRequest. Without @Valid: 201, order SAVED with customer "" and amount -5 (pred 1 WRONG: annotations alone do nothing). With @Valid: 400, 400, 201 (pred 2 RIGHT: default {timestamp,status,error,path}, application/json, no field names). Evidence: evidence/m7-p1-validation.txt. (@Valid line itself committed with P2, controller rewritten there.)

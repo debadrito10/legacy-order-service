@@ -1,0 +1,36 @@
+HTTP/1.1 201 
+X-Correlation-Id: demo-123
+Location: /orders/6afdb6f3be42dd9dbd74f86e
+ETag: "0"
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Wed, 18 Nov 2026 14:32:19 GMT
+
+{"id":"6afdb6f3be42dd9dbd74f86e","customer":"Corr","amountPaise":400,"currency":"INR","status":"NEW","createdAt":"2026-11-18T14:32:19.088126300Z"}
+
+HTTP/1.1 404 
+X-Correlation-Id: demo-404
+Content-Type: application/problem+json
+Transfer-Encoding: chunked
+Date: Wed, 18 Nov 2026 14:32:19 GMT
+
+{"detail":"Order not found: does-not-exist","instance":"/orders/does-not-exist","status":404,"title":"Order not found","type":"https://noduco.example/problems/order-not-found","correlationId":"demo-404"}
+
+HTTP/1.1 200 
+X-Correlation-Id: 1f26e2ba-5a1e-4a3f-b0db-62c85fc399b3
+Cache-Control: no-cache
+ETag: "0"
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Wed, 18 Nov 2026 14:32:19 GMT
+
+{"id":"6afdb6f3be42dd9dbd74f86e","customer":"Corr","amountPaise":400,"currency":"INR","status":"NEW","createdAt":"2026-11-18T14:32:19.088Z"}
+
+HTTP/1.1 404 
+X-Correlation-Id: 65202fc1-14dc-4c6f-b6d1-8317e8c25230
+Content-Type: application/problem+json
+Transfer-Encoding: chunked
+Date: Wed, 18 Nov 2026 14:32:19 GMT
+
+{"detail":"Order not found: x","instance":"/orders/x","status":404,"title":"Order not found","type":"https://noduco.example/problems/order-not-found","correlationId":"65202fc1-14dc-4c6f-b6d1-8317e8c25230"}
+

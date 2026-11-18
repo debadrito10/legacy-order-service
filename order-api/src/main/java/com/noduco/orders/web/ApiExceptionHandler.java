@@ -7,6 +7,7 @@ import java.net.URI;
 import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.slf4j.MDC;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
@@ -78,12 +79,23 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
         return handleExceptionInternal(ex, body, headers, status, request);
     }
 
+    @Override
+    protected ResponseEntity<Object> handleExceptionInternal(Exception ex, Object body, HttpHeaders headers,
+            HttpStatusCode statusCode, WebRequest request) {
+        if (body instanceof ProblemDetail p) {
+            p.setProperty("correlationId", MDC.get(CorrelationIdFilter.MDC_KEY));
+        }
+        return super.handleExceptionInternal(ex, body, headers, statusCode, request);
+    }
+
     static ProblemDetail problem(HttpStatus status, String type, String title, String detail) {
         ProblemDetail p = ProblemDetail.forStatusAndDetail(status, detail);
         p.setType(URI.create(BASE + type));
         p.setTitle(title);
+        p.setProperty("correlationId", MDC.get(CorrelationIdFilter.MDC_KEY));
         return p;
     }
 }
+
 
 

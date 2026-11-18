@@ -1,0 +1,60 @@
+HTTP/1.1 400 
+Content-Type: application/problem+json
+Transfer-Encoding: chunked
+Date: Wed, 18 Nov 2026 10:36:48 GMT
+Connection: close
+
+{"detail":"Invalid request content.","instance":"/orders","status":400,"title":"Invalid request","type":"https://noduco.example/problems/validation","errors":[{"message":"must be greater than 0","field":"amountPaise"},{"message":"must not be blank","field":"customer"}]}
+
+HTTP/1.1 404 
+Content-Type: application/problem+json
+Transfer-Encoding: chunked
+Date: Wed, 18 Nov 2026 10:36:48 GMT
+
+{"detail":"Order not found: does-not-exist","instance":"/orders/does-not-exist","status":404,"title":"Order not found","type":"https://noduco.example/problems/order-not-found"}
+
+HTTP/1.1 201 
+Location: /orders/6afd7fc015a74fc99cc23357
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Wed, 18 Nov 2026 10:36:48 GMT
+
+{"id":"6afd7fc015a74fc99cc23357","customer":"Asha","amountPaise":500,"currency":"INR","status":"NEW","createdAt":"2026-11-18T10:36:48.426183200Z"}
+
+HTTP/1.1 200 
+Content-Type: application/json
+Content-Length: 141
+Date: Wed, 18 Nov 2026 10:36:48 GMT
+
+{"id":"6afd7fc015a74fc99cc23357","customer":"Asha","amountPaise":500,"currency":"INR","status":"PAID","createdAt":"2026-11-18T10:36:48.426Z"}
+
+HTTP/1.1 409 
+Content-Type: application/problem+json
+Transfer-Encoding: chunked
+Date: Wed, 18 Nov 2026 10:36:48 GMT
+
+{"detail":"Cannot PAY an order that is PAID","instance":"/orders/6afd7fc015a74fc99cc23357/actions/PAY","status":409,"title":"Action not allowed","type":"https://noduco.example/problems/invalid-transition"}
+
+HTTP/1.1 400 
+Content-Type: application/problem+json
+Transfer-Encoding: chunked
+Date: Wed, 18 Nov 2026 10:36:48 GMT
+Connection: close
+
+{"detail":"Failed to convert 'action' with value: 'REFUND'","instance":"/orders/6afd7fc015a74fc99cc23357/actions/REFUND","status":400,"title":"Bad Request"}
+
+HTTP/1.1 405 
+Allow: POST
+Content-Type: application/problem+json
+Transfer-Encoding: chunked
+Date: Wed, 18 Nov 2026 10:36:48 GMT
+
+{"detail":"Method 'GET' is not supported.","instance":"/orders/6afd7fc015a74fc99cc23357/actions/PAY","status":405,"title":"Method Not Allowed"}
+
+HTTP/1.1 404 
+Content-Type: application/problem+json
+Transfer-Encoding: chunked
+Date: Wed, 18 Nov 2026 10:36:48 GMT
+
+{"detail":"No static resource nope.","instance":"/nope","status":404,"title":"Not Found"}
+

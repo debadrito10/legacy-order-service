@@ -1,0 +1,19 @@
+
+[INFO] Building order-api 0.0.1-SNAPSHOT
+2026-11-18T22:43:32.432+05:30  WARN [] 27236 --- [order-api] [           main] o.s.w.c.s.GenericWebApplicationContext   
+: Exception encountered during context initialization - cancelling refresh attempt: 
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'orderController' 
+defined in file 
+[C:\java-practice\legacy-order-service\order-api\target\classes\com\noduco\orders\web\OrderController.class]: 
+Unsatisfied dependency expressed through constructor parameter 0: No qualifying bean of type 
+'com.noduco.orders.service.OrderService' available: expected at least 1 bean which qualifies as autowire candidate. 
+Dependency annotations: {}
+   JacksonAutoConfiguration#jsonMapperBuilder matched:
+      - @ConditionalOnMissingBean (types: tools.jackson.databind.json.JsonMapper$Builder; SearchStrategy: all) did not 
+find any beans (OnBeanCondition)
+   MockMvcConfiguration#mockMvcBuilder matched:
+      - @ConditionalOnMissingBean (types: org.springframework.test.web.servlet.MockMvcBuilder; SearchStrategy: all) did 
+not find any beans (OnBeanCondition)
+
+
+

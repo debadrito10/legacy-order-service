@@ -8,6 +8,9 @@ import java.time.Clock;
 import java.time.Instant;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -36,6 +39,11 @@ public class OrderService {
         return repository.findById(id).orElseThrow(() -> new OrderNotFoundException(id));
     }
 
+    public Page<OrderDocument> list(int page, int size) {
+        Sort newestFirst = Sort.by(Sort.Direction.DESC, "createdAt").and(Sort.by("id"));
+        return repository.findAll(PageRequest.of(page, size, newestFirst));
+    }
+
     /** ifMatch = the If-Match header value, or null when the client sent none. */
     public OrderDocument apply(String id, OrderAction action, String ifMatch) {
         OrderDocument order = get(id);
@@ -46,3 +54,4 @@ public class OrderService {
         return repository.save(order);
     }
 }
+

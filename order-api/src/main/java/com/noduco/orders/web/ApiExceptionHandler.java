@@ -16,6 +16,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
+import org.springframework.web.method.annotation.HandlerMethodValidationException;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 @RestControllerAdvice
@@ -63,6 +64,20 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
         return handleExceptionInternal(ex, body, headers, status, request);
     }
 
+    @Override
+    protected ResponseEntity<Object> handleHandlerMethodValidationException(HandlerMethodValidationException ex,
+            HttpHeaders headers, HttpStatusCode status, WebRequest request) {
+        ProblemDetail body = ex.getBody();
+        body.setType(URI.create(BASE + "validation"));
+        body.setTitle("Invalid request");
+        body.setProperty("errors", ex.getParameterValidationResults().stream()
+                .flatMap(r -> r.getResolvableErrors().stream()
+                        .map(e -> Map.of("field", String.valueOf(r.getMethodParameter().getParameterName()),
+                                "message", String.valueOf(e.getDefaultMessage()))))
+                .toList());
+        return handleExceptionInternal(ex, body, headers, status, request);
+    }
+
     static ProblemDetail problem(HttpStatus status, String type, String title, String detail) {
         ProblemDetail p = ProblemDetail.forStatusAndDetail(status, detail);
         p.setType(URI.create(BASE + type));
@@ -70,4 +85,5 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
         return p;
     }
 }
+
 

@@ -1,0 +1,30 @@
+HTTP/1.1 200 
+Content-Type: application/json
+Content-Length: 349
+Date: Wed, 18 Nov 2026 12:54:18 GMT
+
+{"items":[{"id":"6afd8160036b7b2d7dce8c4b","customer":"Etag","amountPaise":300,"currency":"INR","status":"SHIPPED","createdAt":"2026-11-18T10:43:44.935Z"},{"id":"6afd7fc015a74fc99cc23357","customer":"Asha","amountPaise":500,"currency":"INR","status":"PAID","createdAt":"2026-11-18T10:36:48.426Z"}],"page":0,"size":2,"totalElements":6,"totalPages":3}
+
+HTTP/1.1 200 
+Content-Type: application/json
+Content-Length: 344
+Date: Wed, 18 Nov 2026 12:54:18 GMT
+
+{"items":[{"id":"6afd7e24908675c3addb10d0","customer":"Asha","amountPaise":500,"currency":"INR","status":"NEW","createdAt":"2026-11-18T10:29:56.862Z"},{"id":"6afd7dfd908675c3addb10cf","customer":"Asha","amountPaise":500,"currency":"INR","status":"NEW","createdAt":"2026-11-18T10:29:17.899Z"}],"page":1,"size":2,"totalElements":6,"totalPages":3}
+
+HTTP/1.1 400 
+Content-Type: application/problem+json
+Transfer-Encoding: chunked
+Date: Wed, 18 Nov 2026 12:54:18 GMT
+Connection: close
+
+{"detail":"Validation failure","instance":"/orders","status":400,"title":"Bad Request"}
+
+HTTP/1.1 400 
+Content-Type: application/problem+json
+Transfer-Encoding: chunked
+Date: Wed, 18 Nov 2026 12:54:18 GMT
+Connection: close
+
+{"detail":"Validation failure","instance":"/orders","status":400,"title":"Bad Request"}
+

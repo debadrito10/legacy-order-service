@@ -1,11 +1,14 @@
 package com.noduco.orders.service;
 
 import com.noduco.orders.config.OrdersProperties;
+import com.noduco.orders.domain.IdempotencyRecord;
+import com.noduco.orders.domain.IdempotencyRepository;
 import com.noduco.orders.domain.OrderAction;
 import com.noduco.orders.domain.OrderDocument;
 import com.noduco.orders.domain.OrderRepository;
 import java.time.Clock;
 import java.time.Instant;
+import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -19,11 +22,14 @@ public class OrderService {
     private static final Logger log = LoggerFactory.getLogger(OrderService.class);
 
     private final OrderRepository repository;
+    private final IdempotencyRepository idempotency;
     private final Clock clock;
     private final OrdersProperties properties;
 
-    public OrderService(OrderRepository repository, Clock clock, OrdersProperties properties) {
+    public OrderService(OrderRepository repository, IdempotencyRepository idempotency, Clock clock,
+            OrdersProperties properties) {
         this.repository = repository;
+        this.idempotency = idempotency;
         this.clock = clock;
         this.properties = properties;
     }
@@ -33,6 +39,40 @@ public class OrderService {
                 new OrderDocument(customer, amountPaise, properties.currency(), Instant.now(clock)));
         log.info("Created order {} on {}", saved.getId(), Thread.currentThread());
         return saved;
+    }
+
+    /** key = the Idempotency-Key header, or null. */
+    public CreateResult create(String key, String customer, long amountPaise) {
+        if (key == null) {
+            return new CreateResult(create(customer, amountPaise), false);
+        }
+        String fingerprint = customer + "|" + amountPaise;
+
+        // NAIVE CLAIM: look first, then save. Two steps.
+        Optional<IdempotencyRecord> existing = idempotency.findById(key);
+        if (existing.isPresent()) {
+            return replay(existing.get(), fingerprint);
+        }
+        IdempotencyRecord claim = idempotency.save(new IdempotencyRecord(key, fingerprint, null, Instant.now(clock)));
+
+        try {
+            OrderDocument order = create(customer, amountPaise);
+            idempotency.save(claim.withOrderId(order.getId()));
+            return new CreateResult(order, false);
+        } catch (RuntimeException e) {
+            idempotency.deleteById(key);
+            throw e;
+        }
+    }
+
+    private CreateResult replay(IdempotencyRecord record, String fingerprint) {
+        if (!record.fingerprint().equals(fingerprint)) {
+            throw new IdempotencyKeyReusedException(record.key());
+        }
+        if (record.orderId() == null) {
+            throw new IdempotencyInProgressException(record.key());
+        }
+        return new CreateResult(get(record.orderId()), true);
     }
 
     public OrderDocument get(String id) {
@@ -54,4 +94,3 @@ public class OrderService {
         return repository.save(order);
     }
 }
-

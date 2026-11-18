@@ -2,10 +2,12 @@ package com.noduco.orders.web;
 
 import com.noduco.orders.domain.OrderAction;
 import com.noduco.orders.domain.OrderDocument;
+import com.noduco.orders.service.CreateResult;
 import com.noduco.orders.service.OrderService;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.Size;
 import java.net.URI;
 import org.springframework.http.CacheControl;
 import org.springframework.http.HttpHeaders;
@@ -30,11 +32,16 @@ public class OrderController {
     }
 
     @PostMapping
-    public ResponseEntity<OrderResponse> create(@Valid @RequestBody CreateOrderRequest request) {
-        OrderDocument order = service.create(request.customer(), request.amountPaise());
-        return ResponseEntity.created(URI.create("/orders/" + order.getId()))
-                .eTag(String.valueOf(order.getVersion()))
-                .body(OrderResponse.from(order));
+    public ResponseEntity<OrderResponse> create(@Valid @RequestBody CreateOrderRequest request,
+            @RequestHeader(name = "Idempotency-Key", required = false) @Size(min = 1, max = 100) String key) {
+        CreateResult result = service.create(key, request.customer(), request.amountPaise());
+        OrderDocument order = result.order();
+        ResponseEntity.BodyBuilder response = ResponseEntity.created(URI.create("/orders/" + order.getId()))
+                .eTag(String.valueOf(order.getVersion()));
+        if (result.replayed()) {
+            response.header("Idempotent-Replayed", "true");
+        }
+        return response.body(OrderResponse.from(order));
     }
 
     @GetMapping
@@ -61,4 +68,5 @@ public class OrderController {
                 .body(OrderResponse.from(order));
     }
 }
+
 

@@ -1,0 +1,51 @@
+HTTP/1.1 201 
+X-Correlation-Id: 64f879bf-3f94-4c7c-8d49-fee68c249c78
+Location: /orders/6afdb9c73e7a6ca727f4353a
+ETag: "0"
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Wed, 18 Nov 2026 14:44:23 GMT
+
+{"id":"6afdb9c73e7a6ca727f4353a","customer":"Idem","amountPaise":900,"currency":"INR","status":"NEW","createdAt":"2026-11-18T14:44:23.942959100Z"}
+
+HTTP/1.1 201 
+X-Correlation-Id: 1d904344-4357-454b-a7b0-a38aebab9f0a
+Location: /orders/6afdb9c73e7a6ca727f4353a
+ETag: "0"
+Idempotent-Replayed: true
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Wed, 18 Nov 2026 14:44:24 GMT
+
+{"id":"6afdb9c73e7a6ca727f4353a","customer":"Idem","amountPaise":900,"currency":"INR","status":"NEW","createdAt":"2026-11-18T14:44:23.942Z"}
+
+same order: True
+HTTP/1.1 422 
+X-Correlation-Id: 69a71106-1e24-4018-9c25-1d61b734d182
+Content-Type: application/problem+json
+Transfer-Encoding: chunked
+Date: Wed, 18 Nov 2026 14:44:24 GMT
+
+{"detail":"Idempotency-Key try-1 was already used with a different request body","instance":"/orders","status":422,"title":"Idempotency-Key reused","type":"https://noduco.example/problems/idempotency-key-reused","correlationId":"69a71106-1e24-4018-9c25-1d61b734d182"}
+
+HTTP/1.1 201 
+X-Correlation-Id: 3ff54a82-0c90-40b9-a6b3-30c583ceaedf
+Location: /orders/6afdb9c83e7a6ca727f4353b
+ETag: "0"
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Wed, 18 Nov 2026 14:44:24 GMT
+
+{"id":"6afdb9c83e7a6ca727f4353b","customer":"Idem","amountPaise":900,"currency":"INR","status":"NEW","createdAt":"2026-11-18T14:44:24.139982700Z"}
+
+HTTP/1.1 201 
+X-Correlation-Id: 1ec391db-8c2e-4d62-8bd5-37e5c4fdea57
+Location: /orders/6afdb9c83e7a6ca727f4353c
+ETag: "0"
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Wed, 18 Nov 2026 14:44:24 GMT
+
+{"id":"6afdb9c83e7a6ca727f4353c","customer":"Idem","amountPaise":900,"currency":"INR","status":"NEW","createdAt":"2026-11-18T14:44:24.182696200Z"}
+
+no-key orders differ: True

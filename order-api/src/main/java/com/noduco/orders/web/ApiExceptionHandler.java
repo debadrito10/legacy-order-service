@@ -1,5 +1,7 @@
 package com.noduco.orders.web;
 
+import com.noduco.orders.service.IdempotencyInProgressException;
+import com.noduco.orders.service.IdempotencyKeyReusedException;
 import com.noduco.orders.service.OrderNotFoundException;
 import com.noduco.orders.service.VersionMismatchException;
 import org.springframework.dao.OptimisticLockingFailureException;
@@ -44,6 +46,16 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler(OptimisticLockingFailureException.class)
     public ProblemDetail concurrentUpdate(OptimisticLockingFailureException e) {
         return problem(HttpStatus.CONFLICT, "concurrent-modification", "Order changed during the request", "Another request changed this order at the same time. Read it again and retry.");
+    }
+
+    @ExceptionHandler(IdempotencyInProgressException.class)
+    public ProblemDetail idempotencyInProgress(IdempotencyInProgressException e) {
+        return problem(HttpStatus.CONFLICT, "idempotency-in-progress", "Request still in progress", e.getMessage());
+    }
+
+    @ExceptionHandler(IdempotencyKeyReusedException.class)
+    public ProblemDetail idempotencyKeyReused(IdempotencyKeyReusedException e) {
+        return problem(HttpStatus.valueOf(422), "idempotency-key-reused", "Idempotency-Key reused", e.getMessage());
     }
 
     @ExceptionHandler(Exception.class)
@@ -96,6 +108,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
         return p;
     }
 }
+
 
 
 

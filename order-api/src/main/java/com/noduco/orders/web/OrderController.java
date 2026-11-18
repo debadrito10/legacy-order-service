@@ -5,11 +5,14 @@ import com.noduco.orders.domain.OrderDocument;
 import com.noduco.orders.service.OrderService;
 import jakarta.validation.Valid;
 import java.net.URI;
+import org.springframework.http.CacheControl;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,16 +30,25 @@ public class OrderController {
     public ResponseEntity<OrderResponse> create(@Valid @RequestBody CreateOrderRequest request) {
         OrderDocument order = service.create(request.customer(), request.amountPaise());
         return ResponseEntity.created(URI.create("/orders/" + order.getId()))
+                .eTag(String.valueOf(order.getVersion()))
                 .body(OrderResponse.from(order));
     }
 
     @GetMapping("/{id}")
-    public OrderResponse get(@PathVariable String id) {
-        return OrderResponse.from(service.get(id));
+    public ResponseEntity<OrderResponse> get(@PathVariable String id) {
+        return withVersion(service.get(id));
     }
 
     @PostMapping("/{id}/actions/{action}")
-    public OrderResponse act(@PathVariable String id, @PathVariable OrderAction action) {
-        return OrderResponse.from(service.apply(id, action));
+    public ResponseEntity<OrderResponse> act(@PathVariable String id, @PathVariable OrderAction action,
+            @RequestHeader(name = HttpHeaders.IF_MATCH, required = false) String ifMatch) {
+        return withVersion(service.apply(id, action, ifMatch));
+    }
+
+    private static ResponseEntity<OrderResponse> withVersion(OrderDocument order) {
+        return ResponseEntity.ok()
+                .eTag(String.valueOf(order.getVersion()))
+                .cacheControl(CacheControl.noCache())
+                .body(OrderResponse.from(order));
     }
 }

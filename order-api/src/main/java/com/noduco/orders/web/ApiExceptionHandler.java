@@ -1,6 +1,8 @@
 package com.noduco.orders.web;
 
 import com.noduco.orders.service.OrderNotFoundException;
+import com.noduco.orders.service.VersionMismatchException;
+import org.springframework.dao.OptimisticLockingFailureException;
 import java.net.URI;
 import java.util.Map;
 import org.slf4j.Logger;
@@ -32,6 +34,16 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
         return problem(HttpStatus.CONFLICT, "invalid-transition", "Action not allowed", e.getMessage());
     }
 
+    @ExceptionHandler(VersionMismatchException.class)
+    public ProblemDetail versionMismatch(VersionMismatchException e) {
+        return problem(HttpStatus.PRECONDITION_FAILED, "version-mismatch", "Order has changed", e.getMessage());
+    }
+
+    @ExceptionHandler(OptimisticLockingFailureException.class)
+    public ProblemDetail concurrentUpdate(OptimisticLockingFailureException e) {
+        return problem(HttpStatus.CONFLICT, "concurrent-modification", "Order changed during the request", "Another request changed this order at the same time. Read it again and retry.");
+    }
+
     @ExceptionHandler(Exception.class)
     public ProblemDetail unexpected(Exception e) {
         log.error("Unhandled exception", e);
@@ -58,3 +70,4 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
         return p;
     }
 }
+

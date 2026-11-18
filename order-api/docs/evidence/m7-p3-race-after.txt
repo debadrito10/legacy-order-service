@@ -1,0 +1,39 @@
+--- run 1 ---
+
+[INFO] Building order-api 0.0.1-SNAPSHOT
+Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add 
+Mockito as an agent to your build as described in Mockito's documentation: 
+https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.655 s -- in com.noduco.orders.OrderApiApplicationTests
+PAY race status codes: [409, 409, 409, 409, 200, 409, 409, 409, 409, 409, 409, 409, 409, 409, 409, 409, 409, 409, 409, 409]
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.766 s -- in com.noduco.orders.OrderConcurrencyTests
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.081 s -- in com.noduco.orders.OrderFlowTests
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0
+[INFO] Building jar: C:\java-practice\legacy-order-service\order-api\target\order-api-0.0.1-SNAPSHOT.jar
+[INFO] BUILD SUCCESS
+--- run 2 ---
+[INFO] Building order-api 0.0.1-SNAPSHOT
+Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add 
+Mockito as an agent to your build as described in Mockito's documentation: 
+https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.979 s -- in com.noduco.orders.OrderApiApplicationTests
+PAY race status codes: [409, 409, 409, 409, 200, 409, 409, 409, 409, 409, 409, 409, 409, 409, 409, 409, 409, 409, 409, 409]
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.041 s -- in com.noduco.orders.OrderConcurrencyTests
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.119 s -- in com.noduco.orders.OrderFlowTests
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0
+[INFO] Building jar: C:\java-practice\legacy-order-service\order-api\target\order-api-0.0.1-SNAPSHOT.jar
+[INFO] BUILD SUCCESS
+--- run 3 ---
+[INFO] Building order-api 0.0.1-SNAPSHOT
+Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add 
+Mockito as an agent to your build as described in Mockito's documentation: 
+https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 12.96 s -- in com.noduco.orders.OrderApiApplicationTests
+PAY race status codes: [409, 409, 409, 200, 409, 409, 409, 409, 409, 409, 409, 409, 409, 409, 409, 409, 409, 409, 409, 409]
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.511 s -- in com.noduco.orders.OrderConcurrencyTests
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.088 s -- in com.noduco.orders.OrderFlowTests
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0
+[INFO] Building jar: C:\java-practice\legacy-order-service\order-api\target\order-api-0.0.1-SNAPSHOT.jar
+[INFO] BUILD SUCCESS
+
+

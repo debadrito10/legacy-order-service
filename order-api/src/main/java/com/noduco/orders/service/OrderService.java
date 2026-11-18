@@ -36,8 +36,12 @@ public class OrderService {
         return repository.findById(id).orElseThrow(() -> new OrderNotFoundException(id));
     }
 
-    public OrderDocument apply(String id, OrderAction action) {
+    /** ifMatch = the If-Match header value, or null when the client sent none. */
+    public OrderDocument apply(String id, OrderAction action, String ifMatch) {
         OrderDocument order = get(id);
+        if (ifMatch != null && !ifMatch.replace("W/", "").replace("\"", "").trim().equals(String.valueOf(order.getVersion()))) {
+            throw new VersionMismatchException(id, ifMatch, order.getVersion());
+        }
         order.apply(action);
         return repository.save(order);
     }

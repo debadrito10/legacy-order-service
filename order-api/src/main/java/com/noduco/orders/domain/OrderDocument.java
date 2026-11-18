@@ -2,6 +2,7 @@ package com.noduco.orders.domain;
 
 import java.time.Instant;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Version;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document("orders")
@@ -14,6 +15,8 @@ public class OrderDocument {
     private String currency;
     private OrderStatus status;
     private Instant createdAt;
+    @Version
+    private Long version;
 
     protected OrderDocument() { }
 
@@ -35,4 +38,6 @@ public class OrderDocument {
     public String getCurrency() { return currency; }
     public OrderStatus getStatus() { return status; }
     public Instant getCreatedAt() { return createdAt; }
+    public Long getVersion() { return version; }
 }
+

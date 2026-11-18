@@ -1,0 +1,12 @@
+* b5cb58f Revert "me: discount 20"
+* eb8af1b me: discount 20
+* b790759 colleague: discount 25
+| *   4a369db Merge remote-tracking branch 'origin/main' into feature-a
+| |\  
+| |/  
+|/|   
+* | a9c281b colleague: discount 15
+| * 4364df2 me: discount 10
+|/  
+* 4960041 colleague: discount 5
+* e6fb6b1 base: discount 0

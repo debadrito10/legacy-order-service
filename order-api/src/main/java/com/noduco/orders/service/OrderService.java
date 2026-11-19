@@ -15,6 +15,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import java.util.List;
+import com.noduco.orders.domain.OrderStatus;
 
 @Service
 public class OrderService {
@@ -93,6 +95,9 @@ public class OrderService {
         }
         order.apply(action);
         return repository.save(order);
+    }
+    public List<OrderDocument> history(String customer, OrderStatus status, int size) {
+        return repository.findByCustomerAndStatusOrderByCreatedAtDesc(customer, status, PageRequest.of(0, size));
     }
 }
 

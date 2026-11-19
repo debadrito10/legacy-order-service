@@ -9,6 +9,8 @@ import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.Size;
 import java.net.URI;
+import java.util.List;
+import com.noduco.orders.domain.OrderStatus;
 import org.springframework.http.CacheControl;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
@@ -48,6 +50,12 @@ public class OrderController {
     public PageResponse list(@RequestParam(defaultValue = "0") @Min(0) int page,
             @RequestParam(defaultValue = "20") @Min(1) @Max(100) int size) {
         return PageResponse.from(service.list(page, size));
+    }
+
+    @GetMapping("/history")
+    public List<OrderResponse> history(@RequestParam String customer, @RequestParam OrderStatus status,
+                                       @RequestParam(defaultValue = "20") @Min(1) @Max(100) int size) {
+        return service.history(customer, status, size).stream().map(OrderResponse::from).toList();
     }
 
     @GetMapping("/{id}")

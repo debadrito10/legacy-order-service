@@ -4,8 +4,10 @@ import java.time.Instant;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Version;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.index.CompoundIndex;
 
 @Document("orders")
+@CompoundIndex(name = "customer_status_createdAt", def = "{'customer': 1, 'status': 1, 'createdAt': -1}")
 public class OrderDocument {
 
     @Id

@@ -3,6 +3,9 @@ spring:
     name: order-api
   mongodb:
     uri: mongodb://127.0.0.1:27018/orders-m7
+  data:
+    mongodb:
+      auto-index-creation: true
 server:
   port: 18080
 noduco:

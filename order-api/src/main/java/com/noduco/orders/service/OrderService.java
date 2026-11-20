@@ -8,6 +8,8 @@ import com.noduco.orders.domain.OrderDocument;
 import com.noduco.orders.domain.OrderRepository;
 import java.time.Clock;
 import java.time.Instant;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.dao.DuplicateKeyException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -78,6 +80,7 @@ public class OrderService {
         return new CreateResult(get(record.orderId()), true);
     }
 
+    @Cacheable("orders")
     public OrderDocument get(String id) {
         return repository.findById(id).orElseThrow(() -> new OrderNotFoundException(id));
     }
@@ -88,6 +91,7 @@ public class OrderService {
     }
 
     /** ifMatch = the If-Match header value, or null when the client sent none. */
+    @CacheEvict(value = "orders", key = "#id")
     public OrderDocument apply(String id, OrderAction action, String ifMatch) {
         OrderDocument order = get(id);
         if (ifMatch != null && !ifMatch.replace("W/", "").replace("\"", "").trim().equals(String.valueOf(order.getVersion()))) {

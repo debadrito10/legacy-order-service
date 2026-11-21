@@ -1,0 +1,23 @@
+services:
+  mongo:
+    image: mirror.gcr.io/library/mongo:8.0
+    volumes:
+      - mongo-data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping').ok"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  api:
+    build: .
+    image: order-api:m12
+    ports:
+      - "18080:18080"
+    env_file: .env
+    depends_on:
+      mongo:
+        condition: service_healthy
+
+volumes:
+  mongo-data:

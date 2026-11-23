@@ -17,6 +17,7 @@ public class OrderDocument {
     private Instant createdAt;
     @Version
     private Long version;
+    private String note;
 
     protected OrderDocument() { }
 
@@ -39,5 +40,8 @@ public class OrderDocument {
     public OrderStatus getStatus() { return status; }
     public Instant getCreatedAt() { return createdAt; }
     public Long getVersion() { return version; }
+    public String getNote() { return note; }
+    public void setNote(String note) { this.note = note; }
 }
+
 

@@ -6,12 +6,3 @@ metadata:
 data:
   NODUCO_ORDERS_CURRENCY: INR
   MANAGEMENT_ENDPOINT_HEALTH_GROUP_READINESS_INCLUDE: readinessState,mongo
----
-apiVersion: v1
-kind: Secret
-metadata:
-  name: order-api-secret
-  namespace: noduco-orders
-type: Opaque
-stringData:
-  SPRING_MONGODB_URI: mongodb://mongo:27017/orders

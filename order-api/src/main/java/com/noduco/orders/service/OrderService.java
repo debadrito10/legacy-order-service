@@ -7,6 +7,7 @@ import com.noduco.orders.domain.OrderAction;
 import com.noduco.orders.domain.OrderDocument;
 import com.noduco.orders.domain.OrderRepository;
 import java.time.Clock;
+import java.time.Duration;
 import java.time.Instant;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
@@ -24,6 +25,7 @@ import com.noduco.orders.domain.OrderStatus;
 public class OrderService {
 
     private static final Logger log = LoggerFactory.getLogger(OrderService.class);
+    private static final Duration ABANDONED_AFTER = Duration.ofSeconds(30);
 
     private final OrderRepository repository;
     private final IdempotencyRepository idempotency;
@@ -57,7 +59,13 @@ public class OrderService {
         try {
             claim = idempotency.insert(new IdempotencyRecord(key, fingerprint, null, Instant.now(clock)));
         } catch (DuplicateKeyException e) {
-            return replay(idempotency.findById(key).orElseThrow(() -> new IdempotencyInProgressException(key)), fingerprint);
+            IdempotencyRecord existing = idempotency.findById(key).orElseThrow(() -> new IdempotencyInProgressException(key));
+            if (isAbandoned(existing, fingerprint)
+                    && idempotency.deleteByKeyAndCreatedAtAndOrderIdIsNull(key, existing.createdAt()) == 1) {
+                log.warn("Taking over abandoned Idempotency-Key {} claimed at {}", key, existing.createdAt());
+                return create(key, customer, amountPaise);
+            }
+            return replay(existing, fingerprint);
         }
 
         try {
@@ -68,6 +76,12 @@ public class OrderService {
             idempotency.deleteById(key);
             throw e;
         }
+    }
+
+    private boolean isAbandoned(IdempotencyRecord record, String fingerprint) {
+        return record.orderId() == null
+                && record.fingerprint().equals(fingerprint)
+                && record.createdAt().isBefore(Instant.now(clock).minus(ABANDONED_AFTER));
     }
 
     private CreateResult replay(IdempotencyRecord record, String fingerprint) {

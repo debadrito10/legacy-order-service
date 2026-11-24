@@ -4,6 +4,7 @@ import com.noduco.orders.service.IdempotencyInProgressException;
 import com.noduco.orders.service.IdempotencyKeyReusedException;
 import com.noduco.orders.service.OrderNotFoundException;
 import com.noduco.orders.service.VersionMismatchException;
+import org.springframework.dao.DataAccessResourceFailureException;
 import org.springframework.dao.OptimisticLockingFailureException;
 import java.net.URI;
 import java.util.Map;
@@ -56,6 +57,15 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler(IdempotencyKeyReusedException.class)
     public ProblemDetail idempotencyKeyReused(IdempotencyKeyReusedException e) {
         return problem(HttpStatus.valueOf(422), "idempotency-key-reused", "Idempotency-Key reused", e.getMessage());
+    }
+
+    @ExceptionHandler(DataAccessResourceFailureException.class)
+    public ResponseEntity<ProblemDetail> databaseUnavailable(DataAccessResourceFailureException e) {
+        log.warn("Database unavailable: {}", e.getMessage());
+        return ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE)
+                .header(HttpHeaders.RETRY_AFTER, "2")
+                .body(problem(HttpStatus.SERVICE_UNAVAILABLE, "database-unavailable", "Database unavailable",
+                        "The order database did not answer in time. Retry later with the same Idempotency-Key."));
     }
 
     @ExceptionHandler(Exception.class)

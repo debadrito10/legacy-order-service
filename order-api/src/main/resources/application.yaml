@@ -2,7 +2,7 @@ spring:
   application:
     name: order-api
   mongodb:
-    uri: mongodb://127.0.0.1:27018/orders-m7
+    uri: "mongodb://127.0.0.1:27018/orders-m7?serverSelectionTimeoutMS=2000&connectTimeoutMS=2000&socketTimeoutMS=3000"
   data:
     mongodb:
       auto-index-creation: true

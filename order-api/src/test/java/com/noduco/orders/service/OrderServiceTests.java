@@ -113,6 +113,26 @@ class OrderServiceTests {
     }
 
     @Test
+    void abandonedClaimIsTakenOver() {
+        Instant old = NOW.minusSeconds(60);
+        when(idempotency.insert(any(IdempotencyRecord.class)))
+                .thenThrow(new DuplicateKeyException("E11000"))
+                .thenAnswer(inv -> inv.getArgument(0));
+        when(idempotency.findById("k1")).thenReturn(Optional.of(new IdempotencyRecord("k1", "Asha|500", null, old)));
+        when(idempotency.deleteByKeyAndCreatedAtAndOrderIdIsNull("k1", old)).thenReturn(1L);
+        when(orders.save(any(OrderDocument.class))).thenAnswer(inv -> {
+            OrderDocument o = inv.getArgument(0);
+            ReflectionTestUtils.setField(o, "id", "o2");
+            return o;
+        });
+
+        CreateResult result = service.create("k1", "Asha", 500);
+
+        assertFalse(result.replayed());
+        assertEquals("o2", result.order().getId());
+    }
+
+    @Test
     void sameKeyDifferentBodyIsRejected() {
         when(idempotency.insert(any(IdempotencyRecord.class))).thenThrow(new DuplicateKeyException("E11000"));
         when(idempotency.findById("k1")).thenReturn(Optional.of(new IdempotencyRecord("k1", "Asha|999", "o1", NOW)));

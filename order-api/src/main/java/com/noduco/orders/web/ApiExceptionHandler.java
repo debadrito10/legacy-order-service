@@ -6,6 +6,7 @@ import com.noduco.orders.service.OrderNotFoundException;
 import com.noduco.orders.service.VersionMismatchException;
 import org.springframework.dao.DataAccessResourceFailureException;
 import org.springframework.dao.OptimisticLockingFailureException;
+import org.springframework.web.client.RestClientException;
 import java.net.URI;
 import java.util.Map;
 import org.slf4j.Logger;
@@ -68,11 +69,19 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
                         "The order database did not answer in time. Retry later with the same Idempotency-Key."));
     }
 
+
     @ExceptionHandler(Exception.class)
     public ProblemDetail unexpected(Exception e) {
         log.error("Unhandled exception", e);
         return problem(HttpStatus.INTERNAL_SERVER_ERROR, "internal-error", "Internal error",
                 "Something went wrong on our side.");
+    }
+
+    @ExceptionHandler(RestClientException.class)
+    public ProblemDetail gstUnavailable(RestClientException e) {
+        log.warn("GST service failed: {}", e.getMessage());
+        return problem(HttpStatus.BAD_GATEWAY, "gst-unavailable", "GST service unavailable",
+                "The GST rate service failed or did not answer in time.");
     }
 
     @Override
